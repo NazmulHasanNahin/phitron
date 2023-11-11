@@ -1,0 +1,1 @@
+{"name":"Local: test2","url":"f:\\phitron\\module 8 assingment 2\\test2.c","tests":[{"id":1697133301290,"input":"5\n10 20 30 40 50\n1 100","output":"50 40 30 100 10"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\module 8 assingment 2\\test2.c","group":"local","local":true}

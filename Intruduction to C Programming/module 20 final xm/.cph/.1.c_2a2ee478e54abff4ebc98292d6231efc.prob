@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"f:\\phitron\\module 20 final xm\\1.c","tests":[{"id":1699251400149,"input":"1","output":"*\n    ***\n   *****\n  *******\n *********\n***********\n     *\n     *\n     *\n     *\n     *"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\module 20 final xm\\1.c","group":"local","local":true}

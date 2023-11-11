@@ -1,0 +1,1 @@
+{"name":"Local: farmers","url":"f:\\phitron\\module 12 mid term\\farmers.c","tests":[{"id":1697792788607,"input":"4\n10 5 15\n4 0 5\n4 1 5\n7 1000 1","output":"5\n0\n1\n1"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\module 12 mid term\\farmers.c","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: test","url":"f:\\phitron\\module 12 mid term\\test.c","tests":[{"id":1697792817891,"input":"2\n6\n1 2 3 4 5 6\n3\n5\n10 20 30 40 50\n70","output":"YES\nNO"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\module 12 mid term\\test.c","group":"local","local":true}

@@ -1,0 +1,1 @@
+{"name":"Local: test","url":"f:\\phitron\\module 15.5 pratice day 2\\test.c","tests":[{"id":1698505692309,"input":"5","output":"1 2 3 4 5"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"f:\\phitron\\module 15.5 pratice day 2\\test.c","group":"local","local":true}
