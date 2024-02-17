@@ -2,88 +2,92 @@
 using namespace std;
 const long long N = 1e5 + 5;
 long long parent[N];
-long long group_size[N];
-void dsu_initialize(long long n)
-{
-    for (long long i = 0; i < n; i++)
-    {
-        parent[i] = -1;
-        group_size[i] = 1;
-    }
-}
-long long dsu_find(long long node)
-{
-    if (parent[node] == -1)
-        return node;
-    long long leader = dsu_find(parent[node]);
-    parent[node] = leader;
-    return leader;
-}
-void dsu_union_by_size(long long node1, long long node2)
-{
-    long long leaderA = dsu_find(node1);
-    long long leaderB = dsu_find(node2);
-    if (group_size[leaderA] > group_size[leaderB])
-    {
-        parent[leaderB] = leaderA;
-        group_size[leaderA] += group_size[leaderB];
-    }
-    else
-    {
-        parent[leaderA] = leaderB;
-        group_size[leaderB] += group_size[leaderA];
-    }
-}
+long long sz[N];
 class Edge
 {
 public:
-    long long u, v, w;
-    Edge(long long u, long long v, long long w)
+    long long src, dest, weight;
+    Edge(long long src, long long dest, long long weight)
     {
-        this->u = u;
-        this->v = v;
-        this->w = w;
+        this->src = src;
+        this->dest = dest;
+        this->weight = weight;
     }
 };
 bool cmp(Edge a, Edge b)
 {
-    return a.w < b.w;
+    return a.weight < b.weight;
+}
+void initialze(long long n)
+{
+    for (long long i = 1; i <= n; i++)
+    {
+        parent[i] = i;
+        sz[i] = 1;
+    }
+}
+int dsu_find(long long v)
+{
+    if (v == parent[v])
+    {
+        return v;
+    }
+    long long leader = dsu_find(parent[v]);
+    parent[v] = leader;
+    return leader;
+}
+void union_s(long long a, long long b)
+{
+    a = dsu_find(a);
+    b = dsu_find(b);
+    if (a != b)
+    {
+        if (sz[a] < sz[b])
+        {
+            swap(a, b);
+        }
+        parent[b] = a;
+        sz[a] += sz[b];
+    }
 }
 int main()
 {
-    long long n, e;
-    cin >> n >> e;
-    dsu_initialize(n);
-    vector<Edge> edgelist;
-    while (e--)
+    long long n, m;
+    cin >> n >> m;
+    vector<Edge> edges;
+    for (long long i = 0; i < m; ++i)
     {
-        long long u, v, w;
-        cin >> u >> v >> w;
-        edgelist.push_back(Edge(u, v, w));
+        long long src, dest, weight;
+        cin >> src >> dest >> weight;
+        edges.push_back(Edge(src, dest, weight));
     }
-    sort(edgelist.begin(), edgelist.end(), cmp);
-    long long tcost = 0;
-    long long roadsRemoved = 0;
-    for (Edge ed : edgelist)
+    sort(edges.begin(), edges.end(), cmp);
+    initialze(n);
+    long long cost = 0;
+    long long remove_road = 0;
+    for (Edge x : edges)
     {
-        long long leaderU = dsu_find(ed.u);
-        long long leaderV = dsu_find(ed.v);
-        if (leaderU == leaderV)
+        long long u = dsu_find(x.src);
+        long long v = dsu_find(x.dest);
+
+        if (u != v)
         {
-            roadsRemoved++;
-            if (roadsRemoved == n - 1)
-            {
-                cout << roadsRemoved << " " << tcost << endl;
-                return 0;
-            }
-            continue;
+            cost += x.weight;
+            union_s(u, v);
         }
         else
         {
-            dsu_union_by_size(ed.u, ed.v);
-            tcost += ed.w;
+            remove_road++;
         }
     }
-    cout << "Not Possible" << endl;
+    for (long long i = 2; i <= n; ++i)
+    {
+        if (dsu_find(i) != dsu_find(1))
+        {
+            cout << "Not Possible"<<endl;
+            return 0;
+        }
+    }
+    cout << remove_road << " " << cost <<endl;
     return 0;
 }
