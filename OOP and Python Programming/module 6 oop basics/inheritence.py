@@ -14,10 +14,11 @@ class laptop:
         return f"learning python with phitron.io"
 
 
-class phone:
-    def __init__(self,dual_sim):
-
+class phone(gadget):
+    def __init__(self,brand,price,color,origin,dual_sim):
         self.dual_sim=dual_sim
+        super().__init__(brand,price,color,origin)
+    
         
     def run(self):
         return f"running phone :{self.brand}"
@@ -40,7 +41,8 @@ class camera:
     
 # inheritence
 
-my_phn=phone(True)
+my_phn=phone("realme",36000,"gray","china",True)
+
 print(my_phn)
 
     
