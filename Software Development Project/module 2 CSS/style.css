@@ -1,12 +1,28 @@
-.name1
-{
-    color: aliceblue;
+.box{
+    /* height: 200px; */
+    width: 200px;
+    border: 2px solid red;
+    text-align: center;
+    padding: 20px;
 }
-.name2
-{
-    color:rgb(91, 203, 57);
-    font-size: larger;
+.desc{
+    /* font-style: italic; */
+    color: goldenrod;
+    text-align: center;
+    font-size: 40px;
+    font-family: "Poetsen One", sans-serif;
 }
-#desc{
-    color: aqua;
+.box-all{
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+}
+.box1{
+    border: 2px solid red;
+}
+.box2{
+    border: 2px solid rgb(34, 219, 216);
+}
+.box3{
+    border: 2px solid rgb(57, 12, 220);
 }
