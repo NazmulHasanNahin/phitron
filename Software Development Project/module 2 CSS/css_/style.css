@@ -26,3 +26,24 @@
 .box3{
     border: 2px solid rgb(57, 12, 220);
 }
+.banner{
+    width: 500px;
+    height: 300px;
+    border: 2px solid red;
+    margin-top: 20px;
+    margin: auto;  
+    background-image: url('images/bgimg.jpeg');
+
+    /* background-image: url('images/bgimg.jpeg'),linear-gradient(60deg,lightgreen,gold); */
+    /* background-blend-mode: overlay; */
+
+
+    color: gold;
+}
+
+button{
+    width: 200px;
+    /* height: 100px; */
+    padding: 30px;
+    background:linear-gradient(60deg,lightgreen,gold);
+}
