@@ -7,7 +7,7 @@ nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-color: gray;
+    background-color: white;
     padding: 10px;
 }
 
@@ -156,4 +156,74 @@ a:hover {
     border: none;
     border-radius: 25px;
 
+}
+
+footer {
+    background-color: #111111;
+    color: white;
+    padding: 20px;
+    height: 292;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.footer-section {
+    margin: 30px;
+}
+
+.footer-section h4 {
+    margin-bottom: 16px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.footer-section ul li a {
+    color: gray;
+    text-decoration: none;
+
+}
+
+.footer-section ul li a:hover {
+    color: white;
+}
+
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+
+.social-media {
+    display: flex;
+}
+
+.social-media li {
+    margin-right: 20px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-around;
+    align-items: end;
+    padding-top: 20px;
+    margin-top: 20px;
+}
+
+.links {
+    display: flex;
+    list-style: none;
+}
+
+.links li a {
+    color: gray;
+    margin-left: 10px;
+}
+ .links li a:hover {
+    color: white;
+    text-decoration: none;
 }
