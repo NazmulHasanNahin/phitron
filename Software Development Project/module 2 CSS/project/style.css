@@ -227,3 +227,20 @@ footer {
     color: white;
     text-decoration: none;
 }
+
+
+/* for phone */
+/* @media only screen and (min-width:400px) and (max-width:767px){
+    body{
+        background-color: red;
+    }
+}
+
+
+/* for tablet */
+/* @media only screen and (min-width:768px) and (max-width:992px){
+    body{
+        background-color: blue;
+    }
+} */
+
