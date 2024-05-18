@@ -1,0 +1,271 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.menu-container ul {
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+
+.menu-container ul li {
+    color: FB9D5C;
+    margin-right: 20px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.menu-container ul li:hover {
+    color: white;
+}
+
+.logo-of-upside {
+    height: 80px;
+    width: 80px;
+    margin-top: 30px;
+}
+
+.main-banner {
+    position: relative;
+    background-image: url('https://i.ibb.co/VSxR1w0/image-2024-05-13-125317514.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+
+    justify-content: center;
+    align-items: center;
+
+}
+
+.container {
+    max-width: 1240px;
+    margin: 0 auto;
+
+}
+
+.text-person {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-primary {
+    color: FB9D5C;
+}
+
+.banner-content-text h1 {
+    padding: 20px 0px;
+}
+
+.banner-content-img {
+    width: 387px;
+
+}
+
+.banner-content-img img {
+    max-width: 100%;
+
+}
+
+.react-more-btn {
+    padding: 6.5px 13px;
+    background-color: #fb9d5c;
+    font-size: 15px;
+    font-family: Inter;
+    font-weight: 7px;
+    border: none;
+    border-radius: 5px;
+}
+
+.react-more-btn:hover {
+    cursor: pointer;
+    background-color: #f4ede6;
+    transition: 0.5s;
+
+}
+
+
+.brand-img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 20px;
+    gap: 79.81px;
+    margin-top: 30px;
+    width: 1420px;
+    height: 180.27px;
+    background-color: #F9F9F9;
+}
+
+.our-service {
+    color: #212529;
+    text-align: center;
+    font-size: 27.7px;
+    padding: 20px 20px 30px 25px;
+}
+
+.desc-of-service {
+    font-size: 14px;
+}
+
+.all-service {
+    padding: 50px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 50px;
+
+}
+
+.div-service1 {
+    width: 350;
+    height: 251.5px;
+    position: relative;
+    border: 3px solid gray;
+
+}
+
+.all-des {
+    /* position: absolute; */
+    top: 103.5px;
+    left: 91.42px;
+    font-size: 13.3px;
+    line-height: 24px;
+    font-weight: 500;
+}
+
+.about-hire {
+    display: flex;
+    justify-content: space-around;
+    height: 615px;
+    width: 631px;
+    margin-left: 70px;
+}
+
+.paragraph-about-hire {
+    padding-left: 90px;
+}
+
+.hire-us-btn {
+    background-color: #0dcaf0;
+    width: 80px;
+    height: 33px;
+    border: none;
+    border-radius: 4px;
+}
+
+.hire-us-btn:hover {
+    cursor: pointer;
+    transition: 0.3s;
+    color: white;
+
+}
+
+.para-hire-us-up {
+    font-size: 38px;
+}
+
+.home-and-buis {
+    color: #fb9d5c;
+}
+
+.gap-in-p {
+    width: 500px;
+    left: 100px;
+}
+
+.gap-in-p p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: #212529;
+}
+
+.Get-free-consultation {
+    padding-top: 40px;
+    display: flex;
+}
+
+.phone-num {
+    padding-top: 40px;
+    font-size: 30px;
+}
+
+.main-footer {
+    background-color: #151515;
+    width: 100%;
+    height: 392.8px;
+}
+
+.main-footer {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 60px;
+}
+
+.Security-Manager {
+    color: #c0baba;
+}
+
+.img-Security-Manager img,
+.img-Security-Manager p {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.img-Security-Manager p {
+    padding-left: 15px;
+    color: #FB9D5C;
+}
+
+.text-of-sq-manager p {
+    font-size: 14.9px;
+    margin-bottom: 9px;
+}
+
+.form-last {
+
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background-color: #808080;
+
+}
+
+
+.learn-more {
+    text-align: center;
+    color: #c0baba;
+}
+
+.learn-more img {
+    display: block;
+    margin: 0 auto;
+}
+
+.learn-more ul {
+    padding: 0;
+    list-style-type: none;
+    cursor: pointer;
+
+}
+
+.learn-more ul li {
+    list-style-type: none;
+    margin-bottom: 9px;
+}
+.learn-more ul li:hover{
+    color: #FB9D5C;
+    transition: 0.4s;
+}
