@@ -1,0 +1,41 @@
+.full-website {
+    max-width: 1240px;
+    margin: 0 auto;
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+}
+
+.text-specific {
+    color: #FF4240;
+}
+
+.custom-hover .nav-link:hover {
+    color: red;
+}
+
+.movable-img {
+    height: 630px;
+}
+
+.third-img{
+    margin-top: 150px; 
+}
+.text-white-50 {
+    text-decoration: none; 
+}
+.first-circle{
+
+    margin-left: 0px;
+    padding-bottom: 20px;
+    margin-right: 200px;
+}
+.second-circle{
+    margin-left: 0px;
+    padding-right: 200px;
+}
+.third-circle{
+    margin-left: 0px;
+    padding-right: 20px;
+}
