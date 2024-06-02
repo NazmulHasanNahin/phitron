@@ -1,0 +1,53 @@
+.full-website {
+    max-width: 1240px;
+    margin: 0 auto;
+
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+}
+
+.nav-main {
+    padding-right: 490px;
+}
+.navbar-img{
+    width: 80px ; 
+    position: relative;
+    right: 20px;
+}
+
+.nav-option li:hover {
+    color: #1E90FF;
+   
+    cursor: pointer;
+}
+
+.intro-text {
+    margin-bottom: 0px;
+}
+
+.icon-link {
+    text-decoration: none;
+}
+
+.first-box {
+    width: 972px;
+    height: 265px;
+    border: 2px solid black;
+    margin-left: 90px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.badge:hover {
+    cursor: pointer;
+    background-color: blue !important;
+    color: white !important;
+    transition: 0.5s;
+}
+
+
+.buton{
+    text-decoration: none;
+}
