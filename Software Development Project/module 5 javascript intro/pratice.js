@@ -1,1 +1,3 @@
-console.log("aa")
+var test="Nahin";
+
+console.log(test);
