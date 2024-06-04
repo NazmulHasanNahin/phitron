@@ -19,3 +19,4 @@ const character = ["Trevor", "Lester", "Fabien", "Rachael" , "Martin madrazo","B
 const heist = heist_selection(character)
 
 console.log(heist);
+
