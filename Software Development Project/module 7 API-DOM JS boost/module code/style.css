@@ -1,0 +1,28 @@
+.box {
+    width: 120px;
+    height: 120px;
+    padding: 30px;
+    border: 2px solid blue;
+}
+
+.box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+#input-box{
+    padding: 20px;
+    width: 20%;
+    border: 2px solid violet;
+}
+.user{
+    padding: 20px;
+    border: 2px solid red;
+    width: 150px;
+    margin: 20px;
+}
+.user-container{
+    display: flex;
+    justify-content:center;
+}

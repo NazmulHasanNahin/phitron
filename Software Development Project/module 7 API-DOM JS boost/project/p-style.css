@@ -1,0 +1,48 @@
+.main-container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.cart-container {
+    width: 30%;
+    box-shadow: 4px 4px 6px gray;
+    margin: auto;
+    text-align: center;
+    position: fixed;
+    background-color: aquamarine;
+    margin-left: 400px;
+}
+
+.product-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.card {
+    border: 1px solid gray;
+    padding: 20px;
+}
+
+.card-img {
+    width: 50%;
+
+}
+
+.cart-info {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+
+
+
+
+
+
+/* Vertically centered modal for product desc */
