@@ -16,7 +16,7 @@ const displayProduct = (products) => {
         <h5>${product.title.slice(0, 40)} </h5>
         <h3>Price: ${product.price} $</h3>
         <p>${product.description.slice(0, 60)}</p>
-        <button>Details</button>
+        <button onclick="singleProduct(${product.id})">Details</button>
         <button onclick="handleAddToCart('${product.title}', '${product.price}')">Add to Cart</button>
 
     `;
@@ -30,7 +30,7 @@ const handleAddToCart = (name, price) => {
 
     let convertedcount = parseInt(cartcount);
     convertedcount += 1;
-    document.getElementById("count").innerText=convertedcount;
+    document.getElementById("count").innerText = convertedcount;
 
     const container = document.getElementById("cart-main-container");
 
@@ -53,6 +53,15 @@ const updateTotal = () => {
     }
     document.getElementById("total").innerText = count.toFixed(2);
 }
+
+
+const singleProduct = (id) => {
+    fetch(`https://fakestoreapi.com/products/${id}`)
+        .then(res => res.json())
+        .then(json => console.log(json))
+}
+
+
 
 
 
