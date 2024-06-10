@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1>TEST</h1>
+    <h1>Template Filters</h1>
+    <p>Original Value: {{ value }}</p>
+    <p>Add: {{ value|add:"99" }}</p>
+    <p>Date: {{ date|date:"Y-m-d" }}</p>
+    <p>Capitalize: {{ string|capfirst }}</p>
+    <p>Length: {{ list|length }}</p>
+    <p>File Size Format: {{ filesize|filesizeformat }}</p>
+    <p>list:{{ listjoint | join:"- "}}</p>
+    <p>cut: {{cut|cut:" "}} </p>
+    {% for food in foods|dictsort:"category" %}
+        {{ food.name }}, Category: {{ food.category }}<br>
+    {% endfor %}
+    <p>Lowercase Greeting: {{ greeting|lower }}</p>
+    <p>titlecard:{{ titlecard|title }}</p>
+    <p>{{ quotes|random }}</p>
+    {% for item in items|slice:":3" %}
+        {{ item }}<br>
+    {% endfor %}
+
+    <p>Truncated Text: {{ long_text|truncatechars:20 }}</p>
+
+
+
+
+</body>
+</html>
