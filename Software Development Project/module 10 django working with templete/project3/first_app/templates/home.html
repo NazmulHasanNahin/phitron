@@ -8,5 +8,33 @@
     <h1>This is home of first app page</h1>
     <h1>Author: {{author}}</h1>
     <h1>Age: {{age}}</h1>
+    <!-- conditional statement  -->
+
+    {% if age >= 20 %}
+        <h2>you are adult</h2>
+    {% elif age >= 10 and age <= 19 %}
+        <h2>you are tenager</h2>
+    {% else %}
+        <h2>you are a child</h2>
+    {% endif %}
+
+    {% comment %}
+        for loop
+    {% endcomment %}  
+     
+    {% for i  in courses %}
+    <h3>course list: {{i.id}} {{i.name}} {{i.fee}}</h3>
+    
+    {% endfor %}
+    
+    {% comment %}
+        joint
+    {% endcomment %}
+
+    <h3>{{list}}</h3>
+
+    {{list | join:"-"}}
+
+    
 </body>
 </html>
