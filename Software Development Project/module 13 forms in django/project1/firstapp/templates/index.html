@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">title</th>
+            <th scope="col">Body</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in d %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.title}}</td>
+            <td>{{i.body}}</td>
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+{% endblock%}
