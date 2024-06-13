@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from .forms import contactform
+from .forms import contactform, StudentData
 # Create your views here.
 
 
@@ -42,15 +43,14 @@ def index(rq):
 def about(rq):
     name = None
     email = None
-    select=None
+    select = None
     if rq.method == "POST":
         name = rq.POST.get("username")
         email = rq.POST.get("useremail")
         select = rq.POST.get("select")
-        return render(rq, "about.html", {"name": name, "email": email,"select":select})
+        return render(rq, "about.html", {"name": name, "email": email, "select": select})
     else:
         return render(rq, "about.html")
-
 
 
 def form_submit(rq):
@@ -58,5 +58,30 @@ def form_submit(rq):
 
 
 def DjangoForm(rq):
-    form=contactform()
-    return render(rq,"django_form.html",{"form":form})
+    if rq.method == "POST":
+        form = contactform(rq.POST, rq.FILES)
+        if form.is_valid():
+            # file = form.cleaned_data["file"]
+            # with open("./firstapp/upload/" + file.name ,"wb+") as destination:
+            #     for chunk in file.chunks():
+            #         destination.write(chunk)
+            print(form.cleaned_data)
+    else:
+        form = contactform()
+    return render(rq, "django_form.html", {"form": form})
+
+
+
+def StudentForm(rq):
+    if rq.method == "POST":
+        form = StudentData(rq.POST, rq.FILES)
+        if form.is_valid():
+            # file = form.cleaned_data["file"]
+            # with open("./firstapp/upload/" + file.name ,"wb+") as destination:
+            #     for chunk in file.chunks():
+            #         destination.write(chunk)
+            print(form.cleaned_data)
+    else:
+        form = StudentData()
+    return render(rq, "django_form.html", {"form": form})
+        

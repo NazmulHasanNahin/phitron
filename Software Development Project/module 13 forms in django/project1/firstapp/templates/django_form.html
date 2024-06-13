@@ -2,15 +2,12 @@
 
 {% block content %}
 
-
-<form method="post">
+{% load crispy_forms_tags %}
+<form method="post" style="width: 50%; height: 500px; margin:auto" class="pt-5"
+ enctype="multipart/form-data">
 {% csrf_token %}
-    {{form}}
-
-    <button type="submit" class="btn btn-primary">Submit</button>
+    {{form| crispy}}
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
 </form>
 
-
-
-
-{% endblock content %}
+{% endblock %}
