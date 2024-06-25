@@ -1,6 +1,6 @@
-from author.views import *
+from profiles.views import *
 from django.urls import *
 
 urlpatterns = [
-    # path("add/",add_profile,name="add_profile")
+    path("add/",add_profile,name="add_profile")
 ]
