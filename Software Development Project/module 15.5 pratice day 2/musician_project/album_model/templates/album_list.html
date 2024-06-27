@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <h1>Album List</h1>
+    <a href="{% url 'album_create' %}" class="btn btn-primary mb-2">Add Album</a>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Album Name</th>
+            <th>Musician</th>
+            <th>Release Date</th>
+            <th>Rating</th>
+            <th>Actions</th>
+        </tr>
+        {% for album in albums %}
+        <tr>
+            <td>{{ album.id }}</td>
+            <td><a href="{% url 'album_update' album.id %}">{{ album.name }}</a>{{ album.name }}</td>
+            <td>{{ album.musician.first_name }} {{ album.musician.last_name }}</td>
+            <td>{{ album.release_date }}</td>
+            <td>{{ album.rating }}</td>
+            <td>
+                <a href="{% url 'album_update' album.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <form method="post" action="{% url 'album_delete' album.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock content %}

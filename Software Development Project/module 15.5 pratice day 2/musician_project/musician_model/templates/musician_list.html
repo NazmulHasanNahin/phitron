@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+
+
+<div class="container">
+    <h1>Musician List</h1>
+    <a href="{% url 'musician_create' %}" class="btn btn-primary mb-2">Add Musician</a>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Musician Name</th>
+            <th>Email</th>
+            <th>Album Rating</th>
+            <th>Instrument Type</th>
+            <th>Album Name</th>
+            <th>Release Date</th>
+            <th>Actions</th>
+        </tr>
+        {% for musician in musicians %}
+        <tr>
+            <td>{{ musician.id }}</td>
+            <td><a href="{% url 'musician_update' musician.id %}">{{ musician.first_name }} {{ musician.last_name }}</a></td>
+            <td>{{ musician.email }}</td>
+            <td>{{ musician.album.rating }}</td>
+            <td>{{ musician.instrument_type }}</td>
+            <td>{{ musician.album.name }}</td>
+            <td>{{ musician.album.release_date }}</td>
+            <td>
+                <a href="{% url 'musician_update' musician.id %}" class="btn btn-warning btn-sm">Edit</a>
+                <form method="post" action="{% url 'musician_delete' musician.id %}" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+
+
+
+
+{% endblock content %}
