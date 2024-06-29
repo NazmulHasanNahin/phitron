@@ -2,10 +2,23 @@
 {% block body %}
 {% load crispy_forms_tags %}
 <h1>profile page</h1>
+{% if messages %}
+{% for m in messages %}
+<p class="bg-success rounded p-2 m-3 text-white text-center" >{{m}} </p>
+{% endfor %}
+{% endif %}
+    <div style="width: 50%; margin:auto;" >
+        <h1>welcome to Profile</h1>
+        <h1>Hiiii {{user}}</h1>
+        <button class="btn btn-danger"><a class="text-white text-decoration-none" href="{% url "pass_change" %}">change password now!!</a></button> <br>
+        <button class="btn btn-danger my-3"><a class="text-white text-decoration-none" href="{% url "pass_change_without_old" %}">change password without Old Password!!</a></button>
+    </div>
 
-<form style="width: 50%; margin:auto;" action="" method="post" novalidate>
-    <h1>welcome to Profile</h1>
-name is   {{user.name}}
 
-
+    <form style="width: 50%; margin:auto;" action="" method="post" novalidate>
+        {% csrf_token %}
+        {{form|crispy}}
+        <button class="btn btn-primary mb-3" type="submit">change data</button>
+        <p>Need To Update Data??<a href="{% url "singup" %}">change data</a></p>
+    </form>
 {% endblock body %}
