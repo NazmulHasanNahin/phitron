@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block body %}
+{% load crispy_forms_tags %}
+<h1>profile page</h1>
+
+<form style="width: 50%; margin:auto;" action="" method="post" novalidate>
+    <h1>welcome to Profile</h1>
+name is   {{user.name}}
+
+
+{% endblock body %}
