@@ -8,6 +8,8 @@ def add_post(rq):
     if rq.method == "POST":
         post_form=forms.PostForm(rq.POST)
         if post_form.is_valid():
+            # post_form.cleaned_data["author"]=rq.user
+            post_form.instance.author=rq.user
             post_form.save()
             return redirect("add_post")
     else:

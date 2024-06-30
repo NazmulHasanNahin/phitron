@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div>
+    <h1>Profile Page</h1>
+    <a class="btn btn-primary" href="{% url "edit_profile" %}">Edit Your Profile</a>
+</div>
+
+
+{% endblock content %}
