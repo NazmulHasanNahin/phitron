@@ -23,33 +23,38 @@
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{% url "homepage" %}">Home</a>
           </li>
-
-          <li class="nav-item">
-            <a class="nav-link" href="{% url "add_categories" %}">Add Category</a>
-          </li>
+          {% if request.user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link" href="{% url "add_post" %}">Add Post</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="http://127.0.0.1:8000/admin/">Admin Panel</a>
-          </li>
-
+          {% endif %}
         </ul>
         <form class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            {% if request.user.is_authenticated %}
+            <li class="nav-item">
+              <a class="btn btn-danger mx-3" href="{% url "register" %}">Profile</a>
+            </li>
+            {% else %}
             <li class="nav-item">
               <a class="btn btn-danger mx-3" href="{% url "register" %}">Register</a>
             </li>
             <li class="nav-item">
-              <a class="btn btn-warning" href="{% url "register" %}">Login</a>
+              <a class="btn btn-warning" href="{% url "login" %}">Login</a>
             </li>
-            
+            {% endif %}
           </ul>
-
         </form>
       </div>
     </div>
   </nav>
+
+  {% for i in messages %}
+  
+  <div>
+    <p class="bg-{{i.tags}} rounded p-2 m-3 text-white text-center" >{{i}} </p>
+  </div>
+  {% endfor %}
 
   {% block content %}
 
