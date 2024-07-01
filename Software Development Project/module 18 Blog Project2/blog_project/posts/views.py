@@ -30,7 +30,7 @@ def edit_post(rq, id):
         if post_form.is_valid():
             post_form.instance.author=rq.user
             post_form.save()
-            return redirect('homepage')
+            return redirect('profile')
     
     return render(rq, 'add_post.html', {'form' : post_form})
 
@@ -39,5 +39,5 @@ def edit_post(rq, id):
 def delete_post(rq,id):
     post = forms.Posts.objects.get(pk=id) 
     post.delete()
-    return redirect('homepage')
+    return redirect('profile')
     
