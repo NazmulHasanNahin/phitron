@@ -8,5 +8,6 @@ class Posts(models.Model):
     content=models.TextField()
     category=models.ManyToManyField(Catagory)
     author=models.ForeignKey(User,on_delete=models.CASCADE)
+    image=models.ImageField(upload_to="posts/media/uploads/",blank=True,null=True)
     def __str__(self):
         return self.title
