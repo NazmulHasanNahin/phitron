@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container">
+    <h1>Album Form</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Save</button>
+    </form>
+    <a href="{% url 'album_list' %}" class="btn btn-secondary mt-2">Back to list</a>
+</div>
+
+{% endblock content %}
