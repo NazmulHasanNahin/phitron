@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="container mt-5">
+    <h1>Car Listings</h1>
+    <form method="get" class="mb-4">
+        <label for="brand">Filter by brand:</label>
+        <select name="brand" id="brand" class="form-select w-auto d-inline-block ms-2">
+            <option value="">All</option>
+            {% for brand in brands %}
+            <option value="{{ brand.name }}">{{ brand.name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" class="btn btn-primary ms-2">Filter</button>
+    </form>
+
+    <div class="row">
+        {% for car in cars %}
+        <div class="col-md-3 mb-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{ car.image.url }}" class="card-img-top" alt="{{ car.title }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ car.title }}</h5>
+                    <p class="card-text">{{ car.price }}</p>
+                    
+                    <a href="{% url 'car-detail' car.pk %}" class="btn btn-primary">Details</a>
+                    
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}

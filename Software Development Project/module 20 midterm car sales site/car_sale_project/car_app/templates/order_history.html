@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="container mt-4">
+        <h1>Order History</h1>
+        {% if orders %}
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Order Date</th>
+                        <th>Car Name</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                        <tr>
+                            <td>{{ order.order_date }}</td>
+                            <td>{{ order.car.title }}</td>
+                            <td>${{ order.car.price }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No orders found.</p>
+        {% endif %}
+    </div>
+{% endblock %}
