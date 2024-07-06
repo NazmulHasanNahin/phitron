@@ -14,6 +14,9 @@ class UserBankAccount(models.Model):
     gender = models.CharField(max_length=10, choices=GENDER_TYPE)
     initial_deposit_date = models.DateField(auto_now_add=True)
     balance = models.DecimalField(default=0, max_digits=12, decimal_places=2)
+    
+    def __str__(self):
+        return f"{self.user.username} {self.account_no}"
 
 
 class UserAdress(models.Model):
@@ -21,6 +24,8 @@ class UserAdress(models.Model):
         User, related_name="adress", on_delete=models.CASCADE)
     street_adress = models.CharField(max_length=100)
     city=models.CharField(max_length=100)
-    postal_code=models.IntegerField(max_length=4)
+    postal_code=models.IntegerField()
     contry=models.CharField(max_length=20)
     
+    def __str__(self):
+        return f"{self.user.username} {self.user.account.account_no}"
