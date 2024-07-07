@@ -20,12 +20,11 @@ class UserBankAccount(models.Model):
 
 
 class UserAdress(models.Model):
-    user = models.OneToOneField(
-        User, related_name="adress", on_delete=models.CASCADE)
+    user = models.OneToOneField(User, related_name="adress", on_delete=models.CASCADE)
     street_adress = models.CharField(max_length=100)
     city=models.CharField(max_length=100)
     postal_code=models.IntegerField()
-    contry=models.CharField(max_length=20)
+    country=models.CharField(max_length=20)
     
     def __str__(self):
         return f"{self.user.username} {self.user.account.account_no}"

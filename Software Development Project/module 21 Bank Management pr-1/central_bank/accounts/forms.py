@@ -9,11 +9,12 @@ from accounts.models import *
 
 class UserRegistrationForm(UserCreationForm):
     birth_date = forms.DateField(widget=forms.DateInput(attrs={"type":"date"}))
-    gender = forms.CharField(max_length=10, choices=GENDER_TYPE)
+    gender = forms.ChoiceField(choices=GENDER_TYPE)
+    account_type = forms.ChoiceField(choices=ACCOUNT_TYPE)
     street_adress = forms.CharField(max_length=100)
     city=forms.CharField(max_length=100)
     postal_code=forms.IntegerField()
-    contry=forms.CharField(max_length=20)
+    country=forms.CharField(max_length=20)
     class Meta:
         model=User
         fields=["username","first_name","last_name","password1","password2","email","gender","birth_date","account_type","city","postal_code","street_adress","country"]
@@ -47,3 +48,18 @@ class UserRegistrationForm(UserCreationForm):
             )
             
             return our_user
+        
+        
+    def __init__(self, *args: Any, **kwargs):
+        super().__init__(*args, **kwargs)
+        
+        for field in self.fields:
+            self.fields[field].widget.attrs.update({
+                
+                'class' : (
+                    'appearance-none block w-full bg-gray-200 '
+                    'text-gray-700 border border-gray-200 rounded '
+                    'py-3 px-4 leading-tight focus:outline-none '
+                    'focus:bg-white focus:border-gray-500'
+                ) 
+            })
