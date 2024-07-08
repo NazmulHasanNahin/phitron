@@ -3,4 +3,4 @@ from accounts.models import *
 # Register your models here.
 
 admin.site.register(UserBankAccount)
-admin.site.register(UserAdress)
+admin.site.register(UserAddress)
