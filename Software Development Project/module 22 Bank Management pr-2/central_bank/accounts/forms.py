@@ -16,12 +16,10 @@ class UserRegistrationForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'password1', 'password2', 'first_name', 'last_name', 'email', 'account_type', 'birth_date','gender', 'postal_code', 'city','country', 'street_address']
-        
-
     def save(self, commit=True):
-        our_user = super().save(commit=False) 
+        our_user = super().save(commit=False)
         if commit == True:
-            our_user.save()
+            our_user.save() 
             account_type = self.cleaned_data.get('account_type')
             gender = self.cleaned_data.get('gender')
             postal_code = self.cleaned_data.get('postal_code')
@@ -86,7 +84,6 @@ class UserUpdateForm(forms.ModelForm):
                     'focus:bg-white focus:border-gray-500'
                 )
             })
-            
         if self.instance:
             try:
                 user_account = self.instance.account
@@ -109,7 +106,7 @@ class UserUpdateForm(forms.ModelForm):
         if commit:
             user.save()
 
-            user_account, created = UserBankAccount.objects.get_or_create(user=user) 
+            user_account, created = UserBankAccount.objects.get_or_create(user=user)
             user_address, created = UserAddress.objects.get_or_create(user=user) 
 
             user_account.account_type = self.cleaned_data['account_type']
