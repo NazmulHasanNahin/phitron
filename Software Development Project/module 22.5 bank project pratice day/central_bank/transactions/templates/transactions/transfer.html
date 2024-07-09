@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<form method="POST" class="max-w-md mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+    {% csrf_token %}
+    <div class="mb-4">
+        <label for="to_account_no" class="block text-gray-700 text-sm font-bold mb-2">To Account Number:</label>
+        <input type="text" id="to_account_no" name="to_account_no" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+    </div>
+    <div class="mb-4">
+        <label for="amount" class="block text-gray-700 text-sm font-bold mb-2">Amount:</label>
+        <input type="number" id="amount" name="amount" step="0.01" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" required>
+    </div>
+    <div class="text-right">
+        <button type="submit" class="bg-blue-900 text-white hover:text-blue-900 hover:bg-white border border-blue-900 font-bold px-4 py-2 rounded-lg">Transfer</button>
+    </div>
+</form>
+
+
+{% endblock content %}
