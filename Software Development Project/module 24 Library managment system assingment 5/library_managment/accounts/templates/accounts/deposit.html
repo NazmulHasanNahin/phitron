@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container">
+    <h2>Deposit Money</h2>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p>After deposit please cheak your email for confirmation.</p>
+        <button type="submit" class="btn btn-primary">Deposit</button>
+    </form>
+    <a href="{% url 'profile' %}" class="btn btn-secondary mt-3">Back to Profile</a>
+</div>
+{% endblock %}

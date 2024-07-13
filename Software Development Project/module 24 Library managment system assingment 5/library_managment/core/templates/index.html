@@ -1,0 +1,24 @@
+{% extends "base.html" %} 
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8 mb-4">
+            <div class="card bg-light text-center shadow-lg p-3 mb-5 rounded">
+                <div>
+                    <img src="https://i.ibb.co/dJfQV18/pngwing-com-1.png"
+                    class="card-img-top img-fluid w-50" alt="Library">
+                </div>
+                <div class="card-body">
+                    <h1 class="card-title display-4">Welcome to Our Library</h1>
+                    <p class="card-text lead mb-3">Welcome to our digital library, a treasure trove of knowledge and
+                        information. Just like a traditional library, our digital library is a collection of resources,
+                        but instead of physical books, we offer webpages filled with valuable content. Our library is
+                        designed to be user-friendly and intuitive, making it easy for you to find the information you
+                        need.</p>
+                    <a href="{% url "register" %}" class="btn btn-outline-primary">Register Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}

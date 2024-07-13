@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Profile</h2>
+    <hr>
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <h4 class="card-title">{{ user.username }}</h4>
+            <p class="card-text">Email: {{ user.email }}</p>
+            <p class="card-text">Balance: {{ user_profile.balance }} Taka</p>
+            <a href="{% url 'deposit' %}" class="btn btn-primary">Deposit Money</a>
+        </div>
+    </div>
+
+    <h3>Borrowing History</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Book</th>
+                <th>Borrowing Date</th>
+                <th>Returned</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for history in history %}
+            <tr>
+                <td>{{ history.book.title }}</td>
+                <td>{{ history.borrowing_date }}</td>
+                <td>{{ history.returned|yesno:"Yes,No" }}</td>
+                <td>
+                    {% if not history.returned %}
+                    <a href="{% url 'return_book' history.id %}" class="btn btn-warning">Return Book</a>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
