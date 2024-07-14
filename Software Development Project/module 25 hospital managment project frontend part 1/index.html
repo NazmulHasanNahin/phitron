@@ -37,7 +37,7 @@
                         <br />
                         Healthcare
                     </h1>
-                    <p class="w-50 m-5" style="font-family: Lato;">
+                    <p class="w-75 m-5" style="font-family: Lato;">
                         Healthcare facilities send reminders to patients ahead of their appointments, reducing the
                         number of cancellations and absentees. Potential delays are notified ahead of time, allowing
                         patients to show up later and thus prevent their having to wait too long.
@@ -87,34 +87,21 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                       Designation
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul id="drop-deg" class="dropdown-menu">
                     </ul>
                   </div>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Specializatiion
+                      Specialization
                     </button>
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    <ul id="drop-spec" class="dropdown-menu">
                     </ul>
                   </div>
             </div>
             <div class="col-md-8">
                 <input id="search" type="text" placeholder="Search">
-                <button  class="mb-5">Search</button>
-                <div class="doctors">
-                    <div class="doc-card">
-                        <img src="./images/BG.png" alt="">
-                        <h3 class="fw-bold" style="font-family: 'DM Sans'; color: #007e85;">Name</h3>
-                        <h5>Specializatiion</h5>
-                        <h6>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, eum?</h6>
-                        <button>Details</button>
-                    </div>
+                <button onclick="handleSearch()" class="mb-5">Search</button>
+                <div id="doctors" class="doctors">
                 </div>
             </div>
         </div>
