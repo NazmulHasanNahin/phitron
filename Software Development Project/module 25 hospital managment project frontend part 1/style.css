@@ -1,0 +1,92 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: auto;
+    background-color: rgba(242, 241, 250, 1) !important; 
+}
+
+li {
+    list-style: none;
+}
+
+nav {
+    background-color: aqua;
+}
+
+.menu {
+    font-size: 20px;
+}
+
+.menu:hover {
+    color: white;
+    cursor: pointer;
+}
+
+.banner-container  {
+    width: 1200px;
+    margin: auto;
+    padding: 30px !important;
+
+}
+
+.banner {
+    height: 450px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: linear-gradient(rgba(123, 204, 194, 0.33),
+            rgba(72, 190, 206, 0.34),
+            rgba(86, 190, 212, 1));
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 16.39px;
+    
+}
+
+.bn-img {
+    margin-top: -56px;
+    width: 600px;
+    position: relative;
+    overflow: hidden;
+    height: 508px;
+    object-fit: cover;
+}
+
+.text-banner {
+    font-size: 50px;
+    text-transform: capitalize;
+    font-weight: 910;
+    font-family: Lato;
+    color: #2b6977;
+}
+.service-container{
+    width: 1200px;
+    margin: auto;
+    margin-top: 40px;
+}
+.title{
+    font-size: 40px;
+    color: #007e85;
+    text-align: center;
+}
+.doctors-container{
+    margin-top: 50px;
+    padding: 30px;
+}
+.doc-card{
+    width: 300px;
+    height: 330px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 24px;
+    text-align: center;
+    padding: 15px;
+}
+#search{
+    padding: 10px;
+    width: 75%;
+    border: none;
+}
