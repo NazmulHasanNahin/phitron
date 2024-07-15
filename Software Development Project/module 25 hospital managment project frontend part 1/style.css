@@ -97,3 +97,13 @@ nav {
     height: 100px;
     border-radius: 50px;
 }
+#noData{
+    display: none;
+}
+
+.nodata{
+    display: none;
+}
+#spinner{
+    display: none;
+}

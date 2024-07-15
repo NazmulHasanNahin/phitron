@@ -27,10 +27,30 @@ const displayService = (services) => {
 }
 
 const loadDoctors = (search) => {
-    fetch(`https://testing-8az5.onrender.com/doctor/list/?search=${search ? search : ""}`)
-        .then((res) => res.json())
-        .then((data) => DisplayDoctors(data?.results));
-}
+    document.getElementById("doctors").innerHTML = "";
+    document.getElementById("spinner").style.display = "block";
+    console.log(search);
+    fetch(
+      `https://testing-8az5.onrender.com/doctor/list/?search=${
+        search ? search : ""
+      }`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data)
+        if (data.results.length > 0) {
+          document.getElementById("spinner").style.display = "none";
+          document.getElementById("nodata").style.display = "none";
+          DisplayDoctors(data?.results);
+        } else {
+          document.getElementById("doctors").innerHTML = "";
+          document.getElementById("spinner").style.display = "none";
+          document.getElementById("nodata").style.display = "block";
+        }
+      });
+  };
+
+
 const DisplayDoctors = (doctors) => {
     doctors?.forEach((doctor) => {
         const parent = document.getElementById("doctors");
@@ -75,10 +95,10 @@ const loadSpecialization = () => {
                 const parent = document.getElementById("drop-spec");
                 const li = document.createElement("li");
                 li.classList.add("dropdown-item");
-                li.innerText = item.name;
+                li.innerHTML = `
+            <li onclick="loadDoctors('${item.name}')"> ${item.name}</li>`;
                 parent.appendChild(li);
-
-            })
+            });
         });
 }
 
@@ -94,3 +114,4 @@ loadServices();
 loadDoctors();
 loadDesignation();
 loadSpecialization();
+DisplayDoctors();
