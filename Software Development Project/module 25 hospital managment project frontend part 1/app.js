@@ -31,24 +31,23 @@ const loadDoctors = (search) => {
     document.getElementById("spinner").style.display = "block";
     console.log(search);
     fetch(
-      `https://testing-8az5.onrender.com/doctor/list/?search=${
-        search ? search : ""
-      }`
+        `https://testing-8az5.onrender.com/doctor/list/?search=${search ? search : ""
+        }`
     )
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data)
-        if (data.results.length > 0) {
-          document.getElementById("spinner").style.display = "none";
-          document.getElementById("nodata").style.display = "none";
-          DisplayDoctors(data?.results);
-        } else {
-          document.getElementById("doctors").innerHTML = "";
-          document.getElementById("spinner").style.display = "none";
-          document.getElementById("nodata").style.display = "block";
-        }
-      });
-  };
+        .then((res) => res.json())
+        .then((data) => {
+            // console.log(data)
+            if (data.results.length > 0) {
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("nodata").style.display = "none";
+                DisplayDoctors(data?.results);
+            } else {
+                document.getElementById("doctors").innerHTML = "";
+                document.getElementById("spinner").style.display = "none";
+                document.getElementById("nodata").style.display = "block";
+            }
+        });
+};
 
 
 const DisplayDoctors = (doctors) => {
@@ -108,10 +107,33 @@ const handleSearch = () => {
 };
 
 
+const loadReview = () => {
+    fetch("https://testing-8az5.onrender.com/doctor/review/")
+        .then((res) => res.json())
+        .then((data) =>
+            displayReview(data)
+        );
+}
 
+const displayReview = (reviews) => {
+    reviews.forEach((review) => {
+        const parent = document.getElementById("review-container");
+        const div = document.createElement("div");
+        div.classList.add("review-card");
+        div.innerHTML = `
+            <img src="./images/review-img.png" alt="">
+            <h4 class="fw-bold" style="font-family: 'DM Sans'; color: #007e85;">${review.reviewer}</h4>
+            <p>${review.body.slice(0,80)}
+            </p>
+            <h6>${review.rating}</h6>
+        `;
+        parent.appendChild(div)
+    })
+}
 
 loadServices();
 loadDoctors();
 loadDesignation();
 loadSpecialization();
 DisplayDoctors();
+loadReview();

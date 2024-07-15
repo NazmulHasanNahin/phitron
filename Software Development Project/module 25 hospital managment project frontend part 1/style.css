@@ -107,3 +107,11 @@ nav {
 #spinner{
     display: none;
 }
+.review-card{
+    width: 260px;
+    height: 270px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 16px;
+    text-align: center;
+    padding: 8px;
+}
