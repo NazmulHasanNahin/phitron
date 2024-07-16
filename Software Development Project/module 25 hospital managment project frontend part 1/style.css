@@ -6,7 +6,7 @@
 
 body {
     margin: auto;
-    background-color: rgba(242, 241, 250, 1) !important; 
+    background-color: rgba(242, 241, 250, 1) !important;
 }
 
 li {
@@ -26,7 +26,7 @@ nav {
     cursor: pointer;
 }
 
-.banner-container  {
+.banner-container {
     width: 1200px;
     margin: auto;
     padding: 30px !important;
@@ -46,7 +46,7 @@ nav {
     box-shadow: 4px 4px 8px gray;
     border-radius: 16.39px;
 
-    
+
 }
 
 .bn-img {
@@ -65,21 +65,25 @@ nav {
     font-family: Lato;
     color: #2b6977;
 }
-.service-container{
+
+.service-container {
     width: 1200px;
     margin: auto;
     margin-top: 40px;
 }
-.title{
+
+.title {
     font-size: 40px;
     color: #007e85;
     text-align: center;
 }
-.doctors-container{
+
+.doctors-container {
     margin-top: 50px;
     padding: 30px;
 }
-.doc-card{
+
+.doc-card {
     width: 300px;
     height: 350px;
     box-shadow: 4px 4px 8px gray;
@@ -87,27 +91,32 @@ nav {
     text-align: center;
     padding: 15px;
 }
-#search{
+
+#search {
     padding: 10px;
     width: 75%;
     border: none;
 }
-.doc-img{
+
+.doc-img {
     width: 100px;
     height: 100px;
     border-radius: 50px;
 }
-#noData{
+
+#noData {
     display: none;
 }
 
-.nodata{
+.nodata {
     display: none;
 }
-#spinner{
+
+#spinner {
     display: none;
 }
-.review-card{
+
+.review-card {
     width: 260px;
     height: 270px;
     box-shadow: 4px 4px 8px gray;
@@ -115,13 +124,65 @@ nav {
     text-align: center;
     padding: 8px;
 }
-footer{
+
+footer {
     padding: 50px;
     background: linear-gradient(rgba(28, 168, 199, 1),
-    rgba(67, 159, 165, 1),
-    rgba(76, 125, 140, 1));
+            rgba(67, 159, 165, 1),
+            rgba(76, 125, 140, 1));
 
 }
-.icons{
+
+.icons {
     cursor: pointer;
+}
+
+.doc-name {
+    font-size: 40px;
+    color: #007e85;
+}
+
+.doc-img img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50px;
+}
+
+.doc-details-container {
+    /* d-flex justify-content-around gap-5 w-75 m-auto p-5 */
+    display: flex;
+    justify-content: space-around;
+    gap: 40px;
+    width: 75%;
+    margin: auto;
+    padding: 5%;
+}
+
+.doc-details-btn {
+    border: none;
+    padding: 6px 15px;
+    background-color: gray;
+    color: white;
+    border-radius: 15px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+}
+
+.des-dc {
+    font-family: 'DM Sans';
+    color: #555;
+    text-align: left;
+}
+
+.doc-details-btn-desig {
+    display: inline-block;
+    font-family: 'DM Sans';
+    color: #333;
+    font-size: 20px;
+}
+
+.fee-amnt {
+    font-size: 25px;
+    font-family: 'DM Sans';
+    color: #007e85;
 }
