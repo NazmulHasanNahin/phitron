@@ -115,3 +115,13 @@ nav {
     text-align: center;
     padding: 8px;
 }
+footer{
+    padding: 50px;
+    background: linear-gradient(rgba(28, 168, 199, 1),
+    rgba(67, 159, 165, 1),
+    rgba(76, 125, 140, 1));
+
+}
+.icons{
+    cursor: pointer;
+}

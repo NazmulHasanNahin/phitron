@@ -62,14 +62,13 @@ const DisplayDoctors = (doctors) => {
             <h6>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illum, eum?</h6>
             <p>
             ${doctor?.specialization?.map((item) => {
-            return `<button>${item} </button>`
-        })} 
+            return `<button>${item} </button>`})} 
             </p>
-            <button>Details</button>
+            <button><a target="_blank" href="docdetails.html?doctorId=${doctor.id}">Details</a></button>
         `;
         parent.appendChild(div);
-    })
-}
+    });
+};
 
 const loadDesignation = () => {
     fetch("https://testing-8az5.onrender.com/doctor/designation/")
@@ -123,7 +122,7 @@ const displayReview = (reviews) => {
         div.innerHTML = `
             <img src="./images/review-img.png" alt="">
             <h4 class="fw-bold" style="font-family: 'DM Sans'; color: #007e85;">${review.reviewer}</h4>
-            <p>${review.body.slice(0,80)}
+            <p>${review.body.slice(0, 80)}
             </p>
             <h6>${review.rating}</h6>
         `;
