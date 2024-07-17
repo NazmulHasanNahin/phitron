@@ -1,0 +1,33 @@
+body {
+    background-color: white;
+
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    align-items: center;
+    width: 75%;
+    margin: auto;
+}
+
+.input {
+    padding: 15px 25px;
+    border: none;
+    margin: 10px;
+    box-shadow: 4px 4px 8px gray;
+    border-radius: 16px;
+    background-color: white;
+}
+
+.submit-btn {
+    width: 150px;
+    position: relative;
+    border-radius: 16px;
+    background-color: #06aba1;
+    height: 35px;
+    border: none;
+    margin: 10px;
+}
