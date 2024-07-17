@@ -22,10 +22,10 @@
             <h3>SmartCare</h3>
         </div>
         <div class="menu-container d-flex gap-3">
-            <li class="menu">Login</li>
-            <li class="menu">Home</li>
+            <li class="menu"><a href="index.html">Home</a></li>
             <li class="menu">Services</li>
             <li class="menu">Contact US</li>
+            <li  class="menu"><a target="_blank" href="login.html">Login</a></li>
         </div>
     </nav>
     <!-- doc-info  -->
@@ -75,28 +75,23 @@
                     <input type="radio" name="status" value="Online"/> Online
                     <input type="radio" name="status" value="Offline" /> Offline
                     <br>
-                    <input type="text" placeholder="Type Your Symptoms">
+                    <input id="symtom" type="text" placeholder="Type Your Symptoms">
                     <br>
-                    <!-- dropdown  -->
                     <div class="mt-2 dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                           Available Time
                         </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="#">Action</a></li>
-                          <li><a class="dropdown-item" href="#">Another action</a></li>
-                          <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                        <select id="time-container" class="dropdown-menu">
+                        </select>
                       </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
+                    <button onclick="handleAppoinment()" type="button" class="btn btn-primary">Confirm Appoinment</button>
                 </div>
             </div>
         </div>
     </div>
-
 
 
 
