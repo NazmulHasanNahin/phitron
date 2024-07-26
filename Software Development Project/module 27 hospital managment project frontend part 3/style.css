@@ -186,3 +186,26 @@ footer {
     font-family: 'DM Sans';
     color: #007e85;
 }
+.user-details-container{
+    height: 100vh;
+    width: 75%;
+    margin: auto;
+
+}
+.user-all{
+    display: flex;
+    justify-content: space-around;
+    gap: 50px;
+    align-items: center;
+}
+.user-img img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50px;
+}
+.all-appointment-container{
+    height: 100vh;
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+}

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration</title>
+    <title>Profile</title>
     <link rel="stylesheet" href="login.css">
     <link rel="stylesheet" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet"
@@ -30,14 +30,15 @@
                 <li class="menu"><a href="index.html">Home</a></li>
                 <li class="menu">Services</li>
                 <li class="menu">Contact US</li>
+                <li class="menu"><a target="_blank" href="login.html">Login</a></li>
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
                         Profile
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Profile</a></li>
-                        <li><a class="dropdown-item" href="#">All Appointment</a></li>
+                        <li><a class="dropdown-item" href="userDetails.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="allAppointments.html">All Appointment</a></li>
                         <li><a class="dropdown-item" href="#">Logout</a></li>
                     </ul>
                 </div>
@@ -46,25 +47,15 @@
     </header>
 
     <main>
-        <div class="login-container">
-            <div class="col-md-6">
-                <form action="" onsubmit="handleRegistration(event)">
-                    <h1 class="title mb-4">Registration</h1>
-                    <p id="error" class="text-danger"></p>
-                    <input class="input" placeholder="Username" id="username" type="text" required>
-                    <input class="input" placeholder="First Name" id="first_name" type="text" required>
-                    <input class="input" placeholder="Last Name" id="last_name" type="text" required>
-                    <input class="input" placeholder="Email" type="email" id="email" required>
-                    <input class="input" placeholder="Password" type="password" id="password" required>
-                    <input class="input" placeholder="Confirm Password" type="password" id="confirm_password" required>
-                    <button type="submit" class="submit-btn">Registration</button>
-                    <p class="ms-2">Already have a Account!! <a target="_blank" href="login.html">Login Now</a></p>
-                </form>
-            </div>
-            <div class="col-md-6">
-                <img class="w-100" src="./images/undraw_Sign_up_n6im.png" alt="">
-            </div>
+
+        <!-- main section  -->
+        <div id="user-details-container" class="user-details-container d-flex justify-content-around">
+
         </div>
+
+
+
+
 
     </main>
 
@@ -106,6 +97,7 @@
     <script src="./app.js"></script>
     <script src="./auth.js"></script>
     <script src="./docdetails.js"></script>
+    <script src="./userDetails.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

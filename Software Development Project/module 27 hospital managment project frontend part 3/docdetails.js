@@ -84,13 +84,14 @@ const handleAppoinment = () => {
     const symtom = document.getElementById("symtom").value;
     const time = document.getElementById("time-container");
     const selectedTime = time.options[time.selectedIndex];
+    const user_id = localStorage.getItem("user_id");
     const info = {
         appointment_type: selected.value,
         appointment_status: "Pending",
         time: selectedTime.value,
         symptom: symtom,
         cancel: false,
-        patient: 1,
+        patient: user_id,
         doctor: param,
     };
     // console.log(info);
@@ -105,6 +106,14 @@ const handleAppoinment = () => {
             console.log(data);
         })
 };
+
+
+const loadpatientID=()=>{
+    fetch(`https://testing-8az5.onrender.com/patient/list/?user_id=`)
+    .then(res=>res.json())
+    .then 
+}
+
 
 getparams();
 loadTime();
