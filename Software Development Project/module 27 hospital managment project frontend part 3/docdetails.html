@@ -25,7 +25,7 @@
             <li class="menu"><a href="index.html">Home</a></li>
             <li class="menu">Services</li>
             <li class="menu">Contact US</li>
-            <li  class="menu"><a target="_blank" href="login.html">Login</a></li>
+            <li class="menu"><a target="_blank" href="login.html">Login</a></li>
             <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
                     aria-expanded="false">
@@ -42,13 +42,13 @@
     <!-- doc-info  -->
 
 
-    <div id="doc-details">
+    <!-- <div id="doc-details">
 
-    </div>
+    </div> -->
 
     <!-- review  -->
 
-    <div class="review-container p-3 mt-5 w-75 m-auto">
+    <!-- <div class="review-container p-3 mt-5 w-75 m-auto">
         <h1 class="title">RATINGS FROM PATIENTS</h1>
         <div class="reviews">
             <div
@@ -69,13 +69,13 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 
-    
+
 
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -102,7 +102,75 @@
                 </div>
             </div>
         </div>
+    </div> -->
+
+
+    <div id="doc-details"></div>
+
+    <div class="review-container p-5 mt-5 w-75 m-auto">
+        <h1 class="title">Clients Review</h1>
+        <p class="description text-center w-50 m-auto">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci
+            <br />
+            quis sit, aperiam deserunt at accusamus!
+        </p>
+        <div class="reviews">
+            <div
+                class="swiffy-slider slider-item-show2 slider-item-reveal slider-nav-outside slider-nav-round slider-nav-visible slider-indicators-outside slider-indicators-round slider-indicators-dark slider-nav-animation slider-nav-animation-fadein slider-item-first-visible">
+                <ul id="doc-details-review" class="slider-container py-4"></ul>
+
+                <button type="button" class="slider-nav" aria-label="Go left"></button>
+                <button type="button" class="slider-nav slider-nav-next" aria-label="Go left"></button>
+
+                <div class="slider-indicators">
+                    <button class="active" aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide"></button>
+                    <button aria-label="Go to slide" class=""></button>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <!-- modal area -->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Submit Your Info</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="radio" name="status" value="Offline" /> Offline
+                    <input type="radio" name="status" value="Online" /> Online<br />
+
+                    <input id="symptom" type="text" placeholder="Type Your symptom" />
+                    <br />
+
+                    <select id="time-container" class="p-2 mt-2" id="time" name="time">
+                        <!-- <option value="none" selected>available Time</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">other</option> -->
+                    </select>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                        Close
+                    </button>
+                    <button onclick="handleAppointment()" type="button" class="btn btn-primary">
+                        Take Appointment
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-danger mx-5" onclick="handlePdf()">Download</button>
 
 
 
