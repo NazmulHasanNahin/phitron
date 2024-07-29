@@ -5,6 +5,9 @@ from appointment.models import *
 
 
 class AppointmentSerailizer(serializers.ModelSerializer):
+    time=serializers.StringRelatedField(many=False)
+    doctor=serializers.StringRelatedField(many=False)
+    patient=serializers.StringRelatedField(many=False)
     class Meta:
         model = Appointment
-        fields = "__all__"
+        fields = "__all__"  
