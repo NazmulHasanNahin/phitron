@@ -1,12 +1,12 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from contact_us.views import *
+from appointment.views import *
 
-# contact us section urls 
+#   urls   this is Appointment section 
 
 
 router = DefaultRouter()
-router.register('',Contactusviewset)
+router.register('',AppointmentViewset)
 urlpatterns = [
     path("",include(router.urls)),
     
