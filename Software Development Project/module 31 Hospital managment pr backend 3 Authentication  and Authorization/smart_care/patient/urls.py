@@ -8,6 +8,7 @@ router = DefaultRouter()
 router.register('list',Patientviewset)
 urlpatterns = [
     path("",include(router.urls)),
-    path("register/",UserRegistrationAPIView.as_view(),name="Register"),
+    path("register/",UserRegistrationAPIView.as_view(),name="register"),
+    path("active/<uid64>/<token>/",active,name="active")
     
 ]
