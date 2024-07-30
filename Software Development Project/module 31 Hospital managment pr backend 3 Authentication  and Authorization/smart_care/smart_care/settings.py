@@ -29,6 +29,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'django_filters',
     "appointment",
     "contact_us",
     "doctor",
@@ -78,7 +80,12 @@ DATABASES = {
     }
 }
 
-
+# REST_FRAMEWORK = {
+#     'DEFAULT_FILTER_BACKENDS':['django_filter.rest_framework,DjangoFilterBackend'],
+#     # 'DEFAULT_PERMISSION_CLASSES': [
+#     #     'rest_framework.permissions.IsAuthenticated',   #when need to secure all api then it have to use 
+#     # ]
+# }
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 

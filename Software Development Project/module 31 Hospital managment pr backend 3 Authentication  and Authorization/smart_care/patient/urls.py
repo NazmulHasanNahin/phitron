@@ -9,6 +9,8 @@ router.register('list',Patientviewset)
 urlpatterns = [
     path("",include(router.urls)),
     path("register/",UserRegistrationAPIView.as_view(),name="register"),
-    path("active/<uid64>/<token>/",active,name="active")
+    path("login/",UserLoginAPIView.as_view(),name="login"),
+    path("logout/",UserLogoutView.as_view(),name="logout"),
+    path("active/<uid64>/<token>/",active,name="active"),
     
 ]

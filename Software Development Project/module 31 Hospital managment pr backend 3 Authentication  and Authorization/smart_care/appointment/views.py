@@ -19,3 +19,4 @@ class AppointmentViewset(viewsets.ModelViewSet):
         if patient_id:
             queryset = queryset.filter(patient_id=patient_id)
         return queryset
+
