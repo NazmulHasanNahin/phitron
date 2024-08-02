@@ -9,6 +9,9 @@ from django.contrib.auth import login,logout
 from django.contrib.auth import authenticate
 from applications.serializers import *
 from applications.models import *
+from django.shortcuts import render,redirect
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 class JobSeekerProfileListCreateView(APIView):
     def get(self, request):
@@ -56,7 +59,18 @@ class JobSeekerProfileViewSet(viewsets.ModelViewSet):
     
 class JobSeekerRegistrationView(generics.CreateAPIView):
     serializer_class = JobSeekerRegistrationSerializer
-    
+    def post(self, request):
+        serializer = JobSeekerRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            email_subject = "Welcome to WorkWave!"
+            email_body = render_to_string("welcome_email.html", {"user": user})
+            email = EmailMultiAlternatives(email_subject, "", to=[user.email])
+            email.attach_alternative(email_body, "text/html")
+            email.send()
+
+            return Response({"message": "Registration successful. Check your email for a welcome message."}, status=status.HTTP_201_CREATED)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
 class JobSeekerLoginView(generics.CreateAPIView):
     serializer_class = JobSeekerLoginSerializer
@@ -69,9 +83,9 @@ class JobSeekerLoginView(generics.CreateAPIView):
         return Response({"detail": "Successfully logged in."})
     
 class LogoutView(APIView):
-    def post(self, request):
+    def get(self, request):
         logout(request)
-        return Response({"detail": "Successfully logged out."})
+        return redirect('jobseeker-login')
     
     
 class JobSeekerDashboardView(generics.GenericAPIView):

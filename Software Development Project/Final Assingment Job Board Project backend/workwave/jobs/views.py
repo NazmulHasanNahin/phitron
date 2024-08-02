@@ -91,3 +91,16 @@ class JobViewSet(viewsets.ModelViewSet):
 class JobCategoryViewSet(viewsets.ModelViewSet):
     queryset = JobCategory.objects.all()
     serializer_class = JobCategorySerializer
+    
+    
+    
+class JobSearchView(APIView):
+
+    def get(self, request):
+        query = request.query_params.get('q', None)
+        if query:
+            jobs = Job.objects.filter(title__icontains=query)
+            serializer = JobSerializer(jobs, many=True)
+            return Response(serializer.data)
+        else:
+            return Response({"message": "Please provide a search query."})

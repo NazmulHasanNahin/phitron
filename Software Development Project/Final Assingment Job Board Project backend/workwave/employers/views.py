@@ -13,7 +13,8 @@ from django.http import HttpResponseRedirect
 from applications.serializers import *
 from jobs.serializers import *
 from django.shortcuts import render,redirect
-
+from django.core.mail import EmailMultiAlternatives
+from django.template.loader import render_to_string
 
 
 
@@ -63,7 +64,18 @@ class EmployerProfileViewSet(viewsets.ModelViewSet):
     
 class EmployerRegistrationView(generics.CreateAPIView):
     serializer_class = EmployerRegistrationSerializer
-    
+    def post(self, request):
+        serializer = EmployerRegistrationSerializer(data=request.data)
+        if serializer.is_valid():
+            user = serializer.save()
+            email_subject = "Welcome to WorkWave!"
+            email_body = render_to_string("welcome_email.html", {"user": user})
+            email = EmailMultiAlternatives(email_subject, "", to=[user.email])
+            email.attach_alternative(email_body, "text/html")
+            email.send()
+
+            return Response({"message": "Registration successful. Check your email for a welcome message."})
+        return Response(serializer.errors)
     
 class EmployerLoginView(generics.CreateAPIView):
     serializer_class = EmployerLoginSerializer
@@ -77,16 +89,9 @@ class EmployerLoginView(generics.CreateAPIView):
     
     
 class LogoutView(APIView):
-    permission_classes = [IsAuthenticated]
-
-    def post(self, request):
-        logout(request)
-        return HttpResponseRedirect('/employer-login/')
-
     def get(self, request):
-        # Optionally handle GET request for logout
         logout(request)
-        return HttpResponseRedirect('/employer-login/')
+        return redirect('employer-login')
     
     
 class EmployerDashboardView(generics.GenericAPIView):
