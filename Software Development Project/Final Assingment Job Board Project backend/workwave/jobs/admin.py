@@ -7,6 +7,7 @@ class JobAdmin(admin.ModelAdmin):
     search_fields = ('title', 'employer__username')
     list_filter = ('category',)
 
+
 @admin.register(JobCategory)
 class JobCategoryAdmin(admin.ModelAdmin):
     list_display = ('name',)

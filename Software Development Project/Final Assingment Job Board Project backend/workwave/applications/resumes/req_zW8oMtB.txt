@@ -1,0 +1,46 @@
+Job Board Project
+
+User Authentication: (20 Marks)
+Users can register for an account and log in.
+User roles: Employers and Job Seekers.
+
+Job Listings: (20 Marks)
+Employers can create job listings by providing details such as job title, description, requirements, and location.
+Job listings should display key information, such as the job title, company name, and date posted.
+
+
+Job Details: (10 Marks)
+Users can view detailed information about a job listing, including the job description, requirements, and application instructions.
+Job Seekers Can Apply to a job by uploading resume and providing other information
+
+User Dashboard: (20 Marks)
+Employers have a dashboard to manage their posted job listings, view applications, and update job details.
+Job seekers have a dashboard to track their applications.
+Job Categories: (10 Marks)
+Jobs can be categorized based on industries, making it easier for users to find relevant listings.
+
+Email Notifications: (10 Marks)
+Send email notifications to users when they successfully apply for a job or when an employer receives a new application.
+
+Deployment and Submission: (10 Marks)
+Deploy the functional website on a reliable hosting platform.
+
+CRUD Operations:
+Create:
+Employers can create new job listings by providing the necessary details.
+Job seekers can create profiles with relevant information.
+
+Read:
+Job listings can be viewed by all users, even those who are not logged in.
+Job seekers can view the details of a job listing before applying.
+
+Update:
+Employers can edit and update the details of their job listings.
+Job seekers can update their resumes.
+
+Delete:
+Employers can delete their job listings.
+Job seekers can withdraw their applications.
+
+
+u have to all the task and must need to use drf means django rest framework and i need to make a api for my site with this details and you have to use rest_framework in django and make all urls and also remeber that nothing be missed . all feature must be here and must need to use drf django rest framework now make it and first give me all app name which u want to make to make easy and dont use that thing that not use comonly and also make that kind of apis that i can easyliy use it on my frontend now make it and in app must take confirmation before start main task

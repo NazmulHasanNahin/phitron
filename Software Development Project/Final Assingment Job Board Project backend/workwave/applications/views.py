@@ -8,6 +8,7 @@ from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from .serializers import ApplicationSerializer
 
+
 class ApplicationListCreateView(APIView):
     def get(self, request):
         applications = Application.objects.all()
@@ -19,24 +20,32 @@ class ApplicationListCreateView(APIView):
         if serializer.is_valid():
             application = serializer.save()
 
-            # Send email notification to the job seeker
-            user = application.applicant  # Assuming 'applicant' is a ForeignKey to User in your Application model
-            email_subject = "Application Submitted Successfully"
-            email_body = render_to_string("application_success_email.html", {"user": user, "job": application.job})
-            email = EmailMultiAlternatives(email_subject, "", to=[user.email])
-            email.attach_alternative(email_body, "text/html")
-            email.send()
+            try:
+                # Send email notification to the employer
+                employer = application.job.employer
+                email_subject = "New Job Application Received"
+                email_body = render_to_string("new_application_email.html", {"employer": employer, "application": application})
+                email = EmailMultiAlternatives(email_subject, "", to=[employer.email])
+                email.attach_alternative(email_body, "text/html")
+                email.send()
+                
+                
+                # Send email notification to the job seeker
+                job_seeker = application.job_seeker
+                email_subject = "Application Submitted Successfully"
+                email_body = render_to_string("application_success_email.html", {"user": job_seeker, "job": application.job})
+                email = EmailMultiAlternatives(email_subject, "", to=[job_seeker.email])
+                email.attach_alternative(email_body, "text/html")
+                email.send()
 
-            # Send email notification to the employer
-            employer = application.job.employer  # Assuming your Job model has a ForeignKey to Employer
-            email_subject = "New Job Application Received"
-            email_body = render_to_string("emails/new_application_email.html", {"employer": employer, "application": application})
-            email = EmailMultiAlternatives(email_subject, "", to=[employer.user.email])  # Assuming 'user' is the ForeignKey to the Employer's User account
-            email.attach_alternative(email_body, "text/html")
-            email.send()
+                
+            except Exception as e:
+                print(f"Failed to send email: {e}")
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
 
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class ApplicationDetailView(APIView):
     def get_object(self, pk):

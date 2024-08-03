@@ -6,17 +6,22 @@ from django.contrib.auth import authenticate
 class JobSeekerProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = JobSeekerProfile
-        fields = ('id','user', 'resume', 'skills')
+        fields ="__all__"
 
 
 class JobSeekerRegistrationSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
+    address = serializers.CharField(required=True)
+    country = serializers.CharField(required=True)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'confirm_password')
+        fields = "__all__"
+
 
     def validate(self, data):
         if data['password'] != data['confirm_password']:
@@ -29,7 +34,13 @@ class JobSeekerRegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             password=validated_data['password']
         )
-        JobSeekerProfile.objects.create(user=user)
+        JobSeekerProfile.objects.create(
+            user=user,
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name'],
+            address=validated_data['address'],
+            country=validated_data['country']
+        )
         return user
     
     

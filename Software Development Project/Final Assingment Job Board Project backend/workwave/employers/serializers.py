@@ -8,17 +8,19 @@ class EmployerProfileSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = EmployerProfile
-        fields = ('id', 'user', 'company_name', 'company_description')
+        fields = "__all__"
 
 
 class EmployerRegistrationSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
     password = serializers.CharField(write_only=True, required=True)
     confirm_password = serializers.CharField(write_only=True, required=True)
+    first_name = serializers.CharField(required=True)
+    last_name = serializers.CharField(required=True)
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'password', 'confirm_password')
+        fields = ["username", "email", "password", "confirm_password", "first_name", "last_name"]
 
     def validate(self, data):
         if data['password'] != data['confirm_password']:
@@ -31,7 +33,11 @@ class EmployerRegistrationSerializer(serializers.ModelSerializer):
             email=validated_data['email'],
             password=validated_data['password']
         )
-        EmployerProfile.objects.create(user=user)
+        EmployerProfile.objects.create(
+            user=user,
+            first_name=validated_data['first_name'],
+            last_name=validated_data['last_name']
+        )
         return user
 
 

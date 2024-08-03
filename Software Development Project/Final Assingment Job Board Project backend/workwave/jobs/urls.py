@@ -10,4 +10,5 @@ router.register('categories', JobCategoryViewSet, basename='job-category'),
 urlpatterns = [
     path('', include(router.urls)),
     path('search/', JobSearchView.as_view(), name='job-search'), #http://127.0.0.1:8000/jobs/search/?q=developer
+    path('jobs/', JobCreateView.as_view(), name='create-job'),
 ]

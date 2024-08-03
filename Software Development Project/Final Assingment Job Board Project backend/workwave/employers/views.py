@@ -112,3 +112,14 @@ class EmployerDashboardView(generics.GenericAPIView):
             'jobs': jobs_data,
             'applications': applications_data
         })
+        
+        
+class EmployerApplicationsView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def get(self, request):
+        employer = request.user
+        jobs = Job.objects.filter(employer=employer)
+        applications = Application.objects.filter(job__in=jobs)
+        serializer = ApplicationSerializer(applications, many=True)
+        return Response(serializer.data)
