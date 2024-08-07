@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkWave</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#F1F0FE]">
+    <header class="bg-white">
+        <nav class="flex justify-between items-center mx-10">
+            <div class="nav-img">
+                <img class="w-16 lg:w-20" src="./image/Green Minimalist Job Search Logo.png" alt="Logo">
+            </div>
+
+            <div class="hidden lg:flex lg:flex-1 lg:justify-center">
+                <ul class="flex space-x-8">
+                    <li><a href="" class="hover:text-violet-600">Home</a></li>
+                    <li><a href="" class="hover:text-violet-600">Category</a></li>
+                    <li><a href="" class="hover:text-violet-600">Jobs</a></li>
+                    <li><a href="" class="hover:text-violet-600">Contact Us</a></li>
+                </ul>
+            </div>
+            <div class="hidden lg:flex space-x-4">
+                <ul class="flex space-x-4">
+                    <li><a href="" class="hover:text-violet-600">SignUp As an Employer</a></li>
+                    <li><a href="" class="hover:text-violet-600">SignUp As a Job Seeker</a></li>
+                </ul>
+            </div>
+
+            <!-- Mobile menu button -->
+            <div class="block lg:hidden">
+                <button id="menu-btn" class="text-black focus:outline-none mr-4">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="lg:hidden hidden">
+            <ul class="flex flex-col space-y-2 p-4 text-black">
+                <li><a href="" class="hover:text-violet-600">Home</a></li>
+                <li><a href="" class="hover:text-violet-600">Category</a></li>
+                <li><a href="" class="hover:text-violet-600">Jobs</a></li>
+                <li><a href="" class="hover:text-violet-600">Contact Us</a></li>
+                <li><a href="" class="hover:text-violet-600">SignUp As an Employer</a></li>
+                <li><a href="" class="hover:text-violet-600">SignUp As a Job Seeker</a></li>
+            </ul>
+        </div>
+    </header>
+    <main class="max-w-[1400px] mx-auto">
+        <section class="bg-[#F1F0FE] lg:flex lg:justify-around">
+            <div class="nav-down-text lg:mt-40">
+                <h2 class="text-sm font-medium text-gray-700">WE HAVE 150,000+ LIVE JOBS</h2>
+                <div class="mt-4">
+                    <h1 class="text-4xl font-semibold text-gray-700 mb-2">Find your dream jobs</h1>
+                    <div class="flex flex-wrap space-x-3">
+                        <p class="text-4xl font-semibold text-gray-700">with</p>
+                        <p class="text-4xl font-semibold text-[#6c63ff]">Jobcy</p>
+                    </div>
+                    <p class="text-sm font-medium text-gray-700 mt-5">Find jobs, create trackable resumes and enrich your <br> applications.Carefully crafted after
+                        analyzing the needs of <br>different industries.</p>
+                </div>
+
+            </div>
+
+            <div class="nav-down-img">
+                <img class="lg:w-11/12 lg:mt-32" src="./image/download-removebg-preview.jpg" alt="Download Image">
+            </div>
+        </section>
+    </main>
+
+
+    <script src="index.js"></script>
+</body>
+
+</html>
