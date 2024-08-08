@@ -1,11 +1,11 @@
 from django.contrib import admin
 from .models import Job, JobCategory
 
-@admin.register(Job)
 class JobAdmin(admin.ModelAdmin):
-    list_display = ('title', 'employer', 'date_posted', 'category')
+    list_display = ('title', 'employer', 'date_posted', 'experience', 'offer_salary')
     search_fields = ('title', 'employer__username')
-    list_filter = ('category',)
+
+admin.site.register(Job, JobAdmin)
 
 
 @admin.register(JobCategory)
