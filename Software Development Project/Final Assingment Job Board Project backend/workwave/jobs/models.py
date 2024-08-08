@@ -9,7 +9,6 @@ class Job(models.Model):
     employer = models.ForeignKey(User, related_name='jobs', on_delete=models.CASCADE)
     date_posted = models.DateField(auto_now_add=True)
     category = models.ForeignKey('JobCategory', on_delete=models.CASCADE)
-    company_image = models.ImageField(upload_to='companies/images/', null=True, blank=True)
     company_name = models.CharField(max_length=30)
     experience = models.CharField(max_length=255)
     employee_type = models.CharField(max_length=255)

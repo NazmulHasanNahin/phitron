@@ -1,6 +1,8 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import JobViewSet, JobCategoryViewSet, JobSearchView, JobCreateView, JobDetailView
+from django.conf import settings
+from django.conf.urls.static import static
 
 # Create a router and register our viewsets with it.
 router = DefaultRouter()
