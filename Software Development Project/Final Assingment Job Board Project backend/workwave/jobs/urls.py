@@ -1,6 +1,6 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
-from .views import JobViewSet, JobCategoryViewSet, JobSearchView, JobCreateView, JobDetailView
+from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
@@ -11,7 +11,9 @@ router.register('categories', JobCategoryViewSet, basename='job-category')
 
 urlpatterns = [
     path('', include(router.urls)),
-    path('search/', JobSearchView.as_view(), name='job-search'),  # Search jobs
-    path('jobs/create/', JobCreateView.as_view(), name='create-job'),  # Create a new job
-    path('jobs/<int:pk>', JobDetailView.as_view(), name='job-detail'),  # Job detail view
+    path('search/', JobSearchView.as_view(), name='job-search'),
+    path('jobs/create/', JobCreateView.as_view(), name='create-job'),
+    path('jobs/<int:pk>', JobDetailView.as_view(), name='job-detail'),
+    path('categories/', JobCategoryViewSet.as_view({'get': 'list'}), name='job-category-list'),
+    path('categories/<int:pk>/', JobCategoryDetailView.as_view(), name='job-category-detail'),  # Job category detail view
 ]
