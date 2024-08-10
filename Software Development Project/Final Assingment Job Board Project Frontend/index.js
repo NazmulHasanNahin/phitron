@@ -11,24 +11,20 @@ menuBtn.addEventListener('click', () => {
 const searchJobs = () => {
     const query = document.querySelector('input[type="text"]').value.trim();
     if (query) {
-        // Show loading spinner and hide any previous content
         loadingSpinner.classList.remove('hidden');
         loadingSpinner.classList.add('flex');
-        jobContainer.innerHTML = '';  // Clear previous results
+        jobContainer.innerHTML = '';
         noResults.classList.add('hidden');
 
         fetch(`http://127.0.0.1:7000/jobs/search/?q=${encodeURIComponent(query)}`)
             .then(res => res.json())
             .then((data) => {
-                // Hide loading spinner
                 loadingSpinner.classList.add('hidden');
                 loadingSpinner.classList.remove('flex');
 
-                // Display jobs or "No results" message
                 displayJobs(data);
             })
             .catch((err) => {
-                // Hide loading spinner and show error in console
                 loadingSpinner.classList.add('hidden');
                 loadingSpinner.classList.remove('flex');
                 console.log(err);
@@ -73,8 +69,7 @@ const displayJobs = (jobs) => {
             jobContainer.appendChild(div);
         });
     } else {
-        console.log("No results found, displaying the image.");
-        // Show "No results" image if no jobs found
+        console.log("No results found, displaying the image.");   //test
         noResults.classList.remove('hidden');
         noResults.classList.add('flex');
     }
