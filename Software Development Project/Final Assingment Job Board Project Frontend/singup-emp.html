@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-[#F1F0FE] h-screen flex items-center justify-center">
+    <div class="bg-white shadow-lg rounded-lg lg:flex max-w-4xl w-full">
+
+        <!-- Left Section with Image -->
+        <div class="w-1/2 p-8 lg:flex items-center justify-center bg-white mx-auto">
+            <h1 class="lg:hidden text-center text-2xl font-semibold">Work Wave</h1>
+            <img src="./image/singup.png" alt="Illustration" class="">
+        </div>
+
+        <!-- Right Section with Form -->
+        <div class="w-full md:w-1/2 p-8 bg-indigo-600">
+            <div class="text-center">
+                <h2 class="text-2xl font-bold text-white mb-4">Let's Get Started</h2>
+                <p class="mb-4 text-white text-xl">Sign Up as a Employer and get access to all the features of Work Wave
+                </p>
+            </div>
+
+            <form id="signup-form">
+                <!-- First Name -->
+                <div class="mb-4">
+                    <label for="first_name" class="block text-white">First Name</label>
+                    <input type="text" id="first_name" name="first_name"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your first name" required>
+                </div>
+
+                <!-- Last Name -->
+                <div class="mb-4">
+                    <label for="last_name" class="block text-white">Last Name</label>
+                    <input type="text" id="last_name" name="last_name"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your last name" required>
+                </div>
+
+                <!-- Username -->
+                <div class="mb-4">
+                    <label for="username" class="block text-white">Username</label>
+                    <input type="text" id="username" name="username"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your username" required>
+                </div>
+
+                <!-- Email -->
+                <div class="mb-4">
+                    <label for="email" class="block text-white">Email</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your email" required>
+                </div>
+
+                <!-- Password -->
+                <div class="mb-4">
+                    <label for="password" class="block text-white">Password</label>
+                    <input type="password" id="password" name="password"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Enter your password" required>
+                </div>
+
+                <!-- Confirm Password -->
+                <div class="mb-4">
+                    <label for="confirm_password" class="block text-white">Confirm Password</label>
+                    <input type="password" id="confirm_password" name="confirm_password"
+                        class="w-full px-4 py-2 mt-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                        placeholder="Confirm your password" required>
+                </div>
+
+                <!-- Terms and Conditions -->
+                <div class="flex items-center mb-4">
+                    <input type="checkbox" id="terms" name="terms" class="mr-2" required>
+                    <label for="terms" class="text-white">I agree to the <a href="#" class="text-white underline">Terms
+                            and conditions</a></label>
+                </div>
+
+                <!-- Sign Up Button -->
+                <button type="submit"
+                    class="w-full bg-white text-black font-bold py-2 rounded-md hover:bg-white transition">Sign
+                    Up</button>
+            </form>
+
+            <!-- Sign In Link -->
+            <p class="mt-4 text-center text-white">Already a member? <a href="#" class="text-white underline">Sign
+                    In</a></p>
+        </div>
+    </div>
+
+    <!-- JavaScript for handling form submission -->
+    <!-- JavaScript for handling form submission -->
+    <script>
+        document.getElementById('signup-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const csrfToken = getCookie('csrftoken');
+
+            const formData = {
+                first_name: document.getElementById('first_name').value,
+                last_name: document.getElementById('last_name').value,
+                username: document.getElementById('username').value,
+                email: document.getElementById('email').value,
+                password: document.getElementById('password').value,
+                confirm_password: document.getElementById('confirm_password').value
+            };
+
+            fetch('http://127.0.0.1:7000/employers/register/', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                },
+                body: JSON.stringify(formData)
+            })
+                .then(response => response.json().then(data => ({ status: response.status, body: data })))
+                .then(responseData => {
+                    if (responseData.status === 201) {
+                        // Successful registration
+                        console.log('Success:', responseData.body);
+
+                        // Display success message
+                        const successMessage = document.createElement('p');
+                        successMessage.textContent = responseData.body.message || 'Registration successful!';
+                        successMessage.className = 'text-green-600 text-center mt-4';
+                        document.getElementById('signup-form').appendChild(successMessage);
+
+                        // Optionally clear the form
+                        document.getElementById('signup-form').reset();
+                    } else {
+                        // Handle errors
+                        console.error('Error:', responseData.body);
+                        displayErrorMessages(responseData.body);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        });
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function displayErrorMessages(errors) {
+            // Remove previous error messages
+            const existingErrors = document.querySelectorAll('.error-message');
+            existingErrors.forEach(error => error.remove());
+
+            // Iterate over the errors and display them
+            for (const [field, messages] of Object.entries(errors)) {
+                const fieldElement = document.getElementById(field);
+                if (fieldElement) {
+                    messages.forEach(message => {
+                        const errorMessage = document.createElement('p');
+                        errorMessage.textContent = message;
+                        errorMessage.className = 'text-red-600 text-sm mt-1 error-message';
+                        fieldElement.insertAdjacentElement('afterend', errorMessage);
+                    });
+                }
+            }
+        }
+    </script>
+
+</body>
+
+</html>
