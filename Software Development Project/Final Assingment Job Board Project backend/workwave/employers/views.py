@@ -64,18 +64,25 @@ class EmployerProfileViewSet(viewsets.ModelViewSet):
     
 class EmployerRegistrationView(generics.CreateAPIView):
     serializer_class = EmployerRegistrationSerializer
+
     def post(self, request):
-        serializer = EmployerRegistrationSerializer(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         if serializer.is_valid():
             user = serializer.save()
+
             email_subject = "Welcome to WorkWave!"
             email_body = render_to_string("welcome_email.html", {"user": user})
             email = EmailMultiAlternatives(email_subject, "", to=[user.email])
             email.attach_alternative(email_body, "text/html")
             email.send()
 
-            return Response({"message": "Registration successful. Check your email for a welcome message."})
-        return Response(serializer.errors)
+            return Response(
+                {"message": "Registration successful. Check your email for a welcome message."},
+                status=status.HTTP_201_CREATED
+            )
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
     
 class EmployerLoginView(generics.CreateAPIView):
     serializer_class = EmployerLoginSerializer
