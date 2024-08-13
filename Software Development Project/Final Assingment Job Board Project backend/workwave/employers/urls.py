@@ -13,4 +13,6 @@ urlpatterns = [
     path('dashboard/', EmployerDashboardView.as_view(), name='employer-dashboard'),
     path('', include(router.urls)),
     path('applications/', EmployerApplicationsView.as_view(), name='employer-applications'),
+    path('profile/<int:pk>/', EmployerProfileDetailView.as_view(), name='employer-profile-detail'),
+    path('profile/<int:pk>/edit/', EmployerProfileUpdateView.as_view(), name='employer-profile-update'),
 ]

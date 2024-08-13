@@ -9,6 +9,7 @@ from django.http import Http404
 from django.contrib.auth import login,logout
 from applications.models import *
 from jobs.models import *
+from rest_framework.generics import RetrieveUpdateAPIView
 from django.http import HttpResponseRedirect
 from applications.serializers import *
 from jobs.serializers import *
@@ -60,7 +61,11 @@ class EmployerProfileDetailView(APIView):
 class EmployerProfileViewSet(viewsets.ModelViewSet):
     queryset = EmployerProfile.objects.all()
     serializer_class = EmployerProfileSerializer
-    
+
+class EmployerProfileUpdateView(RetrieveUpdateAPIView):
+    queryset = EmployerProfile.objects.all()
+    serializer_class = EmployerProfileSerializer
+    permission_classes = [IsAuthenticated]   
     
 class EmployerRegistrationView(generics.CreateAPIView):
     serializer_class = EmployerRegistrationSerializer

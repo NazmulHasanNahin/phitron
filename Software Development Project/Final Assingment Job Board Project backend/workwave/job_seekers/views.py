@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from .models import JobSeekerProfile
 from rest_framework.permissions import IsAuthenticated
 from .serializers import *
+from rest_framework.generics import RetrieveUpdateAPIView
 from django.contrib.auth import login,logout
 from django.contrib.auth import authenticate
 from applications.serializers import *
@@ -55,7 +56,11 @@ class JobSeekerProfileDetailView(APIView):
 class JobSeekerProfileViewSet(viewsets.ModelViewSet):
     queryset = JobSeekerProfile.objects.all()
     serializer_class = JobSeekerProfileSerializer
-    
+
+class JobSeekerProfileUpdateView(RetrieveUpdateAPIView):
+    queryset = JobSeekerProfile.objects.all()
+    serializer_class = JobSeekerProfileSerializer
+    permission_classes = [IsAuthenticated]    
     
 class JobSeekerRegistrationView(generics.CreateAPIView):
     serializer_class = JobSeekerRegistrationSerializer
