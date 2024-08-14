@@ -1,18 +1,18 @@
 const getJobIdFromUrl = () => {
-    const params = new URLSearchParams(window.location.search);
-    return params.get('id');
+  const params = new URLSearchParams(window.location.search);
+  return params.get('id');
 };
 
 const loadJobDetails = (jobId) => {
-    fetch(`http://127.0.0.1:7000/jobs/jobs/${jobId}/`)
-        .then(res => res.json())
-        .then((data) => displayJobDetails(data))
-        .catch((err) => console.log(err));
+  fetch(`http://127.0.0.1:7000/jobs/jobs/${jobId}/`)
+    .then(res => res.json())
+    .then((data) => displayJobDetails(data))
+    .catch((err) => console.log(err));
 };
 
 const displayJobDetails = (job) => {
-    const parent = document.getElementById("job-details-container");
-    parent.innerHTML = `
+  const parent = document.getElementById("job-details-container");
+  parent.innerHTML = `
             <div class="max-w-4xl mx-auto p-4 bg-white shadow-lg rounded-lg">
                 <div class="md:flex">
                   <div class="md:w-2/3">
@@ -126,12 +126,8 @@ const displayJobDetails = (job) => {
                       </div>
                     </div>
                   </div>
-                  <div class="md:w-1/3 flex items-center justify-center mt-4 md:mt-0">
-                    <button id="openModal" class="px-4 py-2 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75">
-                        Apply Now
-                    </button>
-                  </div>
-                  </div>
+                  
+                </div>
                 </div>
                 <div class="max-w-4xl mx-auto p-4 bg-white shadow-lg rounded-lg mt-2">
                     <p class="text-lg font-semibold text-gray-800">Responsibilities</p>
@@ -143,9 +139,10 @@ const displayJobDetails = (job) => {
                 </div>
             
     `;
+
 };
 
 const jobId = getJobIdFromUrl();
 if (jobId) {
-    loadJobDetails(jobId);
+  loadJobDetails(jobId);
 }

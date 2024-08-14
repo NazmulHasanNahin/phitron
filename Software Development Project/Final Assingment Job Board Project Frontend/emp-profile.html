@@ -26,11 +26,20 @@
                     <li><a href="#" class="hover:text-violet-600">Contact Us</a></li>
                 </ul>
             </div>
-            <div class="hidden lg:flex space-x-4">
-                <ul class="flex space-x-4">
-                    <li><a href="#" class="hover:text-violet-600">Join As an Employer</a></li>
-                    <li><a href="#" class="hover:text-violet-600">Join As a Job Seeker</a></li>
-                </ul>
+
+            <!-- Right-side user profile -->
+            <div class="hidden lg:flex items-center space-x-4">
+                <div class="relative">
+                    <img src="./image/default.png" class="w-8 h-8 rounded-full cursor-pointer border-2 border-black" id="userMenuButton"
+                        alt="Profile Picture">
+                    <ul id="userMenu" class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
+                        <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Manage Jobs</a></li>
+                        <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Bookmark Jobs</a></li>
+                        <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">My Profile</a></li>
+                        <li><a href="#" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</a></li>
+                    </ul>
+                </div>
+                
             </div>
 
             <!-- Mobile menu button -->
@@ -54,9 +63,14 @@
                 <li><a href="#" class="hover:text-violet-600">Jobs</a></li>
                 <li><a href="#" class="hover:text-violet-600">Join As an Employer</a></li>
                 <li><a href="#" class="hover:text-violet-600">Join As a Job Seeker</a></li>
+                <li><a href="#" class="hover:text-violet-600">Manage Jobs</a></li>
+                <li><a href="#" class="hover:text-violet-600">Bookmark Jobs</a></li>
+                <li><a href="#" class="hover:text-violet-600">My Profile</a></li>
+                <li><a href="#" class="hover:text-violet-600">Logout</a></li>
             </ul>
         </div>
     </header>
+
     <section class="bg-indigo-600 ">
         <h1 class="py-16 text-center text-4xl font-semibold text-white">My Profile</h1>
         <p class="pb-6 text-center text-sm font-semibold text-white">HOME >

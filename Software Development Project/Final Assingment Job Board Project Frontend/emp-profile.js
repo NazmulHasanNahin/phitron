@@ -27,3 +27,17 @@ settingsTab.addEventListener('click', (e) => {
     settingsTab.classList.add('text-indigo-600', 'border-indigo-600');
     overviewTab.classList.remove('text-indigo-600', 'border-indigo-600');
 });
+
+
+
+
+
+document.getElementById("menu-btn").addEventListener("click", function() {
+    var mobileMenu = document.getElementById("mobile-menu");
+    mobileMenu.classList.toggle("hidden");
+});
+
+document.getElementById("userMenuButton").addEventListener("click", function() {
+    var userMenu = document.getElementById("userMenu");
+    userMenu.classList.toggle("hidden");
+});
