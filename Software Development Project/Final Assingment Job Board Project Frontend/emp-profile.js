@@ -1,43 +1,45 @@
-// Toggle Mobile Menu
-const menuBtn = document.getElementById('menu-btn');
-const mobileMenu = document.getElementById('mobile-menu');
+document.addEventListener('DOMContentLoaded', function() {
+    const profileUrl = 'http://127.0.0.1:7000/employers/profile/';
+    const editProfileUrl = 'http://127.0.0.1:7000/employers/profile/edit/';
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+    // Fetch and display user profile
+    fetch(profileUrl, {
+        headers: {
+            'Authorization': `Bearer ${localStorage.getItem('authToken')}` // Adjust based on your auth method
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        // Populate the fields with the API data
+        document.querySelector("input[name='first_name']").value = data.first_name || '';
+        document.querySelector("input[name='last_name']").value = data.last_name || '';
+        document.querySelector("input[name='email']").value = data.email || '';
+        document.querySelector("input[name='phone']").value = data.phone || '';
+        document.querySelector("input[name='address']").value = data.address || '';
+        // Update other fields similarly
+    })
+    .catch(error => console.error('Error fetching profile data:', error));
 
-// Tab Switching Logic
-const overviewTab = document.getElementById('overview-tab');
-const settingsTab = document.getElementById('settings-tab');
-const overviewContent = document.getElementById('overview-content');
-const settingsContent = document.getElementById('settings-content');
+    // Handle profile update
+    document.querySelector('form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-overviewTab.addEventListener('click', (e) => {
-    e.preventDefault();
-    overviewContent.classList.remove('hidden');
-    settingsContent.classList.add('hidden');
-    overviewTab.classList.add('text-indigo-600', 'border-indigo-600');
-    settingsTab.classList.remove('text-indigo-600', 'border-indigo-600');
-});
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
 
-settingsTab.addEventListener('click', (e) => {
-    e.preventDefault();
-    settingsContent.classList.remove('hidden');
-    overviewContent.classList.add('hidden');
-    settingsTab.classList.add('text-indigo-600', 'border-indigo-600');
-    overviewTab.classList.remove('text-indigo-600', 'border-indigo-600');
-});
-
-
-
-
-
-document.getElementById("menu-btn").addEventListener("click", function() {
-    var mobileMenu = document.getElementById("mobile-menu");
-    mobileMenu.classList.toggle("hidden");
-});
-
-document.getElementById("userMenuButton").addEventListener("click", function() {
-    var userMenu = document.getElementById("userMenu");
-    userMenu.classList.toggle("hidden");
+        fetch(editProfileUrl, {
+            method: 'PATCH',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('authToken')}`, // Adjust based on your auth method
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(updatedData => {
+            // Handle the response after successful update
+            console.log('Profile updated:', updatedData);
+        })
+        .catch(error => console.error('Error updating profile:', error));
+    });
 });
