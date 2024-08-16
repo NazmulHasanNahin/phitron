@@ -2,8 +2,7 @@ from rest_framework import status, viewsets, generics
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
-from django.contrib.auth import login, logout, authenticate
-from django.shortcuts import redirect
+from django.contrib.auth import authenticate, logout as django_logout
 from django.core.mail import EmailMultiAlternatives
 from django.template.loader import render_to_string
 from rest_framework.generics import RetrieveUpdateAPIView
@@ -13,8 +12,9 @@ from applications.models import Application
 from applications.serializers import ApplicationSerializer
 from jobs.models import Job
 from jobs.serializers import JobSerializer
+from dj_rest_auth.views import LoginView as RestAuthLoginView, LogoutView as RestAuthLogoutView
 
-
+# Profile Views
 class EmployerProfileListCreateView(APIView):
     def get(self, request):
         profiles = EmployerProfile.objects.all()
@@ -75,6 +75,7 @@ class EmployerProfileUpdateView(RetrieveUpdateAPIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+# Registration and Authentication
 class EmployerRegistrationView(generics.CreateAPIView):
     serializer_class = EmployerRegistrationSerializer
 
@@ -97,37 +98,29 @@ class EmployerRegistrationView(generics.CreateAPIView):
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class EmployerLoginView(generics.CreateAPIView):
+# Using dj-rest-auth's LoginView for authentication
+class EmployerLoginView(RestAuthLoginView):
     serializer_class = EmployerLoginSerializer
 
     def post(self, request, *args, **kwargs):
-        serializer = self.get_serializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = authenticate(username=serializer.validated_data['username'], password=serializer.validated_data['password'])
-
-        if user:
-            login(request, user)
-            request.session['user_id'] = user.id
-            request.session['username'] = user.username
-            request.session['email'] = user.email
-            return Response({"detail": "Successfully logged in."})
-        else:
-            return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
+        response = super().post(request, *args, **kwargs)
+        return Response({"detail": "Successfully logged in."})
 
 
-class LogoutView(APIView):
-    def get(self, request):
-        logout(request)
-        request.session.flush()
-        return redirect('employer-login')
+# Using dj-rest-auth's LogoutView for logout
+class LogoutView(RestAuthLogoutView):
+    def post(self, request, *args, **kwargs):
+        django_logout(request)
+        return Response({"detail": "Successfully logged out."})
 
 
+# Dashboard and Applications Views
 class EmployerDashboardView(generics.GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request, *args, **kwargs):
         user = request.user
-        if not user.is_authenticated or not hasattr(user, 'employerprofile'):
+        if not hasattr(user, 'employerprofile'):
             return Response({'detail': 'Not authorized'}, status=status.HTTP_403_FORBIDDEN)
 
         jobs = Job.objects.filter(employer=user)
@@ -146,8 +139,8 @@ class EmployerApplicationsView(APIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        employer = request.user
-        jobs = Job.objects.filter(employer=employer)
+        employer_id = request.user.id
+        jobs = Job.objects.filter(employer_id=employer_id)
         applications = Application.objects.filter(job__in=jobs)
         serializer = ApplicationSerializer(applications, many=True)
         return Response(serializer.data)
