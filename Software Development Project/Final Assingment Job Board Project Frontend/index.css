@@ -4,19 +4,3 @@
 
 
 
-/* Add this CSS for dropdown menu */
-#userMenuButton:hover + #userMenu,
-#userMenu:hover {
-    display: block;
-}
-
-#userMenu {
-    display: none;
-}
-
-@media (max-width: 1024px) {
-    #mobile-menu ul {
-        border-top: 1px solid #e2e8f0;
-        padding-top: 10px;
-    }
-}
