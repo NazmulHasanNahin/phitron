@@ -101,30 +101,30 @@ class EmployerRegistrationView(generics.CreateAPIView):
 
 # Using dj-rest-auth's LoginView for authentication
 
-from django.contrib.sessions.models import Session
-from dj_rest_auth.views import LoginView as RestAuthLoginView
+# from django.contrib.sessions.models import Session
+# from dj_rest_auth.views import LoginView as RestAuthLoginView
 
-class EmployerLoginView(RestAuthLoginView):
-    serializer_class = EmployerLoginSerializer
+# class EmployerLoginView(RestAuthLoginView):
+#     serializer_class = EmployerLoginSerializer
 
-    def post(self, request, *args, **kwargs):
-        # Call the parent class's post method
-        response = super().post(request, *args, **kwargs)
+#     def post(self, request, *args, **kwargs):
+#         # Call the parent class's post method
+#         response = super().post(request, *args, **kwargs)
 
-        # Ensure the session is saved and retrieve the session ID
-        session_id = request.session.session_key
-        if not session_id:
-            request.session.save()  # This creates the session if it doesn't exist
-            session_id = request.session.session_key
+#         # Ensure the session is saved and retrieve the session ID
+#         session_id = request.session.session_key
+#         if not session_id:
+#             request.session.save()  # This creates the session if it doesn't exist
+#             session_id = request.session.session_key
 
-        # Alternatively, retrieve the session data from the Session model
-        session = Session.objects.get(session_key=session_id)
-        session_data = session.get_decoded()
+#         # Alternatively, retrieve the session data from the Session model
+#         session = Session.objects.get(session_key=session_id)
+#         session_data = session.get_decoded()
 
-        # Add session ID to the response data
-        response.data['session_id'] = session_id
+#         # Add session ID to the response data
+#         response.data['session_id'] = session_id
 
-        return Response(response.data)
+#         return Response(response.data)
 
 
 
