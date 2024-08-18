@@ -76,10 +76,11 @@ ACCOUNT_USERNAME_REQUIRED = False
 
 
 REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': [
+    'DEFAULT_AUTHENTICATION_CLASSES':(
         'rest_framework.authentication.TokenAuthentication',
-        # Other authentication classes if needed
-    ],
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+
 }
 
 ROOT_URLCONF = 'workwave.urls'

@@ -31,7 +31,6 @@ class EmployerProfileListCreateView(APIView):
 
 
 class EmployerProfileDetailView(APIView):
-    permission_classes = [IsAuthenticated]
 
     def get_object(self):
         return EmployerProfile.objects.get(user=self.request.user)
