@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Job</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<header class="bg-white">
+    <nav class="flex justify-between items-center mx-10">
+        <div class="nav-img">
+            <img class="w-16 lg:w-20" src="./image/blck-logo.png" alt="Logo">
+        </div>
+
+        <div class="hidden lg:flex lg:flex-1 lg:justify-center">
+            <ul class="flex space-x-8">
+                <li><a href="index.html" class="hover:text-violet-600">Home</a></li>
+                <li><a href="job-cat.html" class="hover:text-violet-600">Category</a></li>
+                <li><a href="all-jobs.html" class="hover:text-violet-600">Jobs</a></li>
+                <li><a href="#" class="hover:text-violet-600">Contact Us</a></li>
+            </ul>
+        </div>
+
+        <!-- Right-side user profile -->
+        <div class="hidden lg:flex items-center space-x-4">
+            <span id="username-display" class="text-gray-800"></span> <!-- Username will be shown here -->
+            <div class="relative">
+                <img src="./image/default.png" class="w-8 h-8 rounded-full cursor-pointer border-2 border-black"
+                    id="userMenuButton" alt="Profile Picture">
+                <ul id="userMenu" class="hidden absolute right-0 mt-2 w-48 bg-white border rounded-md shadow-lg">
+                    <li><a href="emp-dashboard.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Manage
+                            Jobs</a></li>
+                    <li><a href="create-job.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Create Job</a>
+                    </li>
+                    <li><a href="emp-profile.html" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">My
+                            Profile</a></li>
+                    <li><a href="#logout" class="block px-4 py-2 text-gray-800 hover:bg-gray-200">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <!-- Mobile menu button -->
+        <div class="block lg:hidden">
+            <button id="menu-btn" class="text-black focus:outline-none mr-4">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="lg:hidden hidden">
+        <ul class="flex flex-col space-y-2 p-4 text-black">
+            <li><a href="index.html" class="hover:text-violet-600">Home</a></li>
+            <li><a href="#" class="hover:text-violet-600">Category</a></li>
+            <li><a href="#" class="hover:text-violet-600">Jobs</a></li>
+            <li><a href="signup-emp.html" class="hover:text-violet-600">Join As an Employer</a></li>
+            <li><a href="#" class="hover:text-violet-600">Join As a Job Seeker</a></li>
+            <li><a href="#" class="hover:text-violet-600">Manage Jobs</a></li>
+            <li><a href="create-job.html" class="hover:text-violet-600">Create Job</a></li>
+            <li><a href="#" class="hover:text-violet-600" id="profile-link">My Profile</a></li>
+            <li><a href="#" class="hover:text-violet-600" id="logout-link">Logout</a></li>
+            <li>Username: <span id="mobile-username" class="text-gray-800 font-bold"></span></li>
+        </ul>
+    </div>
+
+</header>
+
+<body class="bg-gray-100">
+
+    <div class="max-w-3xl mx-auto mt-10 bg-white p-8 rounded-lg shadow-lg">
+        <h1 class="text-2xl font-bold text-indigo-600 mb-6 text-center">Create a New Job</h1>
+        <form id="jobForm">
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700">Job Title</label>
+                <input type="text" id="title" name="title" class="mt-1 p-2 w-full border border-gray-300 rounded"
+                    required>
+            </div>
+
+            <div class="mb-4">
+                <label for="description" class="block text-gray-700">Description</label>
+                <textarea id="description" name="description" rows="4"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="category" class="block text-gray-700">Category</label>
+                <select id="category" name="category" class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+
+            <div class="mb-4">
+                <label for="location" class="block text-gray-700">Location</label>
+                <input type="text" id="location" name="location" class="mt-1 p-2 w-full border border-gray-300 rounded"
+                    required>
+            </div>
+
+            <div class="mb-4">
+                <label for="experience" class="block text-gray-700">Experience</label>
+                <input type="text" id="experience" name="experience"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="employee_type" class="block text-gray-700">Employee Type</label>
+                <input type="text" id="employee_type" name="employee_type"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="position" class="block text-gray-700">Position</label>
+                <input type="text" id="position" name="position" class="mt-1 p-2 w-full border border-gray-300 rounded"
+                    required>
+            </div>
+
+            <div class="mb-4">
+                <label for="offer_salary" class="block text-gray-700">Offer Salary</label>
+                <input type="number" id="offer_salary" name="offer_salary"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required>
+            </div>
+
+            <div class="mb-4">
+                <label for="responsibilities" class="block text-gray-700">Responsibilities</label>
+                <textarea id="responsibilities" name="responsibilities" rows="4"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="qualifications" class="block text-gray-700">Qualifications</label>
+                <textarea id="qualifications" name="qualifications" rows="4"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required></textarea>
+            </div>
+
+            <div class="mb-4">
+                <label for="skills_experience" class="block text-gray-700">Skills & Experience</label>
+                <textarea id="skills_experience" name="skills_experience" rows="4"
+                    class="mt-1 p-2 w-full border border-gray-300 rounded" required></textarea>
+            </div>
+
+            <button type="submit" class="bg-indigo-600 text-white p-2 rounded w-full">Create Job</button>
+        </form>
+
+        <div id="message" class="mt-4"></div>
+    </div>
+
+    <script src="create-job.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve the username from localStorage or wherever it's stored
+            const authToken = localStorage.getItem("authToken");
+            const usernameDisplay = document.getElementById("username-display");
+            const mobileUsername = document.getElementById("mobile-username");
+
+            if (authToken) {
+                // Fetch the profile data using the auth token
+                fetch("http://127.0.0.1:7000/employers/profile/", {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": `Token ${authToken}`
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.user) {
+                            usernameDisplay.textContent = data.user; // Display the username on desktop
+                            mobileUsername.textContent = data.user; // Display username in mobile menu
+                        }
+                    })
+                    .catch(error => console.error('Error fetching profile data:', error));
+            } else {
+                usernameDisplay.textContent = "Guest"; // Display "Guest" on desktop
+                mobileUsername.textContent = "Guest"; // Display "Guest" in mobile menu
+            }
+
+            // Desktop Dropdown Menu Toggle
+            const userMenuButton = document.getElementById("userMenuButton");
+            const userMenu = document.getElementById("userMenu");
+
+            userMenuButton.addEventListener("click", () => {
+                userMenu.classList.toggle("hidden");
+            });
+
+            // Close the dropdown if clicked outside
+            document.addEventListener("click", (event) => {
+                if (!userMenuButton.contains(event.target) && !userMenu.contains(event.target)) {
+                    userMenu.classList.add("hidden");
+                }
+            });
+
+            // Logout Functionality
+            const logoutButton = userMenu.querySelector('a[href="#logout"]');
+            logoutButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                // Clear the authentication token and redirect to login page
+                localStorage.removeItem("authToken");
+                window.location.href = "signin-emp.html"; // Redirect to your login page
+            });
+
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Mobile Logout Functionality
+            const mobileLogoutButton = document.getElementById("mobile-logout");
+            mobileLogoutButton.addEventListener("click", (event) => {
+                event.preventDefault();
+                // Clear the authentication token and redirect to login page
+                localStorage.removeItem("authToken");
+                window.location.href = "signin-emp.html"; // Redirect to your login page
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
