@@ -75,9 +75,16 @@ class JobCategoryDetailView(APIView):
         return Response(result)
 
 
+from rest_framework import viewsets
+from rest_framework.permissions import IsAuthenticated
+
 class JobViewSet(viewsets.ModelViewSet):
     queryset = Job.objects.all()
     serializer_class = JobSerializer
+    permission_classes = [IsAuthenticated]
+
+    def perform_create(self, serializer):
+        serializer.save(employer=self.request.user)
 
 class JobCategoryViewSet(viewsets.ModelViewSet):
     queryset = JobCategory.objects.all()
@@ -94,4 +101,4 @@ class JobSearchView(APIView):
             serializer = JobSerializer(jobs, many=True)
             return Response(serializer.data)
         else:
-            return Response({"message": "Please provide a search query."})
+            return Response({"message": "Please provide a search query."})  
