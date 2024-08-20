@@ -4,9 +4,9 @@ const loadingSpinner = document.getElementById('loading-spinner');
 const noResults = document.getElementById('no-results');
 const jobContainer = document.getElementById("job-container");
 
-menuBtn.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden');
-});
+// menuBtn.addEventListener('click', () => {
+//     mobileMenu.classList.toggle('hidden');
+// });
 
 const searchJobs = () => {
     const query = document.querySelector('input[type="text"]').value.trim();

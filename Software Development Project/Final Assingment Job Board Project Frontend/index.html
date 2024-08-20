@@ -13,7 +13,7 @@
 </head>
 
 <body>
-    <header class="bg-white">
+    <!-- <header class="bg-white">
         <nav class="flex justify-between items-center mx-10">
             <div class="nav-img">
                 <img class="w-16 lg:w-20" src="./image/blck-logo.png" alt="Logo">
@@ -35,7 +35,6 @@
                 </ul>
             </div>
 
-            <!-- Mobile menu button -->
             <div class="block lg:hidden">
                 <button id="menu-btn" class="text-black focus:outline-none mr-4">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
@@ -47,7 +46,6 @@
             </div>
         </nav>
 
-        <!-- Mobile menu -->
         <div id="mobile-menu" class="lg:hidden hidden">
             <ul class="flex flex-col space-y-2 p-4 text-black">
                 <li><a href="" class="hover:text-violet-600 ">Home</a></li>
@@ -57,7 +55,10 @@
                 <li><a href="" class="hover:text-violet-600">Join As a Job Seeker</a></li>
             </ul>
         </div>
-    </header>
+    </header> -->
+
+    <div id="navbar-container"></div>
+
     <main class=" mx-auto">
         <section class="bg-[#F1F0FE] p-3 lg:flex lg:justify-around">
             <div class="nav-down-text lg:mt-32">
@@ -785,7 +786,16 @@
 
     </main>
 
-
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            fetch('navbar.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('navbar-container').innerHTML = data;
+                });
+        });
+    </script>
+    <script src="navbar.js"></script>
     <script src="index.js"></script>
 </body>
 
