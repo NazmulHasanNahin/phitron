@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 event.preventDefault();
                 // Clear the authentication token and redirect to login page
                 localStorage.removeItem("authToken");
-                window.location.href = "signin-emp.html"; // Redirect to your login page
+                window.location.href = "signout.html"; // Redirect to your login page
             });
         }
 
