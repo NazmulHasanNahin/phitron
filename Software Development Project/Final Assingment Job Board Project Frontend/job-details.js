@@ -16,7 +16,7 @@ const getJobIdFromUrl = () => {
               <div class="max-w-4xl mx-auto p-4 bg-white shadow-lg rounded-lg">
                   <div class="md:flex">
                     <div class="md:w-2/3">
-                      <img src="./image/job-img.jpg" alt="Job Image" class="w-full h-auto rounded-md">
+                      <img src="./employer/image/job-img.jpg" alt="Job Image" class="w-full h-auto rounded-md">
                     </div>
                     
                     <div class="md:w-1/3 md:ml-4">
