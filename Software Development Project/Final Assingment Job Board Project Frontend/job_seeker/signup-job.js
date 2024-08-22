@@ -1,4 +1,3 @@
-
 document.getElementById('signup-form').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -13,7 +12,7 @@ document.getElementById('signup-form').addEventListener('submit', function (even
         confirm_password: document.getElementById('confirm_password').value
     };
 
-    fetch('http://127.0.0.1:7000/employers/auth/registration/', {
+    fetch('http://127.0.0.1:7000/job_seekers/auth/registration/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -35,6 +34,12 @@ document.getElementById('signup-form').addEventListener('submit', function (even
 
                 // Optionally clear the form
                 document.getElementById('signup-form').reset();
+
+                // Redirect to login page after 2 seconds
+                setTimeout(() => {
+                    window.location.href = './signin-job.html';
+                }, 2000);
+
             } else {
                 // Handle errors
                 console.error('Error:', responseData.body);
