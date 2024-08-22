@@ -4,6 +4,7 @@ from .models import JobSeekerProfile
 from django.contrib.auth import authenticate
 
 class JobSeekerProfileSerializer(serializers.ModelSerializer):
+    user = serializers.StringRelatedField(many=False)
     class Meta:
         model = JobSeekerProfile
         fields = "__all__"
