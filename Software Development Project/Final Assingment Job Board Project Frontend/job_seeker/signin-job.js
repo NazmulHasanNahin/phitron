@@ -23,7 +23,7 @@ const handleLogin = (event) => {
             console.log("API Response:", data);  // Log the response
             if (data.key) {
                 localStorage.setItem("authToken", data.key);
-                window.location.href = "/index.html";  // Redirect to the dashboard
+                window.location.href = "/job_seeker/index.html";  // Redirect to the dashboard
             } else {
                 console.log("Token not found in response");
             }

@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const updateUrl = 'http://127.0.0.1:7000/job_seekers/profile/edit/';
     const profileElements = {
         fullName: document.getElementById('fullName'),
+        username: document.getElementById('username'),  // Add username element
         about: document.getElementById('about'),
         resumeDownload: document.getElementById('resumeDownload'),
         education: document.getElementById('education'),
@@ -71,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
             }
             const data = await response.json();
             profileElements.fullName.textContent = `${data.first_name} ${data.last_name}`;
+            profileElements.username.textContent = data.user || 'No username available';  // Set username
             profileElements.about.textContent = data.about || 'No information available';
             profileElements.resumeDownload.href = data.resume || '#';
             profileElements.resumeDownload.textContent = data.resume ? 'Download Resume' : 'No Resume Available';
