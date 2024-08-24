@@ -1,15 +1,19 @@
 from rest_framework import serializers
 from .models import Application
 
-class ApplicationSerializer(serializers.ModelSerializer):
-    job_seeker_name = serializers.SerializerMethodField()
+class ApplicationSerializer(serializers.ModelSerializer):   
+    job_seeker = serializers.StringRelatedField(many=False)
 
     class Meta:
         model = Application
-        fields = ['id', 'job', 'job_seeker', 'job_seeker_name', 'resume', 'cover_letter']
+        fields = ['id', 'job', 'job_seeker', 'resume', 'cover_letter']
+    
+    def create(self, validated_data):
+        request = self.context.get('request')
+        if not request:
+            raise ValueError("Request context is missing")
+        user = request.user
+        validated_data['job_seeker'] = user
+        return super().create(validated_data)
 
-    def get_job_seeker_name(self, obj):
-        full_name = obj.job_seeker.get_full_name()
-        if full_name.strip():
-            return full_name
-        return obj.job_seeker.username
+
