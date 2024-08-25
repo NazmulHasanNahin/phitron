@@ -13,111 +13,11 @@ from rest_framework import status
 from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.views import APIView
 from django.core.mail import send_mail
+from rest_framework import generics
+from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
 import logging
-
-# class ApplicationListCreateView(APIView):
-#     parser_classes = (MultiPartParser, FormParser)  # Add this to handle form data
-
-#     def get(self, request):
-#         applications = Application.objects.all()
-#         serializer = ApplicationSerializer(applications, many=True)
-#         return Response(serializer.data)
-
-#     def post(self, request):
-#         if not request.user.is_authenticated:
-#             return Response({"detail": "Authentication credentials were not provided."}, status=status.HTTP_401_UNAUTHORIZED)
-
-#         data = request.data.copy()
-#         data['job_seeker'] = request.user.id
-
-#         serializer = ApplicationSerializer(data=data)
-#         if serializer.is_valid():
-#             application = serializer.save()
-
-#             try:
-#                 # Send email notification to the employer
-#                 employer = application.job.employer
-#                 email_subject = "New Job Application Received"
-#                 email_body = render_to_string("new_application_email.html", {"employer": employer, "application": application})
-#                 email = EmailMultiAlternatives(email_subject, "", to=[employer.email])
-#                 email.attach_alternative(email_body, "text/html")
-#                 email.send()
-                
-#                 # Send email notification to the job seeker
-#                 job_seeker = application.job_seeker
-#                 email_subject = "Application Submitted Successfully"
-#                 email_body = render_to_string("application_success_email.html", {"user": job_seeker, "job": application.job})
-#                 email = EmailMultiAlternatives(email_subject, "", to=[job_seeker.email])
-#                 email.attach_alternative(email_body, "text/html")
-#                 email.send()
-                
-#             except Exception as e:
-#                 print(f"Failed to send email: {e}")
-#                 return Response({"detail": "Application created but failed to send email notifications."}, status=status.HTTP_201_CREATED)
-
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-
-
-
-# class ApplicationListCreateView(APIView):
-#     parser_classes = (MultiPartParser, FormParser)
-
-#     def post(self, request, *args, **kwargs):
-#         serializer = ApplicationSerializer(data=request.data, context={'request': request})
-#         if serializer.is_valid():
-#             serializer.save(job_seeker=request.user)
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-# from rest_framework.response import Response
-# from rest_framework import status
-# from rest_framework.parsers import MultiPartParser, FormParser
-# from rest_framework.views import APIView
-# from django.core.mail import send_mail
-# from django.conf import settings
-# import logging
-
-# from .serializers import ApplicationSerializer
-
-# logger = logging.getLogger(__name__)
-
-# class ApplicationListCreateView(APIView):
-#     parser_classes = (MultiPartParser, FormParser)
-
-#     def post(self, request, *args, **kwargs):
-#         serializer = ApplicationSerializer(data=request.data, context={'request': request})
-#         if serializer.is_valid():
-#             # Ensure the request user is properly set
-#             application = serializer.save(job_seeker=request.user)
-#             logger.debug(f"Application created: {application.id}")
-
-#             # Send email notification
-#             self.send_email_notifications(application)
-
-#             return Response(serializer.data, status=status.HTTP_201_CREATED)
-#         else:
-#             logger.error(f"Application serializer errors: {serializer.errors}")
-#             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-#     def send_email_notifications(self, application):
-#         job = application.job
-#         job_seeker = application.job_seeker
-#         employer_email = job.employer.email
-
-#         subject = f"New Job Application from {job_seeker.username}"
-#         message = f"Dear Employer,\n\n{job_seeker.username} has applied for the job '{job.title}' with the cover letter: {application.cover_letter}.\n\nBest regards,\nJob Board Team"
-#         from_email = settings.DEFAULT_FROM_EMAIL
-#         recipient_list = [employer_email, job_seeker.email]  # Assuming job seeker has an email field
-
-#         try:
-#             send_mail(subject, message, from_email, recipient_list)
-#             logger.debug(f"Email sent to: {recipient_list}")
-#         except Exception as e:
-#             logger.error(f"Failed to send email: {e}")
-
+from rest_framework import generics, permissions
 
 
 class ApplicationListCreateView(APIView):
@@ -175,8 +75,39 @@ class ApplicationDetailView(APIView):
         application.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    
+
+class ApplicationUpdateView(generics.UpdateAPIView):
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def update(self, request, *args, **kwargs):
+        application = self.get_object()
+
+        # Ensure the logged-in user is the owner of the application
+        if application.job_seeker != request.user:
+            return Response({"error": "You are not authorized to edit this application."},
+                            status=status.HTTP_403_FORBIDDEN)
+
+        return super().update(request, *args, **kwargs)
     
 class ApplicationViewSet(viewsets.ModelViewSet):
     queryset = Application.objects.all()
     serializer_class = ApplicationSerializer
+    
+    
+class ApplicationDeleteView(generics.DestroyAPIView):
+    queryset = Application.objects.all()
+    serializer_class = ApplicationSerializer
+    permission_classes = [permissions.IsAuthenticated]
+
+    def delete(self, request, *args, **kwargs):
+        application = self.get_object()
+
+        # Ensure the logged-in user is the owner of the application
+        if application.job_seeker != request.user:
+            return Response({"error": "You are not authorized to delete this application."},
+                            status=status.HTTP_403_FORBIDDEN)
+
+        application.delete()
+        return Response({"message": "Application deleted successfully."}, status=status.HTTP_204_NO_CONTENT)
