@@ -34,8 +34,8 @@ const renderApplications = (applications) => {
     applications.forEach(application => {
         const row = document.createElement('tr');
         row.innerHTML = `
-            <td class="px-6 py-4 whitespace-nowrap">${application.job_seeker}</td>
             <td class="px-6 py-4 whitespace-nowrap">${application.job}</td>
+            <td class="px-6 py-4 whitespace-nowrap">${application.job_seeker}</td>
             <td class="px-6 py-4 whitespace-nowrap">
                 <a href="${application.resume}" class="text-indigo-600 hover:underline">Download</a>
             </td>
