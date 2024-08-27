@@ -11,7 +11,6 @@ from django.template.loader import render_to_string
 from applications.models import Application
 from applications.serializers import ApplicationSerializer
 
-# Profile Views
 class JobSeekerProfileListCreateView(APIView):
     def get(self, request):
         profiles = JobSeekerProfile.objects.all()
@@ -72,7 +71,7 @@ class JobSeekerProfileUpdateView(RetrieveUpdateAPIView):
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-# Registration and Authentication
+# Registration
 class JobSeekerRegistrationView(generics.CreateAPIView):
     serializer_class = JobSeekerRegistrationSerializer
 

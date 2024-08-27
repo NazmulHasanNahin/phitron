@@ -1,4 +1,3 @@
-# applications/views.py
 from django.http import Http404
 from rest_framework import status,viewsets
 from rest_framework.response import Response
@@ -29,7 +28,7 @@ class ApplicationListCreateView(APIView):
             application = serializer.save(job_seeker=request.user)
             
 
-            # Send email notification to the employer
+            # Send email to the employer
             try:
                 employer = application.job.employer
                 email_subject = "New Job Application Received"
@@ -41,7 +40,7 @@ class ApplicationListCreateView(APIView):
             except Exception as e:
                 print(f"Error sending email to employer: {e}")
 
-            # Send email notification to the job seeker
+            # Send email  to the job seeker
             try:
                 job_seeker = application.job_seeker
                 email_subject = "Application Submitted Successfully"
@@ -84,7 +83,6 @@ class ApplicationUpdateView(generics.UpdateAPIView):
     def update(self, request, *args, **kwargs):
         application = self.get_object()
 
-        # Ensure the logged-in user is the owner of the application
         if application.job_seeker != request.user:
             return Response({"error": "You are not authorized to edit this application."},
                             status=status.HTTP_403_FORBIDDEN)
@@ -104,7 +102,6 @@ class ApplicationDeleteView(generics.DestroyAPIView):
     def delete(self, request, *args, **kwargs):
         application = self.get_object()
 
-        # Ensure the logged-in user is the owner of the application
         if application.job_seeker != request.user:
             return Response({"error": "You are not authorized to delete this application."},
                             status=status.HTTP_403_FORBIDDEN)

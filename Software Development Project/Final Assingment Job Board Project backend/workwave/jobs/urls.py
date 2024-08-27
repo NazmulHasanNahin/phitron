@@ -4,7 +4,6 @@ from .views import *
 from django.conf import settings
 from django.conf.urls.static import static
 
-# Create a router and register our viewsets with it.
 router = DefaultRouter()
 router.register('jobs', JobViewSet, basename='job')
 router.register('categories', JobCategoryViewSet, basename='job-category')
@@ -15,5 +14,5 @@ urlpatterns = [
     path('jobs/create/', JobCreateView.as_view(), name='create-job'),
     path('jobs/<int:pk>', JobDetailView.as_view(), name='job-detail'),
     path('categories/', JobCategoryViewSet.as_view({'get': 'list'}), name='job-category-list'),
-    path('categories/<int:pk>/', JobCategoryDetailView.as_view(), name='job-category-detail'),  # Job category detail view
+    path('categories/<int:pk>/', JobCategoryDetailView.as_view(), name='job-category-detail'), 
 ]
