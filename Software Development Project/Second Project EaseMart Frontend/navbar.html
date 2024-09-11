@@ -1,0 +1,125 @@
+    <!--navbar-->
+    <div class="wrapper">
+        <!--start top header wrapper-->
+        <div class="header-wrapper bg-gray-800 text-white">
+            <div class="container mx-auto px-4 py-2">
+                <nav class="flex items-center justify-between">
+                    <div class="sm:flex items-center space-x-6">
+                        <span>Welcome to our Ease Mart store!</span>
+                    </div>
+                    <ul class="hidden lg:flex items-center space-x-6">
+                        <li><a class="hover:underline" href="order-tracking.html">Track Order</a></li>
+                        <li><a class="hover:underline" href="about-us.html">About</a></li>
+                        <li><a class="hover:underline" href="shop-categories.html">Our Stores</a></li>
+                        <li><a class="hover:underline" href="blog-post.html">Blog</a></li>
+                        <li><a class="hover:underline" href="contact-us.html">Contact</a></li>
+                        <li><a class="hover:underline" href="#">Help & FAQs</a></li>
+                    </ul>
+                    <ul class="hidden lg:flex items-center space-x-4">
+                        <li class="relative">
+                            <button id="currencyDropdownButton" class="hover:underline">USD</button>
+                            <ul id="currencyDropdown"
+                                class="dropdown-menu absolute right-0 mt-2 w-32 bg-white shadow-lg text-black hidden">
+                                <li><a class="block px-4 py-2 hover:bg-gray-200" href="#">USD</a></li>
+                                <li><a class="block px-4 py-2 hover:bg-gray-200" href="#">EUR</a></li>
+                            </ul>
+                        </li>
+                        <li class="relative">
+                            <button id="languageDropdownButton" class="flex items-center space-x-2 hover:underline">
+                                <i class="flag-icon flag-icon-um"></i>
+                                <span>ENG</span>
+                            </button>
+                            <div id="languageDropdown"
+                                class="dropdown-menu absolute right-0 mt-2 w-48 bg-white text-black shadow-lg z-10 hidden">
+                                <a class="px-4 py-2 flex items-center hover:bg-gray-200" href="#"><i
+                                        class="flag-icon flag-icon-de mr-2"></i>German</a>
+                                <a class="px-4 py-2 flex items-center hover:bg-gray-200" href="#"><i
+                                        class="flag-icon flag-icon-fr mr-2"></i>French</a>
+                                <a class="px-4 py-2 flex items-center hover:bg-gray-200" href="#"><i
+                                        class="flag-icon flag-icon-um mr-2"></i>English</a>
+                                <a class="px-4 py-2 flex items-center hover:bg-gray-200" href="#"><i
+                                        class="flag-icon flag-icon-in mr-2"></i>Hindi</a>
+                                <a class="px-4 py-2 flex items-center hover:bg-gray-200" href="#"><i
+                                        class="flag-icon flag-icon-cn mr-2"></i>Chinese</a>
+                                <a class="px-4 py-2 flex items-center hover:bg-gray-200" href="#"><i
+                                        class="flag-icon flag-icon-ae mr-2"></i>Arabic</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul class="flex items-center space-x-4">
+                        <li><a class="text-xl hover:text-gray-300" href="#"><i class='bx bxl-facebook'></i></a></li>
+                        <li><a class="text-xl hover:text-gray-300" href="#"><i class='bx bxl-twitter'></i></a></li>
+                        <li><a class="text-xl hover:text-gray-300" href="#"><i class='bx bxl-linkedin'></i></a></li>
+                    </ul>
+
+                </nav>
+            </div>
+        </div>
+
+        <div class="header-content bg-yellow-400">
+            <div class="container mx-auto px-4 py-2 flex items-center justify-between lg:justify-around relative">
+                <!-- Mobile menu and logo on the left for mobile view -->
+                <div class="flex items-center space-x-3 lg:space-x-0 lg:justify-start">
+                    <button id="mobileMenuButton" class="lg:hidden text-2xl"><i class="bx bx-menu"></i></button>
+                    <div class="logo">
+                        <a href="index.html">
+                            <img src="images/logo for sales company and bag or e-commerce.png" class="w-25"
+                                alt="Logo" />
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Centered Search bar for desktop view -->
+                <div
+                    class="hidden lg:flex justify-center absolute left-1/2 transform -translate-x-1/2 w-full lg:w-auto lg:space-x-2">
+                    <div class="flex items-center">
+                        <input type="text"
+                            class="form-control w-full lg:w-96 border-2 border-gray-700 rounded-l-md px-3 py-2"
+                            placeholder="Search for Products">
+                        <button class="btn bg-gray-800 text-white border-2 border-gray-700 rounded-r-md px-4 py-2"
+                            type="button">Search</button>
+                    </div>
+                </div>
+
+                <!-- User icons on both views -->
+                <div class="flex items-center space-x-4 lg:ml-auto">
+                    <nav>
+                        <ul class="flex items-center space-x-4">
+                            <li><a href="account-dashboard.html" class="text-xl hover:text-gray-600"><i
+                                        class='bx bx-user'></i></a></li>
+                            <li><a href="wishlist.html" class="text-xl hover:text-gray-600"><i
+                                        class='bx bx-heart'></i></a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+
+            <!-- Search bar for mobile view -->
+            <div class="w-full lg:hidden flex justify-center pb-5">
+                <div class="flex items-center w-full px-6">
+                    <input type="text" class="form-control w-full border-2 border-gray-700 rounded-l-md px-3 py-2"
+                        placeholder="Search for Products">
+                    <button class="btn bg-gray-800 text-white border-2 border-gray-700 rounded-r-md px-4 py-2"
+                        type="button">Search</button>
+                </div>
+            </div>
+            <!-- <div class="mb-10 ">
+                <a class="hidden">gfb</a>
+            </div> -->
+        </div>
+    </div>
+    <!-- Mobile menu -->
+    <div id="mobileMenu" class="lg:hidden fixed inset-0 bg-white shadow-lg z-50 hidden">
+        <div class="p-4">
+            <button id="closeMobileMenu" class="text-2xl text-gray-800 float-right">&times;</button>
+            <ul class="space-y-4">
+                <li><a class="hover:underline" href="order-tracking.html">Track Order</a></li>
+                <li><a class="hover:underline" href="about-us.html">About</a></li>
+                <li><a class="hover:underline" href="shop-categories.html">Our Stores</a></li>
+                <li><a class="hover:underline" href="blog-post.html">Blog</a></li>
+                <li><a class="hover:underline" href="contact-us.html">Contact</a></li>
+                <li><a class="hover:underline" href="#">Help & FAQs</a></li>
+            </ul>
+        </div>
+    </div>
