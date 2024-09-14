@@ -38,6 +38,8 @@ INSTALLED_APPS = [
     'users',  
     'products',
     'categories',
+    'dashboard',
+    
     
     
 ]
@@ -90,6 +92,11 @@ REST_FRAMEWORK = {
 }
 
 
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_REQUIRED = False
+
+
+ACCOUNT_AUTHENTICATION_METHOD = 'username'
 
 
 # Database
@@ -143,3 +150,8 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:7000",
+]
