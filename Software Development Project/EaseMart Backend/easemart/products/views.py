@@ -5,13 +5,30 @@ from rest_framework.permissions import AllowAny
 from .serializers import ProductSerializer, CartSerializer
 from rest_framework import generics, status, permissions
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
+from rest_framework.filters import SearchFilter
 from rest_framework.exceptions import PermissionDenied, NotFound, ValidationError
 from rest_framework.decorators import api_view, permission_classes
-
+from rest_framework.renderers import JSONRenderer
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    filter_backends = [SearchFilter, DjangoFilterBackend]
+    search_fields = ['name']  # Restrict search to product name only
+
+    filterset_fields = ['category__name']  # Add filtering by category
+    # renderer_classes = [JSONRenderer]  # Ensure only JSON responses
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search_query = self.request.query_params.get('search')
+        
+        if search_query:
+            # Restrict search to name only and not description
+            queryset = queryset.filter(name__icontains=search_query)
+        
+        return queryset
 
 
 class CartView(generics.ListCreateAPIView):

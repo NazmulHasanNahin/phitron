@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'allauth.account',  # Required for registration
     'dj_rest_auth.registration',  # For registration
     'allauth.socialaccount',
+    'django_filters',
 
     # Your apps
     'users',  
@@ -86,9 +87,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # settings.py
 REST_FRAMEWORK = {
+    'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',  
     ],
+    
 }
 
 
