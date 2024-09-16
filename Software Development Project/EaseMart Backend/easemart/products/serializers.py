@@ -1,11 +1,13 @@
 from rest_framework import serializers
 from categories.models import Category
-from users.models import User
+from users.models import UserAccount
 from .models import Cart, Product
 
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(queryset=Category.objects.all(), slug_field='name')
-    seller = serializers.SlugRelatedField(queryset=User.objects.filter(role='seller'), slug_field='username')
+    
+    # Updated to filter based on UserAccount with 'account_type' as 'seller'
+    seller = serializers.SlugRelatedField(queryset=UserAccount.objects.filter(account_type='seller'), slug_field='user__username')
     
     image = serializers.ImageField(required=False)
 

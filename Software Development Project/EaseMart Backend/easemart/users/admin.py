@@ -1,16 +1,9 @@
-# users/admin.py
 from django.contrib import admin
-from .models import User
+from .models import UserAccount
 
+# Customizing the admin display for UserAccount
+class UserAccountAdmin(admin.ModelAdmin):
+    list_display = ('user','account_type')  # Show these fields in admin
 
-class UserAdmin(admin.ModelAdmin):
-    list_display = ('username', 'email', 'first_name', 'last_name', 'role')
-
-    list_filter = ('role',)
-
-    fields = ('username', 'email', 'first_name', 'last_name', 'role')
-    search_fields = ('username', 'email')
-    ordering = ('username',)
-
-
-admin.site.register(User, UserAdmin)
+# Register the model and custom admin
+admin.site.register(UserAccount, UserAccountAdmin)
