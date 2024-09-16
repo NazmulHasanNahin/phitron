@@ -14,9 +14,36 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
-
-
     <title>Ease Mart</title>
+    <!-- header  -->
+    <style>
+        .sliding-text {
+            font-size: 1.05rem;
+            font-weight: bold;
+            text-align: center;
+            color: #000;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+            animation: slide-in 20s linear infinite;
+        }
+
+        @keyframes slide-in {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+        @media only screen and (max-width: 768px) {
+            .sliding-text {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body class="bg-gray-100">
@@ -24,10 +51,18 @@
     <div id="navbar-container"></div>
 
     <main>
+
+        <div class="sliding-text">
+            🎉 Buy More, Save More! Up to 30% Off on Bulk Purchases!
+            💥 Big Savings! Enjoy 70% Off on Clearance Items!
+            🛍️ Shop Now and Get 25% Off on Your First Order!
+        </div>
         <!-- invisible -->
-        <section class="pt-3 pb-3 px-3">
+        <!-- <section class="pt-3 pb-3 px-3">
             <h1 class="hidden">hii</h1>
-        </section>
+        </section> -->
+
+
 
         <!-- carosol  -->
         <section class="slider-section mb-4">
@@ -949,6 +984,7 @@
             });
         });        
     </script>
+    <script src="./js/navbar.js"></script>
 </body>
 
 </html>
