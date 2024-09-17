@@ -2,6 +2,12 @@ from rest_framework import serializers
 from categories.models import Category
 from users.models import UserAccount
 from .models import Cart, Product
+from rest_framework import status, generics
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from .models import Purchase
+from products.models import Product
+from products.models import Cart 
 
 class ProductSerializer(serializers.ModelSerializer):
     category = serializers.SlugRelatedField(queryset=Category.objects.all(), slug_field='name')
@@ -32,3 +38,21 @@ class CartSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         validated_data['user'] = self.context['request'].user
         return super().create(validated_data)
+
+
+
+    
+from rest_framework import serializers
+from .models import Purchase, PurchaseItem
+
+class PurchaseItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PurchaseItem
+        fields = ['product', 'quantity']
+
+class PurchaseSerializer(serializers.ModelSerializer):
+    items = PurchaseItemSerializer(many=True)
+
+    class Meta:
+        model = Purchase
+        fields = ['customer', 'purchase_date', 'items']

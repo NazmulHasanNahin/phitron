@@ -14,7 +14,7 @@ class PurchaseSerializer(serializers.ModelSerializer):
 
 
 class CartSerializer(serializers.ModelSerializer):
-    product = serializers.StringRelatedField()
+    product = ProductSerializer()
 
     class Meta:
         model = Cart

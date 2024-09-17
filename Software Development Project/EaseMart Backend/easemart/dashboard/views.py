@@ -3,13 +3,18 @@ from rest_framework.exceptions import PermissionDenied
 from products.models import Product, Purchase, Cart
 from .serializers import ProductSerializer, PurchaseSerializer, CartSerializer, CustomerProfileSerializer, SellerProfileSerializer
 
-
 class CustomerPurchaseListView(generics.ListAPIView):
     serializer_class = PurchaseSerializer
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Purchase.objects.filter(customer=self.request.user)
+        user = self.request.user
+        # Ensure the user has an associated UserAccount instance and is a customer
+        if not hasattr(user, 'useraccount') or user.useraccount.account_type != 'customer':
+            raise PermissionDenied("You must be logged in as a customer to view this page.")
+        
+        # Query purchases associated with the customer
+        return Purchase.objects.filter(customer=user.useraccount)
 
 
 class CartView(generics.ListAPIView):
@@ -17,7 +22,13 @@ class CartView(generics.ListAPIView):
     permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
-        return Cart.objects.filter(user=self.request.user)
+        user = self.request.user
+        # Ensure the user has an associated UserAccount instance and is a customer
+        if not hasattr(user, 'useraccount') or user.useraccount.account_type != 'customer':
+            raise PermissionDenied("You must be logged in as a customer to view this page.")
+        
+        # Query the cart associated with the customer
+        return Cart.objects.filter(user=user.useraccount)
 
 
 class SellerProductListView(generics.ListCreateAPIView):
@@ -26,13 +37,14 @@ class SellerProductListView(generics.ListCreateAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        if user.role != 'seller':
-            raise PermissionDenied(
-                "You must be logged in as a seller to view this page.")
-        return Product.objects.filter(seller=user)
+        # Ensure user is a seller and query using the UserAccount instance
+        if not hasattr(user, 'useraccount') or user.useraccount.account_type != 'seller':
+            raise PermissionDenied("You must be logged in as a seller to view this page.")
+        return Product.objects.filter(seller=user.useraccount)  # Use user.useraccount
 
     def perform_create(self, serializer):
-        serializer.save(seller=self.request.user)
+        serializer.save(seller=self.request.user.useraccount)  # Save with user.useraccount
+
 
 
 class SellerProductDetailView(generics.RetrieveUpdateDestroyAPIView):
@@ -41,9 +53,11 @@ class SellerProductDetailView(generics.RetrieveUpdateDestroyAPIView):
 
     def get_queryset(self):
         user = self.request.user
-        if user.role != 'seller':
+        # Ensure user is a seller and query using the UserAccount instance
+        if not hasattr(user, 'useraccount') or user.useraccount.account_type != 'seller':
             raise PermissionDenied("You must be a seller to view products.")
-        return Product.objects.filter(seller=user)
+        return Product.objects.filter(seller=user.useraccount)  # Use user.useraccount
+
 
 
 class CustomerProfileUpdateView(generics.RetrieveUpdateAPIView):
@@ -52,9 +66,11 @@ class CustomerProfileUpdateView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         user = self.request.user
-        if user.is_anonymous or user.role != 'customer':
+        # Access account_type from the related UserAccount model
+        if not hasattr(user, 'useraccount') or user.useraccount.account_type != 'customer':
             raise PermissionDenied("You must be logged in as a customer to view or update your profile.")
         return user
+
 
 class SellerProfileUpdateView(generics.RetrieveUpdateAPIView):
     serializer_class = SellerProfileSerializer
@@ -62,6 +78,7 @@ class SellerProfileUpdateView(generics.RetrieveUpdateAPIView):
 
     def get_object(self):
         user = self.request.user
-        if user.is_anonymous or user.role != 'seller':
+        # Access account_type from the related UserAccount model
+        if not hasattr(user, 'useraccount') or user.useraccount.account_type != 'seller':
             raise PermissionDenied("You must be logged in as a seller to view or update your profile.")
         return user

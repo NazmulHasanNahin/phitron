@@ -10,6 +10,11 @@ from rest_framework.filters import SearchFilter
 from rest_framework.exceptions import PermissionDenied, NotFound, ValidationError
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.renderers import JSONRenderer
+from rest_framework.views import APIView
+from .serializers import PurchaseSerializer
+from rest_framework.authentication import TokenAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 class ProductViewSet(viewsets.ModelViewSet):
     queryset = Product.objects.all()
@@ -66,34 +71,34 @@ class CartView(generics.ListCreateAPIView):
 
         return Response({"detail": "Product added to cart."}, status=status.HTTP_201_CREATED)
 
+from django.shortcuts import get_object_or_404
+from rest_framework.permissions import IsAuthenticated
 
-class AddToCartView(generics.CreateAPIView):
-    serializer_class = CartSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request, *args, **kwargs):
-        product_id = self.kwargs.get('product_id')
-        quantity = request.data.get('quantity', 1)
+class AddToCartView(APIView):
+    permission_classes = [IsAuthenticated]
 
-        try:
-            product = Product.objects.get(id=product_id)
-        except Product.DoesNotExist:
-            raise ValidationError("Product not found.")
+    def post(self, request, product_id, *args, **kwargs):
+        quantity = request.data.get('quantity', 1)  # Default to 1 if not provided
+        
+        user_account = getattr(request.user, 'useraccount', None)
+        if not user_account:
+            return Response({"error": "User does not have an associated UserAccount"}, status=status.HTTP_400_BAD_REQUEST)
 
+        product = get_object_or_404(Product, id=product_id)
+
+        # Add or update cart item
         cart_item, created = Cart.objects.get_or_create(
-            user=request.user,
+            user=user_account,
             product=product,
             defaults={'quantity': quantity}
         )
 
         if not created:
-            cart_item.quantity += int(quantity)
+            cart_item.quantity += quantity
             cart_item.save()
 
-        return Response({
-            "message": "Product added to cart successfully!",
-            "cart_item": CartSerializer(cart_item).data
-        }, status=status.HTTP_201_CREATED)
+        return Response({"message": "Product added to cart successfully!"}, status=status.HTTP_201_CREATED)
 
 
 
@@ -102,12 +107,58 @@ class RemoveFromCartView(generics.DestroyAPIView):
 
     def delete(self, request, *args, **kwargs):
         cart_item_id = self.kwargs.get('cart_item_id')
+        
+        # Ensure the user has an associated UserAccount instance
+        user_account = getattr(request.user, 'useraccount', None)
+        if not user_account:
+            return Response({"error": "User does not have an associated UserAccount"}, status=status.HTTP_400_BAD_REQUEST)
 
+        # Try to find the cart item using the user account
         try:
-            cart_item = Cart.objects.get(id=cart_item_id, user=request.user)
+            cart_item = Cart.objects.get(id=cart_item_id, user=user_account)  # Use user_account instead of request.user
         except Cart.DoesNotExist:
             raise ValidationError("Cart item not found.")
+        
+        # Check the quantity of the cart item
+        if cart_item.quantity > 1:
+            # Decrease the quantity by 1
+            cart_item.quantity -= 1
+            cart_item.save()
+            return Response({"message": "Item quantity decreased by 1."}, status=status.HTTP_200_OK)
+        else:
+            # Remove the cart item if quantity is 1
+            cart_item.delete()
+            return Response({"message": "Item removed from cart successfully!"}, status=status.HTTP_204_NO_CONTENT)
+    
+    
+from .models import Cart, Purchase
 
-        cart_item.delete()
 
-        return Response({"message": "Item removed from cart successfully!"}, status=status.HTTP_204_NO_CONTENT)
+class PurchaseView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        user_account = getattr(request.user, 'useraccount', None)
+        if not user_account:
+            return Response({"error": "User does not have an associated UserAccount"}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Fetch the user's cart items
+        cart_items = Cart.objects.filter(user=user_account)
+
+        if not cart_items.exists():
+            return Response({"error": "Your cart is empty. Add items to your cart before purchasing."}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Process each cart item as a purchase
+        purchases = []
+        for cart_item in cart_items:
+            purchase = Purchase.objects.create(
+                customer=user_account,
+                product=cart_item.product,
+                quantity=cart_item.quantity
+            )
+            purchases.append(purchase)
+        
+        # Clear the user's cart after purchase
+        cart_items.delete()
+
+        return Response({"message": "Purchase successful!", "purchases": [str(purchase) for purchase in purchases]}, status=status.HTTP_201_CREATED)
