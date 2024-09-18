@@ -42,7 +42,7 @@
         <!--end breadcrumb-->
 
 
-        <!--start shop area-->
+        <!-- Start shop area -->
         <section class="py-4">
             <div class="container mx-auto">
                 <div
@@ -50,26 +50,27 @@
                     <!-- Product Category Filter -->
                     <div class="flex flex-wrap gap-4 flex-grow">
                         <div>
-                            <select
+                            <label for="category-filter" class="sr-only">Product Category</label>
+                            <select id="category-filter"
                                 class="form-select rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
                                 <option selected>Product Category</option>
-                                <option>Category 1</option>
-                                <option>Category 2</option>
-                                <option>Category 3</option>
-                                <option>Category 4</option>
                             </select>
                         </div>
                         <div class="flex items-center gap-2">
-                            <input type="text" placeholder="Search..."
+                            <label for="search-input" class="sr-only">Search</label>
+                            <input id="search-input" type="text" placeholder="Search..."
                                 class="px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50 w-64" />
-                            <button type="button"
-                                class="btn btn-dark px-4 py-2 text-white bg-black rounded-lg hover:bg-gray-800 transition duration-300">Search</button>
+                            <button type="button" id="search-button"
+                                class="px-4 py-2 text-white bg-black rounded-lg hover:bg-gray-800 transition duration-300">
+                                Search
+                            </button>
                         </div>
                     </div>
                     <!-- Display Options -->
                     <div class="flex items-center gap-4">
                         <p class="text-sm font-medium text-gray-700">Show:</p>
-                        <select
+                        <label for="show-options" class="sr-only">Show Options</label>
+                        <select id="show-options"
                             class="form-select rounded-lg border-gray-300 shadow-sm focus:border-blue-500 focus:ring focus:ring-blue-500 focus:ring-opacity-50">
                             <option>9</option>
                             <option>12</option>
@@ -82,23 +83,32 @@
                     <!-- View Switcher -->
                     <div class="flex items-center gap-2">
                         <a href="shop-grid-filter-on-top.html"
-                            class="btn btn-white rounded-lg border border-gray-300 p-2 text-gray-600 hover:bg-gray-100 transition duration-300">
+                            class="rounded-lg border border-gray-300 p-2 text-gray-600 hover:bg-gray-100 transition duration-300">
                             <i class='bx bxs-grid'></i>
                         </a>
                         <a href="shop-list-filter-on-top.html"
-                            class="btn btn-dark rounded-lg bg-black text-white p-2 hover:bg-gray-800 transition duration-300">
+                            class="rounded-lg bg-black text-white p-2 hover:bg-gray-800 transition duration-300">
                             <i class='bx bx-list-ul'></i>
                         </a>
                     </div>
                 </div>
             </div>
         </section>
-        <!--End shop area-->
+        <!-- End shop area -->
+
+        <!-- Loading indicator -->
+        <div id="loading-indicator"
+            class="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center hidden">
+            <div class="text-white text-lg">Loading...</div>
+        </div>
+
+
+
 
 
         <section class="py-10">
             <div class="container mx-auto py-8">
-                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+                <div class="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-5 gap-6 product-container">
                     <!-- Product 1 -->
                     <!-- <div
                         class="bg-white rounded-lg shadow-lg hover:shadow-2xl  p-3 transform hover:-translate-y-1 hover:scale-105 transition-transform duration-300">
