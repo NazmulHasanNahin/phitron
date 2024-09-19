@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const productId = 6;  // In a real scenario, get this dynamically from the URL or other source.
+    const params = new URLSearchParams(window.location.search);
+    const productId = params.get('id');  // Extract the product ID from the URL
     const apiUrl = `http://127.0.0.1:7000/products/products/${productId}/`;
 
     // Fetch product details

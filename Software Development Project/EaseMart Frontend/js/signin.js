@@ -70,10 +70,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     document.getElementById("autofill-seller").addEventListener("click", () => {
-        autofill("user2", "kirekire");
+        autofill("seller2", "kirekire");
     });
 
     document.getElementById("autofill-customer").addEventListener("click", () => {
-        autofill("seller2", "kirekire");
+        autofill("user2", "kirekire");
     });
 });
