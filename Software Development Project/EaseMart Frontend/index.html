@@ -38,6 +38,7 @@
                 transform: translateX(-100%);
             }
         }
+
         @media only screen and (max-width: 768px) {
             .sliding-text {
                 display: none;
@@ -78,7 +79,7 @@
                                     <h1 class="text-4xl font-bold">Women Fashion</h1>
                                     <p class="hidden md:block text-lg font-semibold"><i>Last call for upto 15%</i></p>
                                     <a class="btn btn-dark btn-ecomm px-4 py-2 mt-4 bg-black text-white rounded"
-                                        href="shop-grid.html">Shop Now</a>
+                                        href="all-product.html">Shop Now</a>
                                 </div>
                                 <a href="javascript:;">
                                     <img src="./images/banners/01.png" class="w-full h-auto object-cover"
@@ -95,7 +96,7 @@
                                     <h1 class="text-3xl font-bold">Men Fashion</h1>
                                     <p class="hidden md:block text-lg font-semibold"><i>Last call for upto 15%</i></p>
                                     <a class="btn btn-dark btn-ecomm px-4 py-2 mt-4 bg-black text-white rounded"
-                                        href="shop-grid.html">Shop Now</a>
+                                        href="all-product.html">Shop Now</a>
                                 </div>
                                 <a href="javascript:;">
                                     <img src="./images/banners/02.png" class="w-full h-auto object-cover"
@@ -112,7 +113,7 @@
                                     <h1 class="text-3xl font-bold">Kids Fashion</h1>
                                     <p class="hidden md:block text-lg font-semibold"><i>Last call for upto 15%</i></p>
                                     <a class="btn btn-dark btn-ecomm px-4 py-2 mt-4 bg-black text-white rounded"
-                                        href="shop-grid.html">Shop Now</a>
+                                        href="all-product.html">Shop Now</a>
                                 </div>
                                 <a href="javascript:;">
                                     <img src="./images/banners/04.png" class="w-full h-auto object-cover"
@@ -173,61 +174,54 @@
         <!-- Start promotion -->
         <section class="py-4">
             <div class="container mx-auto px-4">
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                     <!-- Promotion Item 1 -->
-                    <div class="flex flex-row bg-blue-100  rounded-lg shadow-md">
-                        <div class="">
-                            <img src="./images/promo/01.png" class="h-auto rounded-t-lg lg:rounded-l-lg"
-                                alt="Men Wear" />
-                        </div>
-                        <div class="w-full lg:w-1/2 flex flex-col justify-center p-4">
-                            <h5 class="text-lg font-bold text-uppercase mb-2">Men Wear</h5>
-                            <p class="text-sm text-uppercase mb-4">Starting at $9</p>
-                            <a href="javascript:;"
-                                class="transition-all duration-300 ease-in-out hover:bg-black hover:translate-x-1 hover:text-white border border-black text-black rounded py-2 px-4">
+                    <div class="relative flex flex-col rounded-lg overflow-hidden shadow-md">
+                        <img src="./images/promo/01.png" class="w-full h-80" alt="Men Wear" />
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
+                            <h5 class="text-lg font-bold uppercase mb-2">Men Wear</h5>
+                            <p class="text-sm uppercase mb-4">Starting at $9</p>
+                            <a href="all-product.html"
+                                class="transition-all duration-300 ease-in-out hover:bg-white hover:text-black border border-white text-white rounded py-2 px-4">
                                 SHOP NOW
                             </a>
-
                         </div>
                     </div>
 
                     <!-- Promotion Item 2 -->
-                    <div class="flex flex-row bg-red-100  rounded-lg shadow-md">
-                        <div class="">
-                            <img src="./images/promo/02.png" class="h-auto rounded-t-lg lg:rounded-l-lg"
-                                alt="Men Wear" />
-                        </div>
-                        <div class="w-full lg:w-1/2 flex flex-col justify-center p-4">
-                            <h5 class="text-lg font-bold text-uppercase mb-2">WOMEN Wear</h5>
-                            <p class="text-sm text-uppercase mb-4">Starting at $9</p>
-                            <a href="javascript:;"
-                                class="transition-all duration-300 ease-in-out hover:bg-black hover:translate-x-1 hover:text-white border border-black text-black rounded py-2 px-4">
+                    <div class="relative flex flex-col rounded-lg overflow-hidden shadow-md">
+                        <img src="./images/promo/02.png" class="w-full h-80" alt="Women Wear" />
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
+                            <h5 class="text-lg font-bold uppercase mb-2">Women Wear</h5>
+                            <p class="text-sm uppercase mb-4">Starting at $9</p>
+                            <a href="all-product.html"
+                                class="transition-all duration-300 ease-in-out hover:bg-white hover:text-black border border-white text-white rounded py-2 px-4">
                                 SHOP NOW
                             </a>
-
                         </div>
                     </div>
 
                     <!-- Promotion Item 3 -->
-                    <div class="flex flex-row bg-yellow-100  rounded-lg shadow-md">
-                        <div class="">
-                            <img src="./images/promo/03.png" class="h-auto rounded-t-lg lg:rounded-l-lg"
-                                alt="Men Wear" />
-                        </div>
-                        <div class="w-full lg:w-1/2 flex flex-col justify-center p-4">
-                            <h5 class="text-lg font-bold text-uppercase mb-2">KIDS Wear</h5>
-                            <p class="text-sm text-uppercase mb-4">Starting at $9</p>
-                            <a href="javascript:;"
-                                class="transition-all duration-300 ease-in-out hover:bg-black hover:translate-x-1 hover:text-white border border-black text-black rounded py-2 px-4">
+                    <div class="relative flex flex-col rounded-lg overflow-hidden shadow-md">
+                        <img src="./images/promo/03.png" class="w-full h-80" alt="Kids Wear" />
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-40 flex flex-col justify-center items-center text-center text-white p-4">
+                            <h5 class="text-lg font-bold uppercase mb-2">Kids Wear</h5>
+                            <p class="text-sm uppercase mb-4">Starting at $9</p>
+                            <a href="all-product.html"
+                                class="transition-all duration-300 ease-in-out hover:bg-white hover:text-black border border-white text-white rounded py-2 px-4">
                                 SHOP NOW
                             </a>
-
                         </div>
                     </div>
                 </div>
             </div>
         </section>
         <!-- End promotion -->
+
+
 
 
         <!--start Featured product-->
@@ -241,34 +235,20 @@
                 <div class="product-grid">
                     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
                         <!-- 1 -->
-                        <div class="col-span-1">
-                            <div class="relative bg-white shadow-md rounded-lg overflow-hidden">
-                                <div class="absolute top-3 right-3">
-                                    <a href="javascript:;" class="bg-white p-2 rounded-full shadow-md">
-                                        <i class='bx bx-cart-add text-gray-800'></i>
-                                    </a>
+                        <!-- <a href="" class="block">
+                            <div class="card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
+                                <div class="relative overflow-hidden">
+                                    <div class="absolute top-3 right-3">
+                                    </div>
+                                    <img src="./images/products/11.png" class="w-full h-auto object-cover" alt="Product 1">
                                 </div>
-                                <div class="absolute bottom-3 left-3 bg-white p-2 rounded-full shadow-md">
-                                    <!-- <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#QuickViewProduct"
-                                        class="text-gray-800">Quick View</a> -->
-                                </div>
-                                <a href="javascript:;">
-                                    <img src="./images/products/01.png" class="w-full h-48 object-cover"
-                                        alt="White Polo Shirt">
-                                </a>
                                 <div class="p-4">
                                     <div class="flex items-center justify-between">
                                         <div>
-                                            <p class="text-sm font-medium text-gray-600">Topwear</p>
-                                            <h6 class="text-lg font-bold">White Polo Shirt</h6>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" class="text-gray-800">
-                                                <i class="bx bx-heart"></i>
-                                            </a>
+                                            <h6 class="text-lg font-bold text-gray-900 mb-2">White Polo Shirt</h6>
                                         </div>
                                     </div>
-                                    <div class="flex mt-2">
+                                    <div class="flex items-center mt-2">
                                         <i class="bx bxs-star text-yellow-500"></i>
                                         <i class="bx bxs-star text-yellow-500"></i>
                                         <i class="bx bxs-star text-yellow-500"></i>
@@ -276,248 +256,45 @@
                                         <i class="bx bxs-star text-yellow-500"></i>
                                     </div>
                                     <div class="flex items-center gap-2 mt-2">
-                                        <div class="text-sm font-light text-gray-500 line-through">$59.00</div>
-                                        <div class="text-lg font-bold text-gray-800">$48.00</div>
+                                        <span class="text-gray-500 line-through">$59.00</span>
+                                        <span class="text-lg font-bold text-gray-900">$48.00</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <!-- 2 -->
-                        <div class="col-span-1">
-                            <div class="relative bg-white shadow-md rounded-lg overflow-hidden">
-                                <div class="absolute top-3 right-3">
-                                    <a href="javascript:;" class="bg-white p-2 rounded-full shadow-md">
-                                        <i class='bx bx-cart-add text-gray-800'></i>
-                                    </a>
-                                </div>
-                                <div class="absolute bottom-3 left-3 bg-white p-2 rounded-full shadow-md">
-                                    <!-- <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#QuickViewProduct"
-                                        class="text-gray-800">Quick View</a> -->
-                                </div>
-                                <a href="javascript:;">
-                                    <img src="./images/products/02.png" class="w-full h-48 object-cover"
-                                        alt="White Polo Shirt">
-                                </a>
-                                <div class="p-4">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <p class="text-sm font-medium text-gray-600">Topwear</p>
-                                            <h6 class="text-lg font-bold">White Polo Shirt</h6>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" class="text-gray-800">
-                                                <i class="bx bx-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="flex mt-2">
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                    </div>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <div class="text-sm font-light text-gray-500 line-through">$59.00</div>
-                                        <div class="text-lg font-bold text-gray-800">$48.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 3 -->
-                        <div class="col-span-1">
-                            <div class="relative bg-white shadow-md rounded-lg overflow-hidden">
-                                <div class="absolute top-3 right-3">
-                                    <a href="javascript:;" class="bg-white p-2 rounded-full shadow-md">
-                                        <i class='bx bx-cart-add text-gray-800'></i>
-                                    </a>
-                                </div>
-                                <div class="absolute bottom-3 left-3 bg-white p-2 rounded-full shadow-md">
-                                    <!-- <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#QuickViewProduct"
-                                        class="text-gray-800">Quick View</a> -->
-                                </div>
-                                <a href="javascript:;">
-                                    <img src="./images/products/03.png" class="w-full h-48 object-cover"
-                                        alt="White Polo Shirt">
-                                </a>
-                                <div class="p-4">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <p class="text-sm font-medium text-gray-600">Topwear</p>
-                                            <h6 class="text-lg font-bold">White Polo Shirt</h6>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" class="text-gray-800">
-                                                <i class="bx bx-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="flex mt-2">
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                    </div>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <div class="text-sm font-light text-gray-500 line-through">$59.00</div>
-                                        <div class="text-lg font-bold text-gray-800">$48.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- 4 -->
-                        <div class="col-span-1">
-                            <div class="relative bg-white shadow-md rounded-lg overflow-hidden">
-                                <div class="absolute top-3 right-3">
-                                    <a href="javascript:;" class="bg-white p-2 rounded-full shadow-md">
-                                        <i class='bx bx-cart-add text-gray-800'></i>
-                                    </a>
-                                </div>
-                                <div class="absolute bottom-3 left-3 bg-white p-2 rounded-full shadow-md">
-                                    <!-- <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#QuickViewProduct"
-                                        class="text-gray-800">Quick View</a> -->
-                                </div>
-                                <a href="javascript:;">
-                                    <img src="./images/products/04.png" class="w-full h-48 object-cover"
-                                        alt="White Polo Shirt">
-                                </a>
-                                <div class="p-4">
-                                    <div class="flex items-center justify-between">
-                                        <div>
-                                            <p class="text-sm font-medium text-gray-600">Topwear</p>
-                                            <h6 class="text-lg font-bold">White Polo Shirt</h6>
-                                        </div>
-                                        <div>
-                                            <a href="javascript:;" class="text-gray-800">
-                                                <i class="bx bx-heart"></i>
-                                            </a>
-                                        </div>
-                                    </div>
-                                    <div class="flex mt-2">
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                        <i class="bx bxs-star text-yellow-500"></i>
-                                    </div>
-                                    <div class="flex items-center gap-2 mt-2">
-                                        <div class="text-sm font-light text-gray-500 line-through">$59.00</div>
-                                        <div class="text-lg font-bold text-gray-800">$48.00</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </a> -->
 
-                        <!-- Repeat the above block for other products -->
 
-                    </div><!--end grid-->
+                    </div>
                 </div>
             </div>
         </section>
         <!--end Featured product-->
 
+
+
+
+
+
+
+
+
         <!--start New Arrivals-->
-        <section class="py-4">
+        <section class="py-4 bg-gray-50">
             <div class="container mx-auto px-4">
                 <div class="flex items-center justify-center pb-4">
-                    <div class="border-t border-gray-300 flex-grow mr-2"></div>
-                    <h5 class="text-xl font-bold">New Arrivals</h5>
-                    <div class="border-t border-gray-300 flex-grow ml-2"></div>
+                    <div class="w-1/6 border-t-2 border-gray-300"></div>
+                    <h5 class="mx-4 text-lg font-bold uppercase">NEW ARRIVALS</h5>
+                    <div class="w-1/6 border-t-2 border-gray-300"></div>
                 </div>
-                <div class="product-grid grid gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4">
-                    <!-- Product Item 1 -->
-                    <div
-                        class="card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                        <div class="relative overflow-hidden">
-                            <div class="absolute top-3 right-3">
-                                <a href="javascript:;" class="text-gray-600 hover:text-gray-900">
-                                    <i class='bx bx-cart-add text-xl'></i>
-                                </a>
-                            </div>
-                            <div class="absolute bottom-3 left-3">
-                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#QuickViewProduct"
-                                    class="text-gray-600 hover:text-gray-900">
-                                    Quick View
-                                </a>
-                            </div>
-                            <a href="javascript:;">
-                                <img src="./images/products/11.png" class="w-full h-auto object-cover" alt="Product 1">
-                            </a>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-sm text-gray-600 mb-1">Topwear</p>
-                                    <h6 class="text-lg font-bold text-gray-900 mb-2">White Polo Shirt</h6>
-                                </div>
-                                <div>
-                                    <a href="javascript:;" class="text-gray-600 hover:text-gray-900">
-                                        <i class="bx bx-heart text-xl"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="flex items-center mt-2">
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                            </div>
-                            <div class="flex items-center gap-2 mt-2">
-                                <span class="text-gray-500 line-through">$59.00</span>
-                                <span class="text-lg font-bold text-gray-900">$48.00</span>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product Item 2 -->
-                    <div
-                        class="card bg-white border border-gray-200 rounded-lg overflow-hidden shadow-lg transition-transform duration-300 transform hover:scale-105">
-                        <div class="relative overflow-hidden">
-                            <div class="absolute top-3 right-3">
-                                <a href="javascript:;" class="text-gray-600 hover:text-gray-900">
-                                    <i class='bx bx-cart-add text-xl'></i>
-                                </a>
-                            </div>
-                            <div class="absolute bottom-3 left-3">
-                                <a href="javascript:;" data-bs-toggle="modal" data-bs-target="#QuickViewProduct"
-                                    class="text-gray-600 hover:text-gray-900">
-                                    Quick View
-                                </a>
-                            </div>
-                            <a href="javascript:;">
-                                <img src="./images/products/12.png" class="w-full h-auto object-cover" alt="Product 2">
-                            </a>
-                        </div>
-                        <div class="p-4">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <p class="text-sm text-gray-600 mb-1">Topwear</p>
-                                    <h6 class="text-lg font-bold text-gray-900 mb-2">Blue Denim Jacket</h6>
-                                </div>
-                                <div>
-                                    <a href="javascript:;" class="text-gray-600 hover:text-gray-900">
-                                        <i class="bx bx-heart text-xl"></i>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="flex items-center mt-2">
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                                <i class="bx bxs-star text-yellow-500"></i>
-                            </div>
-                            <div class="flex items-center gap-2 mt-2">
-                                <span class="text-gray-500 line-through">$79.00</span>
-                                <span class="text-lg font-bold text-gray-900">$60.00</span>
-                            </div>
-                        </div>
+                <div class="new-arrivals-grid">
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-4">
+                        <!-- New Arrivals Products Will be Injected Here -->
                     </div>
                 </div>
             </div>
         </section>
         <!--end New Arrivals-->
+
 
 
         <!--start Advertise banners-->
@@ -530,7 +307,7 @@
                         <div class="p-4 text-center">
                             <h5 class="text-lg font-semibold">Sunglasses Sale</h5>
                             <p class="text-gray-600 mt-2">See all Sunglasses and get 10% off at all Sunglasses</p>
-                            <a href="javascript:;"
+                            <a href="all-product.html"
                                 class="inline-block mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800">SHOP
                                 BY GLASSES</a>
                         </div>
@@ -541,7 +318,7 @@
                         <div class="p-4 text-center">
                             <h5 class="text-lg font-semibold">Cosmetics Sales</h5>
                             <p class="text-gray-600 mt-2">Buy Cosmetics products and get 30% off at all Cosmetics</p>
-                            <a href="javascript:;"
+                            <a href="all-product.html"
                                 class="inline-block mt-2 px-4 py-2 bg-black text-white rounded hover:bg-gray-800">SHOP
                                 BY COSMETICS</a>
                         </div>
@@ -554,7 +331,7 @@
                                 <h5 class="text-xl font-semibold">Fashion Summer Sale</h5>
                                 <p class="text-2xl font-bold mt-2">Up to 80% off</p>
                                 <p class="mt-2">On Top Fashion Brands</p>
-                                <a href="javascript:;"
+                                <a href="all-product.html"
                                     class="inline-block mt-4 px-4 py-2 bg-white text-black rounded hover:bg-gray-200">SHOP
                                     BY FASHION</a>
                             </div>
@@ -567,7 +344,7 @@
                             <h5 class="text-xl font-bold uppercase">Super Sale</h5>
                             <p class="text-lg font-medium mt-2">Up to 50% off</p>
                             <p class="mt-2">On All Electronic</p>
-                            <a href="javascript:;"
+                            <a href="all-product.html"
                                 class="inline-block mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800">HURRY
                                 UP!</a>
                         </div>
@@ -589,41 +366,57 @@
                 <div class="relative">
                     <div class="flex overflow-x-auto space-x-4 pb-4">
                         <div class="flex-none w-48 lg:w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="./images/categories/01.png" class="w-full h-32 object-cover" alt="Fashion">
-                                <div class="p-4 text-center border-t">
-                                    <h6 class="text-lg font-bold uppercase">Fashion</h6>
-                                    <p class="text-sm text-gray-500">10 Products</p>
+                            <a href="all-product.html?search=Fashion" class="block">
+                                <div
+                                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                                    <img src="./images/categories/01.png" class="w-full h-48 object-cover"
+                                        alt="Fashion">
+                                    <div class="p-4 text-center border-t">
+                                        <h6 class="text-lg font-bold uppercase">Fashion</h6>
+                                        <p class="text-sm text-gray-500">10 Products</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="flex-none w-48 lg:w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="./images/categories/02.png" class="w-full h-32 object-cover" alt="Watches">
-                                <div class="p-4 text-center border-t">
-                                    <h6 class="text-lg font-bold uppercase">Watches</h6>
-                                    <p class="text-sm text-gray-500">8 Products</p>
+                            <a href="all-product.html?search=Watches" class="block">
+                                <div
+                                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                                    <img src="./images/categories/02.png" class="w-full h-48 object-cover"
+                                        alt="Watches">
+                                    <div class="p-4 text-center border-t">
+                                        <h6 class="text-lg font-bold uppercase">Watches</h6>
+                                        <p class="text-sm text-gray-500">8 Products</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="flex-none w-48 lg:w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="./images/categories/03.png" class="w-full h-32 object-cover" alt="Shoes">
-                                <div class="p-4 text-center border-t">
-                                    <h6 class="text-lg font-bold uppercase">Shoes</h6>
-                                    <p class="text-sm text-gray-500">14 Products</p>
+                            <a href="all-product.html?search=Shoes" class="block">
+                                <div
+                                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                                    <img src="./images/categories/03.png" class="w-full h-48 object-cover" alt="Shoes">
+                                    <div class="p-4 text-center border-t">
+                                        <h6 class="text-lg font-bold uppercase">Shoes</h6>
+                                        <p class="text-sm text-gray-500">14 Products</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
                         <div class="flex-none w-48 lg:w-64">
-                            <div class="bg-white rounded-lg shadow-md overflow-hidden">
-                                <img src="./images/categories/04.png" class="w-full h-32 object-cover" alt="Bags">
-                                <div class="p-4 text-center border-t">
-                                    <h6 class="text-lg font-bold uppercase">Bags</h6>
-                                    <p class="text-sm text-gray-500">6 Products</p>
+                            <a href="all-product.html?search=Bags" class="block">
+                                <div
+                                    class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                                    <img src="./images/categories/04.png" class="w-full h-48 object-cover" alt="Bags">
+                                    <div class="p-4 text-center border-t">
+                                        <h6 class="text-lg font-bold uppercase">Bags</h6>
+                                        <p class="text-sm text-gray-500">6 Products</p>
+                                    </div>
                                 </div>
-                            </div>
+                            </a>
                         </div>
+
+
                         <!-- Add more items as needed -->
                     </div>
                 </div>
@@ -677,14 +470,14 @@
         </section>
         <!--end support info-->
 
-        <!--start News-->
+        <!-- Start of News Section -->
         <section class="py-6">
             <div class="container mx-auto px-4">
                 <div class="pb-4 text-center">
                     <h5 class="mb-0 font-bold uppercase text-xl text-gray-800">Latest News</h5>
                 </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <!-- First News Card -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                    <!-- Blog Post 1 -->
                     <div class="bg-white border rounded-lg overflow-hidden shadow-md">
                         <div class="flex items-center p-4 bg-gray-200">
                             <div class="text-center">
@@ -692,254 +485,112 @@
                                 <div class="text-sm text-gray-600">FEB</div>
                             </div>
                         </div>
-                        <a href="javascript:;">
-                            <img src="./images/blogs/01.png" alt="..." class="w-full h-48 object-cover">
+                        <a href="./blog-details-1.html">
+                            <img src="./images/blog-img/01.jpg" alt="The Future of Web Development"
+                                class="w-full h-48 object-cover">
                         </a>
                         <div class="p-4">
-                            <a href="javascript:;">
-                                <h5 class="mb-3 text-lg font-semibold text-gray-800">Blog Short Title</h5>
+                            <a href="./blog-details-1.html">
+                                <h5 class="mb-3 text-lg font-semibold text-gray-800">The Future of Web Development:
+                                    Trends to Watch in 2024</h5>
                             </a>
-                            <p class="text-gray-600 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                                non placerat mi. Etiam non tellus sem. Aenean...</p>
+                            <p class="text-gray-600 mb-3 line-clamp-3">Web development is evolving at an unprecedented
+                                pace, with new frameworks, tools, and technologies emerging constantly. In 2024, we can
+                                expect a stronger focus on web performance, accessibility, and more robust frameworks...
+                            </p>
                         </div>
                         <div class="p-4 border-t bg-gray-100">
-                            <a href="javascript:;" class="text-gray-700 hover:text-gray-900">0 Comments</a>
+                            <a href="./blog-details-1.html" class="text-gray-700 hover:text-gray-900">5 Comments</a>
                         </div>
                     </div>
-                    <!-- Repeat for additional cards -->
+                    <!-- Blog Post 2 -->
                     <div class="bg-white border rounded-lg overflow-hidden shadow-md">
                         <div class="flex items-center p-4 bg-gray-200">
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-gray-800">24</div>
+                                <div class="text-2xl font-bold text-gray-800">25</div>
                                 <div class="text-sm text-gray-600">FEB</div>
                             </div>
                         </div>
-                        <a href="javascript:;">
-                            <img src="./images/blogs/02.png" alt="..." class="w-full h-48 object-cover">
+                        <a href="./blog-details-2.html">
+                            <img src="../images/blog-img/2.jpg" alt="How to Build a Successful eCommerce Website"
+                                class="w-full h-48 object-cover">
                         </a>
                         <div class="p-4">
-                            <a href="javascript:;">
-                                <h5 class="mb-3 text-lg font-semibold text-gray-800">Blog Short Title</h5>
+                            <a href="./blog-details-2.html">
+                                <h5 class="mb-3 text-lg font-semibold text-gray-800">How to Build a Successful eCommerce
+                                    Website in 2024</h5>
                             </a>
-                            <p class="text-gray-600 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                                non placerat mi. Etiam non tellus sem. Aenean...</p>
+                            <p class="text-gray-600 mb-3 line-clamp-3">Building an eCommerce site has never been easier,
+                                but standing out in the crowded digital marketplace requires careful planning. From
+                                choosing the right platform to optimizing the user experience, this blog dives into the
+                                essential steps to ensure your eCommerce site thrives in 2024...</p>
                         </div>
                         <div class="p-4 border-t bg-gray-100">
-                            <a href="javascript:;" class="text-gray-700 hover:text-gray-900">0 Comments</a>
+                            <a href="./blog-details-2.html" class="text-gray-700 hover:text-gray-900">10 Comments</a>
                         </div>
                     </div>
-                    <!-- Add more news items in similar format -->
+                    <!-- Blog Post 3 -->
                     <div class="bg-white border rounded-lg overflow-hidden shadow-md">
                         <div class="flex items-center p-4 bg-gray-200">
                             <div class="text-center">
-                                <div class="text-2xl font-bold text-gray-800">24</div>
-                                <div class="text-sm text-gray-600">FEB</div>
+                                <div class="text-2xl font-bold text-gray-800">15</div>
+                                <div class="text-sm text-gray-600">JAN</div>
                             </div>
                         </div>
-                        <a href="javascript:;">
-                            <img src="./images/blogs/03.png" alt="..." class="w-full h-48 object-cover">
+                        <a href="./blog-details-3.html">
+                            <img src="./images/blog-img/3.jpg" alt="Top 10 UX/UI Design Tips for 2024"
+                                class="w-full h-48 object-cover">
                         </a>
                         <div class="p-4">
-                            <a href="javascript:;">
-                                <h5 class="mb-3 text-lg font-semibold text-gray-800">Blog Short Title</h5>
+                            <a href="./blog-details-3.html">
+                                <h5 class="mb-3 text-lg font-semibold text-gray-800">Top 10 UX/UI Design Tips for 2024
+                                </h5>
                             </a>
-                            <p class="text-gray-600 mb-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras
-                                non placerat mi. Etiam non tellus sem. Aenean...</p>
+                            <p class="text-gray-600 mb-3 line-clamp-3">In today's competitive digital landscape, user
+                                experience (UX) and user interface (UI) design play critical roles in the success of
+                                websites and apps. In this post, we’ll highlight the top 10 UX/UI design tips that will
+                                help you create visually stunning and highly functional digital experiences...</p>
                         </div>
                         <div class="p-4 border-t bg-gray-100">
-                            <a href="javascript:;" class="text-gray-700 hover:text-gray-900">0 Comments</a>
+                            <a href="./blog-details-3.html" class="text-gray-700 hover:text-gray-900">8 Comments</a>
+                        </div>
+                    </div>
+                    <!-- Blog Post 4 -->
+                    <div class="bg-white border rounded-lg overflow-hidden shadow-md">
+                        <div class="flex items-center p-4 bg-gray-200">
+                            <div class="text-center">
+                                <div class="text-2xl font-bold text-gray-800">5</div>
+                                <div class="text-sm text-gray-600">APR</div>
+                            </div>
+                        </div>
+                        <a href="./blog-details-4.html">
+                            <img src="./images/blog-img/4.jpg" alt="AI in Web Design: Revolutionizing UX"
+                                class="w-full h-48 object-cover">
+                        </a>
+                        <div class="p-4">
+                            <a href="./blog-details-4.html">
+                                <h5 class="mb-3 text-lg font-semibold text-gray-800">AI in Web Design: How Artificial
+                                    Intelligence is Revolutionizing UX</h5>
+                            </a>
+                            <p class="text-gray-600 mb-3 line-clamp-3">Artificial Intelligence is making waves in web
+                                design, offering tools that automate and enhance user experiences. From AI-powered
+                                design tools to personalized content generation, this blog explores how AI is
+                                transforming the web design industry...</p>
+                        </div>
+                        <div class="p-4 border-t bg-gray-100">
+                            <a href="./blog-details-4.html" class="text-gray-700 hover:text-gray-900">3 Comments</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <!--end News-->
+        <!-- End of News Section -->
 
 
-        <!-- Start Bottom Products Section -->
-        <section class="p-4 border-t">
-            <div class="container mx-auto">
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-                    <!-- Best Selling Products -->
-                    <div>
-                        <div class="mb-3">
-                            <h6 class="text-xl font-bold uppercase mb-3">Best Selling Products</h6>
-                            <hr class="mb-3">
-                            <div class="space-y-6">
-                                <!-- Product 1 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/01.png" alt="Men Casual Shirts"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Men Casual Shirts</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Product 2 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/02.png" alt="Formal Coat Pant"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Formal Coat Pant</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Add more products as needed -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Featured Products -->
-                    <div>
-                        <div class="mb-3">
-                            <h6 class="text-xl font-bold uppercase mb-3">Featured Products</h6>
-                            <hr class="mb-3">
-                            <div class="space-y-6">
-                                <!-- Product 1 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/05.png" alt="Men Sports Shoes"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Men Sports Shoes</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Product 2 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/06.png" alt="Black Sofa Set"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Black Sofa Set</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Add more products as needed -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- New Arrivals -->
-                    <div>
-                        <div class="mb-3">
-                            <h6 class="text-xl font-bold uppercase mb-3">New Arrivals</h6>
-                            <hr class="mb-3">
-                            <div class="space-y-6">
-                                <!-- Product 1 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/09.png" alt="Men Black Cap"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Men Black Cap</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Product 2 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/10.png" alt="Orange Headphone"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Orange Headphone</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Add more products as needed -->
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Top Rated Products -->
-                    <div>
-                        <div class="mb-3">
-                            <h6 class="text-xl font-bold uppercase mb-3">Top Rated Products</h6>
-                            <hr class="mb-3">
-                            <div class="space-y-6">
-                                <!-- Product 1 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/13.png" alt="Ronaldo Football"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Ronaldo Football</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Product 2 -->
-                                <div class="flex items-center gap-3">
-                                    <a href="product-details.html" class="w-20 h-20">
-                                        <img src="./images/products/14.png" alt="Red Fancy Sofa"
-                                            class="w-full h-full object-cover">
-                                    </a>
-                                    <div>
-                                        <h6 class="font-bold mb-1">Red Fancy Sofa</h6>
-                                        <div class="text-yellow-500 space-x-1">
-                                            <i class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i><i class="bx bxs-star"></i><i
-                                                class="bx bxs-star"></i>
-                                        </div>
-                                        <p class="text-lg font-semibold">$59.00</p>
-                                    </div>
-                                </div>
-                                <hr>
-                                <!-- Add more products as needed -->
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Bottom Products Section -->
+
+
+
+
 
 
         <div id="footer-container"></div>

@@ -41,6 +41,8 @@
             </div>
         </section>
         <!--end breadcrumb-->
+
+
         <!-- Start Account Details Section -->
         <section class="py-8">
             <div class="container mx-auto px-4">
@@ -57,20 +59,15 @@
                                 </a>
                                 <a href="#"
                                     class="block tab-btn px-4 py-3 text-gray-700 font-medium hover:bg-gray-100 rounded-md transition duration-300"
-                                    data-target="#orders">
+                                    data-target="#ordersTab">
                                     <i class="bx bx-cart-alt text-xl align-middle mr-2"></i> Orders
                                 </a>
                                 <a href="#"
                                     class="block tab-btn px-4 py-3 text-gray-700 font-medium hover:bg-gray-100 rounded-md transition duration-300"
-                                    data-target="#addresses">
-                                    <i class="bx bx-home-smile text-xl align-middle mr-2"></i> Addresses
+                                    data-target="#productsTab">
+                                    <i class="bx bx-box text-xl align-middle mr-2"></i> Products (For Sellers)
                                 </a>
-                                <a href="#"
-                                    class="block tab-btn px-4 py-3 text-gray-700 font-medium hover:bg-gray-100 rounded-md transition duration-300"
-                                    data-target="#billing-addresses">
-                                    <i class="bx bx-credit-card text-xl align-middle mr-2"></i> Billing Addresses
-                                </a>
-                                <a href="#"
+                                <a href="#" id="logoutBtn"
                                     class="block px-4 py-3 text-gray-700 font-medium hover:bg-gray-100 rounded-md transition duration-300">
                                     <i class="bx bx-log-out text-xl align-middle mr-2"></i> Logout
                                 </a>
@@ -83,100 +80,46 @@
                         <!-- Account Details Section -->
                         <div id="account-details" class="tab-content active border border-gray-300 rounded-lg p-6">
                             <h2 class="text-2xl font-semibold mb-4">Account Details</h2>
-                            <form class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                            <form id="accountForm" class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-600">First Name</label>
-                                    <input type="text"
+                                    <input id="first_name" type="text"
                                         class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                                        value="Madison" />
+                                        value="" />
                                 </div>
                                 <div>
                                     <label class="block mb-2 text-sm font-medium text-gray-600">Last Name</label>
-                                    <input type="text"
+                                    <input id="last_name" type="text"
                                         class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                                        value="Ruiz" />
-                                </div>
-                                <div class="col-span-2">
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">Display Name</label>
-                                    <input type="text"
-                                        class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                                        value="Madison Ruiz" />
+                                        value="" />
                                 </div>
                                 <div class="col-span-2">
                                     <label class="block mb-2 text-sm font-medium text-gray-600">Email Address</label>
-                                    <input type="email"
+                                    <input id="email" type="email"
                                         class="w-full px-4 py-2 border rounded-lg focus:ring-2 focus:ring-blue-500"
-                                        value="madison.ruiz@gmail.com" />
+                                        value="" />
                                 </div>
                                 <div class="col-span-2">
-                                    <button
+                                    <button id="saveChangesBtn"
                                         class="w-full px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">Save
                                         Changes</button>
                                 </div>
                             </form>
                         </div>
 
-                        <!-- Orders Section -->
-                        <div id="orders" class="tab-content hidden border border-gray-300 rounded-lg p-6">
+                        <!-- Orders Tab Section -->
+                        <!-- Orders Tab Section -->
+                        <div id="ordersTab" class="tab-content hidden border border-gray-300 rounded-lg p-6">
                             <h2 class="text-2xl font-semibold mb-4">Your Orders</h2>
-                            <ul class="space-y-4">
-                                <li class="border border-gray-200 p-4 rounded-lg">
-                                    <h3 class="text-xl font-semibold">Order #001</h3>
-                                    <p>Date: September 10, 2024</p>
-                                    <p>Status: Delivered</p>
-                                    <p>Total: $150.00</p>
-                                </li>
-                                <li class="border border-gray-200 p-4 rounded-lg">
-                                    <h3 class="text-xl font-semibold">Order #002</h3>
-                                    <p>Date: September 5, 2024</p>
-                                    <p>Status: Shipped</p>
-                                    <p>Total: $200.00</p>
-                                </li>
-                            </ul>
+                            <ul id="ordersList" class="space-y-4"></ul>
                         </div>
 
-                        <!-- Addresses Section -->
-                        <div id="addresses" class="tab-content hidden border border-gray-300 rounded-lg p-6">
-                            <h2 class="text-2xl font-semibold mb-4">Addresses</h2>
-                            <form class="space-y-4">
-                                <div class="bg-gray-50 p-4 border border-gray-200 rounded-lg">
-                                    <h3 class="text-xl font-semibold mb-2">Home Address</h3>
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">Address</label>
-                                    <input type="text" class="w-full px-4 py-2 border rounded-lg mb-2"
-                                        value="1234 Main St, Apt 101" />
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">City</label>
-                                    <input type="text" class="w-full px-4 py-2 border rounded-lg mb-2"
-                                        value="New York" />
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">ZIP Code</label>
-                                    <input type="text" class="w-full px-4 py-2 border rounded-lg mb-4" value="10001" />
-                                    <button
-                                        class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">Save
-                                        Address</button>
-                                </div>
-                            </form>
-                        </div>
 
-                        <!-- Billing Addresses Section -->
-                        <div id="billing-addresses" class="tab-content hidden border border-gray-300 rounded-lg p-6">
-                            <h2 class="text-2xl font-semibold mb-4">Billing Addresses</h2>
-                            <form class="space-y-4">
-                                <div class="bg-gray-50 p-4 border border-gray-200 rounded-lg">
-                                    <h3 class="text-xl font-semibold mb-2">Billing Address</h3>
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">Address</label>
-                                    <input type="text" class="w-full px-4 py-2 border rounded-lg mb-2"
-                                        value="5678 Elm St, Suite 202" />
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">City</label>
-                                    <input type="text" class="w-full px-4 py-2 border rounded-lg mb-2"
-                                        value="Los Angeles" />
-                                    <label class="block mb-2 text-sm font-medium text-gray-600">ZIP Code</label>
-                                    <input type="text" class="w-full px-4 py-2 border rounded-lg mb-4" value="90001" />
-                                    <button
-                                        class="px-4 py-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition duration-300">Save
-                                        Address</button>
-                                </div>
-                            </form>
+                        <!-- Seller Products Section -->
+                        <div id="productsTab" class="tab-content hidden border border-gray-300 rounded-lg p-6">
+                            <h2 class="text-2xl font-semibold mb-4">Your Products</h2>
+                            <ul id="productsList" class="space-y-4"></ul>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -187,6 +130,8 @@
 
 
 
+
+        <a href=""></a>
 
 
 
@@ -254,6 +199,7 @@
 
     </script>
     <script src="./js/navbar.js"></script>
+    <script src="./js/account-user-details.js"></script>
 </body>
 
 </html>

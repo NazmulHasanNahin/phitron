@@ -58,10 +58,22 @@ const handleLogin = (event) => {
     }
 };
 
-// Add event listener to form on DOMContentLoaded
+const autofill = (username, password) => {
+    document.getElementById("username").value = username;
+    document.getElementById("password").value = password;
+};
+
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("login-form");
     if (form) {
         form.addEventListener("submit", handleLogin);
     }
+
+    document.getElementById("autofill-seller").addEventListener("click", () => {
+        autofill("user2", "kirekire");
+    });
+
+    document.getElementById("autofill-customer").addEventListener("click", () => {
+        autofill("seller2", "kirekire");
+    });
 });

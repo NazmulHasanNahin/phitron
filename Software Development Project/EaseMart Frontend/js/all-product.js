@@ -10,10 +10,25 @@ async function fetchProducts() {
 }
 
 // Function to display products on the page
+// Function to display products on the page
 function displayProducts(products) {
     const productsContainer = document.querySelector('.grid');
-    productsContainer.innerHTML = ''; // Clear existing products
+    const noProductsContainer = document.querySelector('.no-pd');
     
+    productsContainer.innerHTML = ''; // Clear existing products
+    noProductsContainer.innerHTML = ''; // Clear any existing message
+
+    if (products.length === 0) {
+        // Display a message if no products are available
+        noProductsContainer.innerHTML = `
+            <div class="bg-white rounded-lg  p-6 text-center text-gray-600">
+                <h3 class="text-lg font-semibold">No products available</h3>
+                <p class="mt-2">Try searching with a different keyword or check back later.</p>
+            </div>
+        `;
+        return;
+    }
+
     products.forEach(product => {
         // Ensure prices are numbers or default to 0
         const originalPrice = product.original_price ? parseFloat(product.original_price).toFixed(2) : null;
@@ -59,6 +74,7 @@ function displayProducts(products) {
         productsContainer.insertAdjacentHTML('beforeend', productHTML);
     });
 }
+
 
 // Function to show alerts
 function showAlert(message, type = 'error') {

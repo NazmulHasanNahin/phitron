@@ -49,16 +49,20 @@
                 <!-- Error Message -->
                 <div id="error-message" class="text-red-500 text-sm mb-4 hidden"></div>
 
+                <!-- Autofill Buttons -->
+                <div class="flex justify-between mb-4">
+                    <button id="autofill-seller"
+                        class="w-1/2 bg-blue-500 text-white py-2 rounded-md text-center transition duration-300 hover:bg-blue-600">
+                        Autofill as Seller
+                    </button>
+                    <button id="autofill-customer"
+                        class="w-1/2 bg-green-500 text-white py-2 rounded-md text-center transition duration-300 hover:bg-green-600 ml-2">
+                        Autofill as Customer
+                    </button>
+                </div>
+
                 <!-- Sign In Form -->
                 <form id="login-form" class="space-y-4">
-                    <!-- Email Field -->
-                    <!-- <div>
-                        <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email</label>
-                        <input type="email" id="email" name="email"
-                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-                            placeholder="Enter your email">
-                    </div> -->
-
                     <!-- Username Field -->
                     <div>
                         <label for="username" class="block text-gray-700 text-sm font-semibold mb-2">Username</label>
@@ -75,9 +79,10 @@
                             placeholder="Enter your password">
                     </div>
                     <div class="flex items-center justify-center">
-                        <div id="loading-spinner" class="hidden animate-spin rounded-full h-8 w-8 border-t-2 border-blue-500"></div>
+                        <div id="loading-spinner"
+                            class="hidden animate-spin rounded-full h-8 w-8 border-t-2 border-blue-500"></div>
                     </div>
-                    
+
                     <button type="submit"
                         class="w-full bg-gray-600 text-white py-2 rounded-md text-center block transition duration-300 hover:bg-gray-700">
                         SIGN IN
@@ -99,6 +104,7 @@
             </div>
         </section>
         <!--end signin-->
+
 
 
 
