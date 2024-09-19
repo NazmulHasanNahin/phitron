@@ -8,9 +8,10 @@ class ProductSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class PurchaseSerializer(serializers.ModelSerializer):
+    product = ProductSerializer()
     class Meta:
         model = Purchase
-        fields = '__all__'
+        fields = ['id','purchase_date','customer','product','quantity',]
 
 
 class CartSerializer(serializers.ModelSerializer):
