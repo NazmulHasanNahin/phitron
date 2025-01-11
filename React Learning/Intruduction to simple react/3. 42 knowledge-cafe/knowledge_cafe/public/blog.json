@@ -1,0 +1,53 @@
+[
+    {
+      "id": 1,
+      "cover_image": "https://i.ibb.co.com/S30pCt4/minimalism-the-art-of-living-with-less.jpg",
+      "title": "The Art of Minimalism: Living with Less",
+      "author_name": "John Doe",
+      "author_img": "https://unsplash.com/photos/sample-image-john-doe",
+      "hashtag": "#Minimalism",
+      "reading_time": 5,
+      "posted_date": "2025-01-05"
+    },
+    {
+      "id": 2,
+      "cover_image": "https://i.ibb.co.com/cxzHQtq/download.jpg",
+      "title": "Exploring the Future of AI in Healthcare",
+      "author_name": "Jane Smith",
+      "author_img": "https://unsplash.com/photos/sample-image-jane-smith",
+      "hashtag": "#AI #Healthcare",
+      "reading_time": 8,
+      "posted_date": "2025-01-10"
+    },
+    {
+      "id": 3,
+      "cover_image": "https://i.ibb.co.com/6Nm0KvC/gettyimages-520176152-20241220203148003.jpg",
+      "title": "Top 10 Travel Destinations for 2025",
+      "author_name": "Mark Wilson",
+      "author_img": "https://unsplash.com/photos/sample-image-mark-wilson",
+      "hashtag": "#Travel #Destinations",
+      "reading_time": 7,
+      "posted_date": "2025-01-03"
+    },
+    {
+      "id": 4,
+      "cover_image": "https://i.ibb.co.com/5nfb14x/1e7f8d8df5219d7bb660bc8bb5c66b603b516dc3.webp",
+      "title": "Mastering the Art of Cooking: Beginner's Guide",
+      "author_name": "Emily Clark",
+      "author_img": "https://unsplash.com/photos/sample-image-emily-clark",
+      "hashtag": "#Cooking #Beginner",
+      "reading_time": 6,
+      "posted_date": "2025-01-08"
+    },
+    {
+      "id": 5,
+      "cover_image": "https://i.ibb.co.com/x5LqwQF/Violet-3-D-Financial-Rules-Tips-Carousel-Instagram-Post.png",
+      "title": "The Ultimate Guide to Personal Finance in 2025",
+      "author_name": "David Lee",
+      "author_img": "https://unsplash.com/photos/sample-image-david-lee",
+      "hashtag": "#Finance #Investing",
+      "reading_time": 10,
+      "posted_date": "2025-01-07"
+    }
+  ]
+  
