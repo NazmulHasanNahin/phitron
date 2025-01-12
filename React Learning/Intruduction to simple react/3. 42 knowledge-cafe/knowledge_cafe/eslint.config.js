@@ -29,21 +29,21 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       
-      // Warn for unused imports, but don't auto-remove them
-      'no-unused-vars': ['warn', { 
-        vars: 'all', 
-        args: 'none', 
-        ignoreRestSiblings: true 
-      }],
+      // // Warn for unused imports, but don't auto-remove them
+      // 'no-unused-vars': ['warn', { 
+      //   vars: 'all', 
+      //   args: 'none', 
+      //   ignoreRestSiblings: true 
+      // }],
       
-      // Disabling automatic removal of unused imports
-      'no-unused-imports': 'warn', // Ensure imports like PropTypes don't get auto-removed
+      // // Disabling automatic removal of unused imports
+      // 'no-unused-imports': 'warn', // Ensure imports like PropTypes don't get auto-removed
       
-      'react/jsx-no-target-blank': 'off',
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      // 'react/jsx-no-target-blank': 'off',
+      // 'react-refresh/only-export-components': [
+      //   'warn',
+      //   { allowConstantExport: true },
+      // ],
     },
   },
 ]
