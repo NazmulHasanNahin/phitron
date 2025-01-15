@@ -1,0 +1,102 @@
+[
+    {
+      "recipe_image": "https://example.com/images/chicken_teriyaki.jpg",
+      "recipe_id": "R001",
+      "recipe_name": "Chicken Teriyaki",
+      "short_description": "A popular Japanese dish made with soy-glazed chicken.",
+      "ingredients": [
+        "500 g chicken breast",
+        "120 ml soy sauce",
+        "100 ml mirin",
+        "2 tbsp sugar",
+        "1 tbsp sesame oil",
+        "2 cloves garlic"
+      ],
+      "preparing_time": 25,
+      "calories": 400
+    },
+    {
+      "recipe_image": "https://example.com/images/beef_stroganoff.jpg",
+      "recipe_id": "R002",
+      "recipe_name": "Beef Stroganoff",
+      "short_description": "A classic Russian dish made with beef, mushrooms, and creamy sauce.",
+      "ingredients": [
+        "500 g beef sirloin",
+        "400 g mushrooms",
+        "1 onion",
+        "2 cloves garlic",
+        "200 ml sour cream",
+        "2 tbsp mustard"
+      ],
+      "preparing_time": 35,
+      "calories": 520
+    },
+    {
+      "recipe_image": "https://example.com/images/pasta_carbonara.jpg",
+      "recipe_id": "R003",
+      "recipe_name": "Pasta Carbonara",
+      "short_description": "An Italian pasta dish with eggs, cheese, pancetta, and pepper.",
+      "ingredients": [
+        "400 g spaghetti",
+        "150 g pancetta",
+        "4 eggs",
+        "100 g parmesan cheese",
+        "2 cloves garlic",
+        "Black pepper"
+      ],
+      "preparing_time": 20,
+      "calories": 450
+    },
+    {
+      "recipe_image": "https://example.com/images/pad_thai.jpg",
+      "recipe_id": "R004",
+      "recipe_name": "Pad Thai",
+      "short_description": "A traditional Thai stir-fried noodle dish with a sweet and savory sauce.",
+      "ingredients": [
+        "200 g rice noodles",
+        "150 g shrimp",
+        "2 eggs",
+        "100 g tofu",
+        "2 tbsp fish sauce",
+        "50 g bean sprouts",
+        "1 lime"
+      ],
+      "preparing_time": 30,
+      "calories": 400
+    },
+    {
+      "recipe_image": "https://example.com/images/greek_salad.jpg",
+      "recipe_id": "R005",
+      "recipe_name": "Greek Salad",
+      "short_description": "A refreshing salad with tomatoes, cucumbers, olives, and feta cheese.",
+      "ingredients": [
+        "200 g cherry tomatoes",
+        "150 g cucumbers",
+        "100 g feta cheese",
+        "50 g black olives",
+        "1 red onion",
+        "2 tbsp olive oil",
+        "1 tbsp red wine vinegar"
+      ],
+      "preparing_time": 15,
+      "calories": 250
+    },
+    {
+      "recipe_image": "https://example.com/images/chocolate_cake.jpg",
+      "recipe_id": "R006",
+      "recipe_name": "Chocolate Cake",
+      "short_description": "A rich and moist chocolate cake topped with chocolate frosting.",
+      "ingredients": [
+        "200 g flour",
+        "100 g cocoa powder",
+        "200 g sugar",
+        "150 ml milk",
+        "2 eggs",
+        "100 g butter",
+        "1 tsp baking powder"
+      ],
+      "preparing_time": 45,
+      "calories": 550
+    }
+  ]
+  

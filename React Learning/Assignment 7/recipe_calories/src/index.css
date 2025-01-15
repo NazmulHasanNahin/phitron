@@ -6,6 +6,4 @@
 
 body{
     font-family: 'Lexend', sans-serif;
-    width: 100%; /* Takes up the full viewport width */
-    height: auto; /* Height adjusts based on content */
   }
