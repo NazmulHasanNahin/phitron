@@ -1,6 +1,6 @@
 [
     {
-      "recipe_image": "https://example.com/images/chicken_teriyaki.jpg",
+      "recipe_image": "https://i.ibb.co.com/tYNWRTQ/chicken-teriyaki-1200x1553.webp",
       "recipe_id": "R001",
       "recipe_name": "Chicken Teriyaki",
       "short_description": "A popular Japanese dish made with soy-glazed chicken.",
@@ -16,7 +16,7 @@
       "calories": 400
     },
     {
-      "recipe_image": "https://example.com/images/beef_stroganoff.jpg",
+      "recipe_image": "https://i.ibb.co.com/hfzy0Mk/Beef-stroganoff-with-rice-2.jpg",
       "recipe_id": "R002",
       "recipe_name": "Beef Stroganoff",
       "short_description": "A classic Russian dish made with beef, mushrooms, and creamy sauce.",
@@ -32,7 +32,7 @@
       "calories": 520
     },
     {
-      "recipe_image": "https://example.com/images/pasta_carbonara.jpg",
+      "recipe_image": "https://i.ibb.co.com/Y7K9xPc/spaghetti-carbonara-1200.jpg",
       "recipe_id": "R003",
       "recipe_name": "Pasta Carbonara",
       "short_description": "An Italian pasta dish with eggs, cheese, pancetta, and pepper.",
@@ -48,7 +48,7 @@
       "calories": 450
     },
     {
-      "recipe_image": "https://example.com/images/pad_thai.jpg",
+      "recipe_image": "https://i.ibb.co.com/bLHQGjQ/Authentic-Pad-Thai-square-1908.jpg",
       "recipe_id": "R004",
       "recipe_name": "Pad Thai",
       "short_description": "A traditional Thai stir-fried noodle dish with a sweet and savory sauce.",
@@ -65,7 +65,7 @@
       "calories": 400
     },
     {
-      "recipe_image": "https://example.com/images/greek_salad.jpg",
+      "recipe_image": "https://i.ibb.co.com/zsxhCSG/how-to-make-easy-greek-salad.jpg",
       "recipe_id": "R005",
       "recipe_name": "Greek Salad",
       "short_description": "A refreshing salad with tomatoes, cucumbers, olives, and feta cheese.",
@@ -82,7 +82,7 @@
       "calories": 250
     },
     {
-      "recipe_image": "https://example.com/images/chocolate_cake.jpg",
+      "recipe_image": "https://i.ibb.co.com/N3FcMS9/IMG-4117-feature.jpg",
       "recipe_id": "R006",
       "recipe_name": "Chocolate Cake",
       "short_description": "A rich and moist chocolate cake topped with chocolate frosting.",
