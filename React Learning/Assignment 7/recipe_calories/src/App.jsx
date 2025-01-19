@@ -3,51 +3,87 @@ import './App.css';
 import Banner from './component/Bannner/Banner';
 import Header from './component/Header/Header';
 import Recipes from './component/Recipes/Recipes';
+import RecipeText from './component/RecipeText/RecipeText';
 import Tables from './component/Tables/Tables';
-import { Toaster, toast } from "react-hot-toast"; // Import 'toast' here
+import { Toaster, toast } from 'react-hot-toast';
+import CuCook from './component/CuCook/CuCook';
+
+
 
 function App() {
-  const [wantToCook, setWantToCook] = useState([]);
-  const [currentlyCooking, setCurrentlyCooking] = useState([]);
+  const [wanttocook, setWanttocook] = useState([]);
 
-  const addToWantToCook = (recipe) => {
-    if (!wantToCook.find((r) => r.recipe_id === recipe.recipe_id)) {
-      setWantToCook([...wantToCook, recipe]);
+  const handleWanttocook = (recipe) => {
+    const isAlreadyAdded = wanttocook.some(item => item.recipe_id === recipe.recipe_id);
+
+    if (!isAlreadyAdded) {
+      const newWanttocook = [...wanttocook, recipe];
+      setWanttocook(newWanttocook);
+      toast.success('Recipe added successfully!');
     } else {
-      toast.error(`${recipe.recipe_name} is already in the list.`); // This works now since 'toast' is imported
+      toast.error('This recipe is already added!');
     }
   };
 
-  const moveToCooking = (recipe) => {
-    setWantToCook(wantToCook.filter((r) => r.recipe_id !== recipe.recipe_id));
-    setCurrentlyCooking([...currentlyCooking, recipe]);
-  };
 
-  const removeFromWantToCook = (recipeId) => {
-    setWantToCook(wantToCook.filter((r) => r.recipe_id !== recipeId));
-  };
 
-  const totalTime = wantToCook.reduce((total, recipe) => total + recipe.preparing_time, 0);
-  const totalCalories = wantToCook.reduce((total, recipe) => total + recipe.calories, 0);
+  // 2nd step 
+  const [cooking, setCooking] = useState([]);
+
+  const handlecooking = (table) => {
+
+    const updatedWantToCook = wanttocook.filter(item => item.recipe_id !== table.recipe_id);
+
+    const updatedCooking = [...cooking, table];
+
+    setWanttocook(updatedWantToCook);
+    setCooking(updatedCooking);
+    toast.success('Recipe moved to Cooking!');
+
+
+  }
 
   return (
     <>
-      <div className="max-w-7xl mx-auto">
+      <div className='md:max-w-[1380px] mx-auto'>
         <Header />
         <Banner />
-        <div className="md:flex">
-          <Recipes addToWantToCook={addToWantToCook} />
-          <Tables
-            wantToCook={wantToCook}
-            currentlyCooking={currentlyCooking}
-            moveToCooking={moveToCooking}
-            removeFromWantToCook={removeFromWantToCook}
-            totalTime={totalTime}
-            totalCalories={totalCalories}
+        <RecipeText />
+        <div className='md:flex md:space-x-6'>
+          <Recipes
+            handleWanttocook={handleWanttocook}
+            className="md:w-2/3 w-full"
           />
+          <div>
+            <Tables
+              handlecooking={handlecooking}
+              wanttocook={wanttocook}
+              className="md:w-1/3 w-full mt-5 md:mt-0"
+            />
+            <CuCook
+              cooking={cooking}
+            ></CuCook>
+          </div>
         </div>
       </div>
-      <Toaster /> {/* Add the Toaster component to render the toasts */}
+      <Toaster
+        position="top-right"
+        toastOptions={{
+          success: {
+            style: {
+              background: '#0be58a',
+              color: '#150b2b',
+            },
+          },
+          error: {
+            style: {
+              background: '#f87171',
+              color: '#fff',
+            },
+          },
+        }}
+      />
+
     </>
   );
 }

@@ -1,41 +1,34 @@
 import { useEffect, useState } from "react";
 import Recipe from "../Recipe/Recipe";
-import toast from "react-hot-toast";
-import PropTypes from "prop-types"; 
+import PropTypes from "prop-types";
 
-const Recipes = ({ addToWantToCook }) => {
-  const [recipes, setRecipes] = useState([]);
-  
-  useEffect(() => {
-    fetch("recipe_data.json")
-      .then(res => res.json())
-      .then(data => setRecipes(data));
-  }, []);
+const Recipes = ({ handleWanttocook }) => {
+    const [recipes, setRecipes] = useState([]);
 
-  const showToast = (recipe) => {
-    toast.success(`${recipe.recipe_name} added to "Want to Cook"`);
-  };
+    useEffect(() => {
+        fetch("recipe_data.json")
+            .then((res) => res.json())
+            .then((data) => setRecipes(data));
+    }, []);
 
-  return (
-    <div className="md:w-2/3 my-3">
-      <h1 className="text-4xl text-center mb-4">Recipes: {recipes.length}</h1>
-      <div className="flex flex-wrap -mx-3">
-        {recipes.map((recipe) => (
-          <div key={recipe.recipe_id} className="w-full md:w-1/2 px-3 mb-6">
-            <Recipe
-              recipe={recipe}
-              addToWantToCook={addToWantToCook}
-              showToast={showToast}
-            />
-          </div>
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="md:w-3/4 my-3">
+            <h1 className="text-4xl text-center mb-4">Recipes: {recipes.length}</h1>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4">
+                {recipes.map((recipe) => (
+                    <Recipe
+                        key={recipe.recipe_id}
+                        handleWanttocook={handleWanttocook}
+                        recipe={recipe}
+                    />
+                ))}
+            </div>
+        </div>
+    );
 };
 
 Recipes.propTypes = {
-  addToWantToCook: PropTypes.func.isRequired, 
+    handleWanttocook: PropTypes.func,
 };
 
 export default Recipes;
