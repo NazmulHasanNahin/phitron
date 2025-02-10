@@ -87,7 +87,7 @@ const Nav = () => {
                 </div>
                 <div className="navbar-end space-x-2">
                     <div className="p-2 bg-[#23be0a] rounded-lg justify-center items-center gap-2.5 inline-flex">
-                        <button className="text-center text-white text-lg font-semibold font-['Work Sans']">Sign In</button>
+                        <Link to="/login" className="text-center text-white text-lg font-semibold font-['Work Sans']">Sign In</Link>
                     </div>
                     <div className="p-2 bg-[#59c6d2] rounded-lg justify-center items-center gap-2.5 inline-flex">
                         <button className="text-center text-white text-lg font-semibold font-['Work Sans']">Sign Up</button>
